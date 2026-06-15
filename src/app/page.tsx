@@ -1,113 +1,213 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { conferenceConfig } from "@/config/conference";
-import { Calendar, MapPin, Users, BookOpen, Award, CheckCircle } from "lucide-react";
+import {
+  Calendar,
+  MapPin,
+  Mic2,
+  Presentation,
+  GraduationCap,
+  Building2,
+  ArrowRight,
+  Sparkles,
+  Zap,
+  Leaf,
+  Brain,
+  Grid3x3,
+} from "lucide-react";
+
+const trackIcons = [Zap, Leaf, Sparkles, Zap, Brain, Grid3x3];
+
+const importantDates = [
+  { label: "Start of Digest Submission", date: conferenceConfig.dates.digestSubmissionStart },
+  { label: "Digest Submission Deadline", date: conferenceConfig.dates.digestSubmissionDeadline },
+  { label: "Digest Acceptance Notification", date: conferenceConfig.dates.digestAcceptanceNotification },
+  { label: "Camera-Ready Paper Submission", date: conferenceConfig.dates.cameraReady },
+  { label: "Early Bird Registration Deadline", date: conferenceConfig.dates.earlyBirdRegistration },
+  { label: "Conference Dates", date: conferenceConfig.dates.conference, highlight: true },
+];
+
+const featureIcons = [Mic2, Presentation, GraduationCap, Building2];
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col gap-20 pb-20">
-      {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-slate-950 text-white">
-        <div className="container relative z-10">
-          <div className="max-w-3xl space-y-8 animate-in fade-in slide-in-from-bottom-10 duration-1000">
-            <Badge variant="secondary" className="bg-primary/20 text-primary border-primary/50 text-base py-1 px-4">
-              {conferenceConfig.dates.conference} • {conferenceConfig.location}
+    <div className="flex flex-col w-full">
+      {/* Hero */}
+      <section className="relative w-full overflow-hidden bg-brand-dark text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#74A8A4_0%,_transparent_50%)] opacity-40" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_#B6D9E0_0%,_transparent_45%)] opacity-20" />
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand via-brand-light to-brand" />
+
+        <div className="container relative z-10 py-20 lg:py-28">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <Badge className="bg-white/10 text-brand-light border-brand/40 text-sm px-4 py-1.5 backdrop-blur-sm">
+              1st Edition · In partnership with {conferenceConfig.partner}
             </Badge>
-            <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight">
-              {conferenceConfig.name}
-            </h1>
-            <p className="text-xl text-slate-300 leading-relaxed">
-              {conferenceConfig.description} Join world-class experts, researchers, and industry leaders for three days of innovation and networking.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button size="lg" className="text-lg px-8 py-6 rounded-full">
-                <Link href="/auth/signup">Register Now</Link>
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 rounded-full border-slate-700 hover:bg-slate-900 text-white">
-                <Link href="/cfp">Submit Your Paper</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-        {/* Background Decorative Elements */}
-        <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
-      </section>
 
-      {/* Stats Section */}
-      <section className="container">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 py-12 border-y border-slate-200">
-          {[
-            { label: "Speakers", value: "40+", icon: Users },
-            { label: "Tracks", value: conferenceConfig.tracks.length.toString(), icon: BookOpen },
-            { label: "Expected Attendees", value: "500+", icon: Award },
-            { label: "Research Papers", value: "100+", icon: CheckCircle },
-          ].map((stat, i) => (
-            <div key={i} className="flex flex-col items-center text-center space-y-2">
-              <div className="p-3 bg-primary/10 rounded-2xl text-primary">
-                <stat.icon size={24} />
+            <div className="space-y-4">
+              <p className="text-brand-light text-lg font-medium tracking-wide uppercase">
+                {conferenceConfig.name}
+              </p>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] font-bold leading-tight tracking-tight">
+                {conferenceConfig.fullName}
+              </h1>
+            </div>
+
+            <div className="flex flex-wrap gap-6 text-brand-light/90">
+              <div className="flex items-center gap-2">
+                <Calendar className="size-5 text-brand" />
+                <span className="font-medium">{conferenceConfig.dates.conference}</span>
               </div>
-              <div className="text-3xl font-bold">{stat.value}</div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <div className="flex items-center gap-2">
+                <MapPin className="size-5 text-brand" />
+                <span>{conferenceConfig.location}</span>
+              </div>
             </div>
-          ))}
+
+            <p className="text-lg text-white/80 leading-relaxed max-w-3xl">
+              {conferenceConfig.description}
+            </p>
+
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Button
+                size="lg"
+                className="bg-brand hover:bg-brand/90 text-white rounded-full px-8 h-12 text-base shadow-lg shadow-brand/25"
+                render={<Link href="/auth/signup" />}
+              >
+                Register Now
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full px-8 h-12 text-base border-white/30 text-white hover:bg-white/10 hover:text-white bg-transparent"
+                render={<Link href="/cfp" />}
+              >
+                Submit Digest
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent" />
+      </section>
+
+      {/* Conference Features */}
+      <section className="container py-20 lg:py-24">
+        <div className="text-center space-y-4 mb-14">
+          <p className="text-brand font-semibold text-sm uppercase tracking-widest">What to Expect</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-brand-dark">Conference Highlights</h2>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {conferenceConfig.features.map((feature, i) => {
+            const Icon = featureIcons[i];
+            return (
+              <div
+                key={feature}
+                className="group relative p-6 rounded-2xl bg-white border border-border hover:border-brand/40 hover:shadow-lg hover:shadow-brand/5 transition-all duration-300"
+              >
+                <div className="mb-4 inline-flex p-3 rounded-xl bg-brand-light/50 text-brand-dark group-hover:bg-brand group-hover:text-white transition-colors">
+                  <Icon className="size-6" />
+                </div>
+                <h3 className="font-semibold text-brand-dark text-lg leading-snug">{feature}</h3>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* Tracks Section */}
-      <section className="container space-y-12">
-        <div className="text-center space-y-4">
-          <h2 className="text-3xl lg:text-5xl font-bold">Conference Tracks</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We invite original research contributions across a wide range of topics in technology and engineering.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {conferenceConfig.tracks.map((track, i) => (
-            <Card key={i} className="group hover:shadow-xl transition-all duration-300 border-none bg-slate-50">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-3">
-                   <div className="size-2 rounded-full bg-primary" />
-                   {track}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-slate-600">
-                  Exploring the latest advancements and future trends in {track.toLowerCase()} and its impact on modern society.
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Key Dates Section */}
-      <section className="bg-slate-50 py-20">
-        <div className="container space-y-12">
-           <div className="text-center space-y-4">
-            <h2 className="text-3xl lg:text-5xl font-bold">Important Dates</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Mark your calendars with these critical deadlines for submissions and registration.
+      {/* Research Areas */}
+      <section className="w-full bg-muted/60 py-20 lg:py-24">
+        <div className="container space-y-14">
+          <div className="max-w-2xl">
+            <p className="text-brand font-semibold text-sm uppercase tracking-widest mb-3">Focus Areas</p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-brand-dark mb-4">
+              Knowledge Exchange in Emerging Areas
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              The conference provides a premier platform for cutting-edge research and innovation
+              in sustainable energy and future electrification systems.
             </p>
           </div>
-          <div className="max-w-4xl mx-auto grid gap-4">
-            {[
-              { label: "Submission Deadline", date: conferenceConfig.dates.submissionDeadline, icon: Calendar, color: "text-red-500" },
-              { label: "Notification of Acceptance", date: conferenceConfig.dates.reviewNotification, icon: CheckCircle, color: "text-blue-500", isString: true },
-              { label: "Camera-Ready Submission", date: conferenceConfig.dates.cameraReady, icon: Award, color: "text-green-500", isString: true },
-              { label: "Conference Dates", date: conferenceConfig.dates.conference, icon: MapPin, color: "text-primary", isString: true },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center justify-between p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                <div className="flex items-center gap-4">
-                  <div className={`p-3 rounded-full bg-slate-50 ${item.color}`}>
-                    <item.icon size={24} />
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {conferenceConfig.tracks.map((track, i) => {
+              const Icon = trackIcons[i];
+              return (
+                <div
+                  key={track}
+                  className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-border/80 hover:border-brand transition-colors"
+                >
+                  <div className="flex-shrink-0 p-2.5 rounded-lg bg-brand-dark/5 text-brand-dark">
+                    <Icon className="size-5" />
                   </div>
-                  <span className="font-semibold text-lg">{item.label}</span>
+                  <span className="font-medium text-brand-dark leading-snug pt-1">{track}</span>
                 </div>
-                <span className="text-lg font-medium text-slate-700">
-                  {item.isString ? item.date : new Date(item.date as string).toLocaleDateString("en-US", { day: 'numeric', month: 'long', year: 'numeric' })}
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Venue */}
+      <section className="container py-20 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-brand-dark via-brand to-brand-light">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <MapPin className="size-24 text-white/20" />
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-brand-dark/90 to-transparent">
+              <p className="text-white font-semibold text-lg">SRM IST, Kattankulathur</p>
+              <p className="text-brand-light/90 text-sm">Chennai, India</p>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <p className="text-brand font-semibold text-sm uppercase tracking-widest">Venue</p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-brand-dark">
+              A Vibrant Academic Environment
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              {conferenceConfig.venueNote}
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              We warmly welcome you to AI-SGE 2027 — an excellent opportunity to engage with
+              cutting-edge research and innovation in sustainable energy and electrification.
+            </p>
+            <Button
+              variant="outline"
+              className="rounded-full border-brand text-brand-dark hover:bg-brand-light/30"
+              render={<Link href="/venue" />}
+            >
+              Explore Venue
+              <ArrowRight className="size-4 ml-2" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Important Dates */}
+      <section className="w-full bg-brand-dark text-white py-20 lg:py-24">
+        <div className="container space-y-14">
+          <div className="text-center space-y-4">
+            <p className="text-brand-light font-semibold text-sm uppercase tracking-widest">Plan Ahead</p>
+            <h2 className="text-3xl lg:text-4xl font-bold">Important Dates</h2>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-3">
+            {importantDates.map((item) => (
+              <div
+                key={item.label}
+                className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-5 rounded-xl border transition-colors ${
+                  item.highlight
+                    ? "bg-brand/20 border-brand/40"
+                    : "bg-white/5 border-white/10 hover:bg-white/10"
+                }`}
+              >
+                <span className="font-medium text-white/90">{item.label}</span>
+                <span className={`font-semibold ${item.highlight ? "text-brand-light" : "text-brand"}`}>
+                  {item.date}
                 </span>
               </div>
             ))}
@@ -115,19 +215,34 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="container">
-        <div className="bg-primary rounded-[3rem] p-12 lg:p-20 text-white text-center space-y-8 relative overflow-hidden">
-          <h2 className="text-4xl lg:text-6xl font-bold relative z-10">Ready to contribute?</h2>
-          <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto relative z-10">
-            Submit your research paper today and be part of the most influential technology conference of the year.
+      {/* CTA */}
+      <section className="container py-20 lg:py-24">
+        <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-light via-white to-brand-light/30 border border-brand/20 p-10 lg:p-16 text-center space-y-6">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-brand/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+          <h2 className="text-3xl lg:text-4xl font-bold text-brand-dark relative">
+            Ready to contribute to sustainable electrification?
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto relative">
+            Submit your digest, register early, and join researchers and industry leaders from
+            around the world at AI-SGE 2027.
           </p>
-          <div className="flex justify-center gap-4 pt-4 relative z-10">
-            <Button size="lg" variant="secondary" className="text-lg px-10 py-7 rounded-full">
-              <Link href="/auth/signup">Join Now</Link>
+          <div className="flex flex-wrap justify-center gap-4 pt-2 relative">
+            <Button
+              size="lg"
+              className="rounded-full px-10 bg-brand-dark hover:bg-brand-dark/90"
+              render={<Link href="/cfp" />}
+            >
+              Call for Papers
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="rounded-full px-10 border-brand-dark text-brand-dark hover:bg-brand-dark hover:text-white"
+              render={<Link href="/committee" />}
+            >
+              Organizing Committee
             </Button>
           </div>
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
         </div>
       </section>
     </div>

@@ -8,19 +8,18 @@ import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { conferenceConfig } from "@/config/conference";
 
 const navItems = [
   { name: "About", href: "/about" },
+  { name: "Committee", href: "/committee" },
   { name: "CFP", href: "/cfp" },
-  { name: "Speakers", href: "/speakers" },
-  { name: "Schedule", href: "/schedule" },
+  { name: "Sponsor", href: "/sponsor" },
   { name: "Venue", href: "/venue" },
   { name: "Contact", href: "/contact" },
 ];
@@ -30,70 +29,87 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-brand/15 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="font-bold text-xl sm:inline-block">
-            {conferenceConfig.name}
+        <Link href="/" className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2">
+          <span className="font-bold text-lg text-brand-dark">{conferenceConfig.name}</span>
+          <span className="hidden lg:inline text-xs text-muted-foreground font-normal truncate max-w-[280px]">
+            AI & Sustainable Green Energy
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex md:items-center md:space-x-4">
+        <div className="hidden lg:flex lg:items-center lg:gap-1">
           <NavigationMenu>
             <NavigationMenuList>
               {navItems.map((item) => (
                 <NavigationMenuItem key={item.href}>
-                  <Link href={item.href} className={cn(
-                        navigationMenuTriggerStyle(),
-                        pathname === item.href && "bg-accent text-accent-foreground"
-                      )}>
-                      {item.name}
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      "text-brand-dark/80 hover:text-brand-dark",
+                      pathname === item.href && "bg-brand-light/40 text-brand-dark font-medium"
+                    )}
+                  >
+                    {item.name}
                   </Link>
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
           </NavigationMenu>
-          <Button render={<Link href="/auth/signup" />}>
-            Register Now
+          <Button
+            className="ml-3 bg-brand-dark hover:bg-brand-dark/90 rounded-full"
+            render={<Link href="/auth/signup" />}
+          >
+            Register
           </Button>
         </div>
 
-        {/* Mobile Navigation */}
-        <div className="flex md:hidden items-center space-x-2">
-           <Button variant="default" size="sm" render={<Link href="/auth/signup" />}>
+        <div className="flex lg:hidden items-center gap-2">
+          <Button
+            size="sm"
+            className="bg-brand-dark hover:bg-brand-dark/90 rounded-full"
+            render={<Link href="/auth/signup" />}
+          >
             Register
           </Button>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger render={<Button variant="ghost" size="icon" className="px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0" />}>
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle Menu</span>
+            <SheetTrigger
+              render={
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-brand-dark hover:bg-brand-light/40"
+                />
+              }
+            >
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Toggle Menu</span>
             </SheetTrigger>
-            <SheetContent side="right" className="pr-0">
+            <SheetContent side="right" className="bg-background border-brand/15">
               <Link
                 href="/"
-                className="flex items-center"
+                className="flex flex-col"
                 onClick={() => setIsOpen(false)}
               >
-                <span className="font-bold">{conferenceConfig.name}</span>
+                <span className="font-bold text-brand-dark">{conferenceConfig.name}</span>
+                <span className="text-xs text-muted-foreground">March 2027 · Chennai</span>
               </Link>
-              <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
-                <div className="flex flex-col space-y-3">
-                  {navItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={cn(
-                        "text-foreground/70 transition-colors hover:text-foreground",
-                        pathname === item.href && "text-foreground font-medium"
-                      )}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
+              <nav className="mt-8 flex flex-col gap-1">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "px-3 py-2.5 rounded-lg text-brand-dark/80 transition-colors hover:bg-brand-light/30 hover:text-brand-dark",
+                      pathname === item.href && "bg-brand-light/40 text-brand-dark font-medium"
+                    )}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </nav>
             </SheetContent>
           </Sheet>
         </div>

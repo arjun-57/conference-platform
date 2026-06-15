@@ -1,53 +1,94 @@
 import Link from "next/link";
 import { conferenceConfig } from "@/config/conference";
+import { Calendar, Mail, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="w-full border-t bg-background py-10">
-      <div className="container grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-        <div className="space-y-4">
-          <h3 className="text-lg font-bold">{conferenceConfig.name}</h3>
-          <p className="text-sm text-muted-foreground">
-            {conferenceConfig.description}
+    <footer className="w-full bg-brand-dark text-white">
+      <div className="container py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="space-y-4 lg:col-span-1">
+          <h3 className="text-xl font-bold text-brand-light">{conferenceConfig.name}</h3>
+          <p className="text-sm text-white/70 leading-relaxed">
+            {conferenceConfig.fullName}
+          </p>
+          <p className="text-xs text-brand-light/80">
+            In partnership with {conferenceConfig.partner}
           </p>
         </div>
+
         <div className="space-y-4">
-          <h3 className="text-lg font-bold">Quick Links</h3>
-          <nav className="flex flex-col space-y-2">
-            <Link href="/about" className="text-sm hover:underline">About Us</Link>
-            <Link href="/cfp" className="text-sm hover:underline">Call for Papers</Link>
-            <Link href="/speakers" className="text-sm hover:underline">Speakers</Link>
-            <Link href="/venue" className="text-sm hover:underline">Venue</Link>
+          <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-light">
+            Quick Links
+          </h3>
+          <nav className="flex flex-col gap-2.5">
+            {[
+              { label: "About", href: "/about" },
+              { label: "Organizing Committee", href: "/committee" },
+              { label: "Call for Papers", href: "/cfp" },
+              { label: "Venue", href: "/venue" },
+              { label: "Contact", href: "/contact" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-white/70 hover:text-brand-light transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
         </div>
+
         <div className="space-y-4">
-          <h3 className="text-lg font-bold">Important Dates</h3>
-          <ul className="space-y-2 text-sm">
-            <li className="flex justify-between">
-              <span>Submission Deadline:</span>
-              <span className="font-medium">{new Date(conferenceConfig.dates.submissionDeadline).toLocaleDateString()}</span>
+          <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-light">
+            Important Dates
+          </h3>
+          <ul className="space-y-3 text-sm text-white/70">
+            <li className="flex items-start gap-2">
+              <Calendar className="size-4 text-brand mt-0.5 flex-shrink-0" />
+              <span>
+                Digest Deadline:{" "}
+                <span className="text-white">{conferenceConfig.dates.digestSubmissionDeadline}</span>
+              </span>
             </li>
-            <li className="flex justify-between">
-              <span>Notification:</span>
-              <span className="font-medium">{conferenceConfig.dates.reviewNotification}</span>
-            </li>
-            <li className="flex justify-between">
-              <span>Conference:</span>
-              <span className="font-medium">{conferenceConfig.dates.conference}</span>
+            <li className="flex items-start gap-2">
+              <Calendar className="size-4 text-brand mt-0.5 flex-shrink-0" />
+              <span>
+                Conference:{" "}
+                <span className="text-white">{conferenceConfig.dates.conference}</span>
+              </span>
             </li>
           </ul>
         </div>
+
         <div className="space-y-4">
-          <h3 className="text-lg font-bold">Contact</h3>
-          <div className="space-y-2 text-sm">
-            <p>{conferenceConfig.location}</p>
-            <p>Email: <a href={`mailto:${conferenceConfig.contact.email}`} className="hover:underline">{conferenceConfig.contact.email}</a></p>
-            <p>Twitter: {conferenceConfig.contact.twitter}</p>
+          <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-light">
+            Contact
+          </h3>
+          <div className="space-y-3 text-sm text-white/70">
+            <p className="flex items-start gap-2">
+              <MapPin className="size-4 text-brand mt-0.5 flex-shrink-0" />
+              {conferenceConfig.location}
+            </p>
+            <p className="flex items-center gap-2">
+              <Mail className="size-4 text-brand flex-shrink-0" />
+              <a
+                href={`mailto:${conferenceConfig.contact.email}`}
+                className="hover:text-brand-light transition-colors"
+              >
+                {conferenceConfig.contact.email}
+              </a>
+            </p>
           </div>
         </div>
       </div>
-      <div className="container mt-10 pt-8 border-t text-center text-sm text-muted-foreground">
-        <p>© {new Date().getFullYear()} {conferenceConfig.name}. All rights reserved.</p>
+
+      <div className="border-t border-white/10">
+        <div className="container py-6 text-center text-sm text-white/50">
+          <p>
+            © {new Date().getFullYear()} {conferenceConfig.name}. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

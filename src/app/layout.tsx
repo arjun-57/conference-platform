@@ -16,7 +16,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: conferenceConfig.name,
+  title: {
+    default: `${conferenceConfig.name} | AI & Sustainable Green Energy`,
+    template: `%s | ${conferenceConfig.name}`,
+  },
   description: conferenceConfig.description,
 };
 
@@ -28,9 +31,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col w-full overflow-x-hidden">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
