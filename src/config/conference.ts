@@ -3,21 +3,25 @@ export const conferenceConfig = {
   fullName:
     "International Conference on Artificial Intelligence and Sustainable Green Energy Technologies for Future Electrification",
   shortName: "AI-SGE '27",
+  edition: "1st Edition",
   description:
-    "The 1st edition of AI-SGE 2027 will bring together researchers, academicians, and industry professionals from across the world to exchange ideas and present innovations in artificial intelligence, sustainable energy technologies, and future electrification systems.",
+    "AI-SGE 2027 brings together researchers, academicians, and industry professionals from across the world to exchange ideas and present innovations in artificial intelligence, sustainable energy technologies, and future electrification systems.",
   location: "SRM Institute of Science and Technology, Kattankulathur Campus, Chennai, India",
   partner: "Universiti Tenaga Nasional (UNITEN), Malaysia",
   dates: {
-    conference: "18–19 March 2027",
+    conference: "18-19 March 2027",
     digestSubmissionStart: "1 September 2026",
     digestSubmissionDeadline: "1 December 2026",
     digestAcceptanceNotification: "15 January 2027",
     cameraReady: "10 February 2027",
     earlyBirdRegistration: "10 February 2027",
-    // ISO strings for platform logic
-    submissionDeadline: "2026-12-01T23:59:59Z",
-    reviewNotification: "15 January 2027",
   },
+  submission: {
+    platform: "Microsoft CMT",
+    status: "The Microsoft CMT submission link will be published here when submissions open.",
+  },
+  publication:
+    "All accepted and presented papers will be submitted for publication in IEEE Xplore Digital Library, Springer Lecture Notes in Electrical Engineering (LNEE), or AIP Conference Proceedings, subject to the respective publisher's quality standards and indexing criteria.",
   features: [
     "Distinguished Keynote Lectures",
     "Technical Paper Presentations",
@@ -25,24 +29,16 @@ export const conferenceConfig = {
     "Industry Exhibitions",
   ],
   tracks: [
-    "Power Electronics",
-    "Electric Vehicles",
-    "Renewable Energy",
-    "Hydrogen Energy",
+    "Power Electronics and Energy Conversion",
+    "Electric Vehicles and Electrified Transportation",
+    "Renewable Energy Systems",
+    "Hydrogen Energy Technologies",
     "Artificial Intelligence in Energy Systems",
-    "Smart Grid Technologies",
+    "Smart Grid and Energy Storage",
   ],
   venueNote:
     "Located near Chennai, one of India's major educational and technological hubs, the SRM IST Kattankulathur campus offers a vibrant academic environment with world-class infrastructure.",
-  fees: {
-    studentAuthor: 250,
-    regularAuthor: 450,
-    attendeeOnly: 150,
-  },
-  contact: {
-    email: "aisge2027@srmist.edu.in",
-    twitter: "@AISGE2027",
-  },
+  contact: { email: "aisge-eee@srmist.edu.in" },
   organizingCommittee: {
     patrons: [
       { name: "Dr. T. R. Paarivendhar", role: "Chancellor, SRMIST" },
@@ -79,50 +75,25 @@ export const conferenceConfig = {
       { name: "Dr. N Chellammal", role: "SRMIST" },
       { name: "Dr. D Suchitra", role: "SRMIST" },
     ],
-    financeCommittee: [
-      { name: "Dr. XXXXXX", role: "SRMIST" },
-      { name: "Dr. XXXXXX", role: "SRMIST" },
-    ],
-    registrationCommittee: Array.from({ length: 6 }, (_, i) => ({
-      name: `Dr. XXXXXX`,
-      role: "SRMIST",
-    })),
-    publicityCommittee: Array.from({ length: 8 }, (_, i) => ({
-      name: `Dr. XXXXXX`,
-      role: "SRMIST",
-    })),
-    industryEngagementCommittee: Array.from({ length: 4 }, (_, i) => ({
-      name: `Dr. XXXXXX`,
-      role: "SRMIST",
-    })),
-    localHospitalityCommittee: Array.from({ length: 8 }, (_, i) => ({
-      name: `Dr. XXXXXX`,
-      role: "SRMIST",
-    })),
+    financeCommittee: Array.from({ length: 2 }, () => ({ name: "Dr. XXXXXX", role: "SRMIST" })),
+    registrationCommittee: Array.from({ length: 6 }, () => ({ name: "Dr. XXXXXX", role: "SRMIST" })),
+    publicityCommittee: Array.from({ length: 8 }, () => ({ name: "Dr. XXXXXX", role: "SRMIST" })),
+    industryEngagementCommittee: Array.from({ length: 4 }, () => ({ name: "Dr. XXXXXX", role: "SRMIST" })),
+    localHospitalityCommittee: Array.from({ length: 8 }, () => ({ name: "Dr. XXXXXX", role: "SRMIST" })),
   },
   advisoryCommittee: [
-    "Prof. Krishna Vasudevan, IIT Madras, India",
-    "Prof. Bhim Singh, IIT Delhi, India",
-    "Prof. Pramod Agarwal, IIT Roorkee, India",
-    "Prof. Marco Liserre, University of Kiel, Germany",
-    "Prof. B. G. Fernandes, IIT Bombay, India",
-    "Prof. Vivek Agarwal, IIT Bombay, India",
-    "Prof. K Gopakumar, IISC Bangalore, India",
-    "Prof. Frede Blaabjerg, Aalborg University, Denmark",
-    "Prof. Prasad Enjeti, Texas A&M University, USA",
-    "Prof. Kamal Al Haddad, École de Technologie Superieure, Canada",
-    "Prof. Ambrish Chandra, École de Technologie Superieure, Canada",
-    "Prof. Mahesh Kumar Mishra, IIT Madras, India",
-    "Prof. Joachim Holtz, University of Wuppertal, Germany",
-    "Prof. Jose Rodriguez, Universidad San Sebastian, Chile",
-    "Prof. Chandan Chakraborty, IIT Kharagpur, India",
-    "Prof. Kouki Matsuse, Meiji University, Japan",
-    "Prof. Praveen Jain, Queen's University, Canada",
-    "Prof. Kaushik Rajashekara, University of Houston, USA",
+    "Prof. Krishna Vasudevan, IIT Madras, India", "Prof. Bhim Singh, IIT Delhi, India",
+    "Prof. Pramod Agarwal, IIT Roorkee, India", "Prof. Marco Liserre, University of Kiel, Germany",
+    "Prof. B. G. Fernandes, IIT Bombay, India", "Prof. Vivek Agarwal, IIT Bombay, India",
+    "Prof. K Gopakumar, IISC Bangalore, India", "Prof. Frede Blaabjerg, Aalborg University, Denmark",
+    "Prof. Prasad Enjeti, Texas A&M University, USA", "Prof. Kamal Al Haddad, Ecole de Technologie Superieure, Canada",
+    "Prof. Ambrish Chandra, Ecole de Technologie Superieure, Canada", "Prof. Mahesh Kumar Mishra, IIT Madras, India",
+    "Prof. Joachim Holtz, University of Wuppertal, Germany", "Prof. Jose Rodriguez, Universidad San Sebastian, Chile",
+    "Prof. Chandan Chakraborty, IIT Kharagpur, India", "Prof. Kouki Matsuse, Meiji University, Japan",
+    "Prof. Praveen Jain, Queen's University, Canada", "Prof. Kaushik Rajashekara, University of Houston, USA",
     "Prof. Milos Manic, Virginia Commonwealth University, USA",
     "Prof. Anurag Srivastava, West Virginia University and Washington State University, USA",
-    "Prof. Yang Shi, University of Victoria, Canada",
-    "Prof. Santanu Mishra, IIT Delhi, India",
+    "Prof. Yang Shi, University of Victoria, Canada", "Prof. Santanu Mishra, IIT Delhi, India",
     "Prof. Gao Huijun, Harbin Institute of Technology, China",
     "Prof. Samir Kouro, Universidad Tecnica Federico Santa Maria, Chile",
     "Prof. Subhashish Bhattacharya, North Carolina State University, USA",
@@ -134,11 +105,7 @@ export const conferenceConfig = {
 };
 
 export type CommitteeMember = { name: string; role: string };
-
-export type CommitteeSection = {
-  title: string;
-  members: CommitteeMember[];
-};
+export type CommitteeSection = { title: string; members: CommitteeMember[] };
 
 export const committeeSections: CommitteeSection[] = [
   { title: "Patrons", members: conferenceConfig.organizingCommittee.patrons },

@@ -1,79 +1,63 @@
-import Link from "next/link";
+import { Building2, GraduationCap, Handshake, Zap } from "lucide-react";
+import { PageHero } from "@/components/layout/PageHero";
 import { conferenceConfig } from "@/config/conference";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Handshake, Target } from "lucide-react";
+
+const profiles = [
+  {
+    icon: Building2,
+    title: "About SRM Institute of Science and Technology",
+    paragraphs: [
+      "SRM Institute of Science and Technology, formerly known as SRM University, is a top-ranked multidisciplinary private university located on a 380-acre green campus along NH45 near Chennai, India. Established in 1985, SRM IST has evolved into a globally recognized centre of excellence across engineering, management, medicine, science, humanities, agriculture, and law.",
+      "SRM IST hosts over 52,000 students and 3,200 faculty members across its campuses. It is accredited with NAAC A++ Grade and recognized as a Category I University, supported by strong global collaborations, advanced research centres, and a vibrant innovation ecosystem.",
+    ],
+  },
+  {
+    icon: Zap,
+    title: "About the Department of Electrical and Electronics Engineering",
+    paragraphs: [
+      "Established in 1992, the Department of Electrical and Electronics Engineering at SRM IST offers undergraduate, postgraduate, and doctoral programmes and is committed to excellence in teaching, research, and industry collaboration.",
+      "The department has over 57 highly qualified faculty members, advanced laboratories, two Centres of Excellence focused on Marine Engineering Applications and E-Mobility, and research funding exceeding INR 30 crores from prestigious agencies.",
+    ],
+  },
+  {
+    icon: GraduationCap,
+    title: "About UNITEN, Malaysia",
+    paragraphs: [
+      "Universiti Tenaga Nasional is a premier institution specializing in engineering, energy, and technology education. The university is known for excellence in power engineering, smart grids, renewable energy systems, and sustainable technologies.",
+      "Its modern infrastructure, advanced research facilities, strong industry linkages, and global collaborations make UNITEN a valuable partner in promoting sustainable and intelligent energy solutions.",
+    ],
+  },
+];
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col">
-      <section className="bg-brand-dark text-white py-16 lg:py-20">
-        <div className="container space-y-4 max-w-3xl">
-          <p className="text-brand-light text-sm font-semibold uppercase tracking-widest">About</p>
-          <h1 className="text-3xl lg:text-5xl font-bold">{conferenceConfig.name}</h1>
-          <p className="text-white/75 text-lg leading-relaxed">{conferenceConfig.fullName}</p>
+    <div>
+      <PageHero eyebrow="About the conference" title={conferenceConfig.name} description={`${conferenceConfig.fullName} (${conferenceConfig.edition})`} />
+      <section className="container py-16 lg:py-20">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="space-y-5 text-lg leading-8 text-muted-foreground">
+            <h2 className="text-3xl font-black text-brand-dark">A premier international platform</h2>
+            <p>The conference provides a platform for researchers, academicians, and industry professionals to share recent advancements in power electronics, renewable energy, smart grids, energy storage, electric mobility, hydrogen energy, and artificial intelligence in energy systems.</p>
+            <p>AI-SGE 2027 promotes innovation, interdisciplinary collaboration, and sustainable technological development for future electrification. Original, unpublished research papers within the conference themes are invited for presentation and possible publication.</p>
+          </div>
+          <aside className="content-card bg-brand-light/20 p-8">
+            <Handshake className="size-9 text-brand" />
+            <h2 className="mt-5 text-2xl font-black text-brand-dark">International partnership</h2>
+            <p className="mt-4 leading-7 text-muted-foreground">Held on {conferenceConfig.dates.conference} at {conferenceConfig.location}, in partnership with {conferenceConfig.partner}.</p>
+          </aside>
         </div>
       </section>
-
-      <section className="container py-16 lg:py-20 space-y-16">
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 text-brand font-semibold text-sm uppercase tracking-widest">
-              <Target className="size-4" />
-              Our Mission
-            </div>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              {conferenceConfig.description}
-            </p>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              The conference will provide a premier platform for knowledge exchange in emerging
-              areas including power electronics, electric vehicles, renewable and hydrogen energy,
-              artificial intelligence in energy systems, and smart grid technologies.
-            </p>
-          </div>
-
-          <div className="rounded-3xl bg-gradient-to-br from-brand-light/40 to-muted p-8 lg:p-10 space-y-6 border border-brand/20">
-            <div className="inline-flex items-center gap-2 text-brand-dark font-semibold">
-              <Handshake className="size-5 text-brand" />
-              Partnership
-            </div>
-            <p className="text-brand-dark leading-relaxed">
-              AI-SGE 2027 is organized by{" "}
-              <span className="font-semibold">SRM Institute of Science and Technology</span> in
-              partnership with{" "}
-              <span className="font-semibold">{conferenceConfig.partner}</span>.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">{conferenceConfig.venueNote}</p>
-          </div>
-        </div>
-
-        <div className="rounded-3xl bg-brand-dark text-white p-10 lg:p-14 space-y-8">
-          <h2 className="text-2xl lg:text-3xl font-bold">Why Attend AI-SGE 2027?</h2>
-          <ul className="grid sm:grid-cols-2 gap-4">
-            {[
-              "Engage with distinguished keynote speakers and plenary sessions.",
-              "Present and discuss technical papers with global peers.",
-              "Participate in special sessions, tutorials, and workshops.",
-              "Explore industry exhibitions and collaboration opportunities.",
-              "Network with researchers, academicians, and industry professionals.",
-              "Discover innovations in AI, green energy, and future electrification.",
-            ].map((item, i) => (
-              <li key={i} className="flex gap-3">
-                <span className="flex-shrink-0 size-7 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center">
-                  {i + 1}
-                </span>
-                <span className="text-white/85">{item}</span>
-              </li>
-            ))}
-          </ul>
-          <Button
-            className="rounded-full bg-brand hover:bg-brand/90 text-white"
-            render={<Link href="/committee" />}
-          >
-            View Organizing Committee
-            <ArrowRight className="size-4 ml-2" />
-          </Button>
+      <section className="bg-muted/55 py-16 lg:py-20">
+        <div className="container space-y-8">
+          {profiles.map(({ icon: Icon, title, paragraphs }) => (
+            <article key={title} className="content-card grid gap-6 p-7 md:grid-cols-[auto_1fr] md:p-9">
+              <div className="flex size-14 items-center justify-center rounded-2xl bg-brand-dark text-white"><Icon className="size-7" /></div>
+              <div><h2 className="text-2xl font-black text-brand-dark">{title}</h2>{paragraphs.map((paragraph) => <p key={paragraph} className="mt-4 leading-8 text-muted-foreground">{paragraph}</p>)}</div>
+            </article>
+          ))}
         </div>
       </section>
+      <section className="container py-16 text-center lg:py-20"><h2 className="text-3xl font-black text-brand-dark">Invitation</h2><p className="mx-auto mt-5 max-w-4xl text-lg leading-8 text-muted-foreground">We warmly invite researchers, academicians, industry professionals, and students to participate in AI-SGE 2027 and contribute to advancing research and innovation in sustainable energy and future electrification technologies.</p></section>
     </div>
   );
 }

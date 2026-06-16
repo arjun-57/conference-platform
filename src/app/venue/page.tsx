@@ -1,17 +1,12 @@
 import { MapPin, Plane, Hotel, Navigation } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { conferenceConfig } from "@/config/conference";
+import { PageHero } from "@/components/layout/PageHero";
 
 export default function VenuePage() {
   return (
     <div className="flex flex-col">
-      <section className="bg-brand-dark text-white py-16 lg:py-20">
-        <div className="container text-center space-y-4 max-w-3xl mx-auto">
-          <p className="text-brand-light text-sm font-semibold uppercase tracking-widest">Location</p>
-          <h1 className="text-3xl lg:text-5xl font-bold">Conference Venue</h1>
-          <p className="text-white/75 text-lg">{conferenceConfig.location}</p>
-        </div>
-      </section>
+      <PageHero eyebrow="Location" title="Conference Venue" description={conferenceConfig.location} />
 
       <div className="container py-16 lg:py-20 space-y-12">
         <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl">
@@ -72,8 +67,8 @@ export default function VenuePage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="text-sm text-muted-foreground leading-relaxed">
-                International participants may require a conference visa. Request an invitation
-                letter during registration to support your visa application.
+                International participants may require a conference visa. Invitation-letter
+                guidance for accepted authors and confirmed attendees will be announced later.
               </CardContent>
             </Card>
           </div>

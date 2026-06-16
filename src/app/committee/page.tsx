@@ -1,4 +1,5 @@
 import { committeeSections, conferenceConfig } from "@/config/conference";
+import { PageHero } from "@/components/layout/PageHero";
 
 function CommitteeGroup({
   title,
@@ -30,17 +31,7 @@ function CommitteeGroup({
 export default function CommitteePage() {
   return (
     <div className="flex flex-col">
-      <section className="bg-brand-dark text-white py-16 lg:py-20">
-        <div className="container space-y-4">
-          <p className="text-brand-light text-sm font-semibold uppercase tracking-widest">
-            {conferenceConfig.name}
-          </p>
-          <h1 className="text-3xl lg:text-5xl font-bold">Organizing Committee</h1>
-          <p className="text-white/75 max-w-2xl text-lg">
-            Meet the team behind AI-SGE 2027, jointly organized by SRMIST and UNITEN, Malaysia.
-          </p>
-        </div>
-      </section>
+      <PageHero eyebrow={conferenceConfig.name} title="Organizing Committee" description="Meet the team behind AI-SGE 2027, jointly organized by SRMIST and UNITEN, Malaysia." />
 
       <section className="container py-16 lg:py-20 space-y-16">
         {committeeSections.map((section) => (

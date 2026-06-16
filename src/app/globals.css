@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-sans: Inter, Aptos, "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Cascadia Code", Consolas, ui-monospace, monospace;
 
   /* Brand palette — direct hex so utilities always generate */
   --color-brand-dark: #335765;
@@ -92,12 +92,14 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased min-w-0;
+    overflow-x: hidden;
   }
 }
 
 /* Guaranteed brand utilities (dev-server safe) */
 @layer utilities {
   .container {
+    width: min(calc(100% - 2rem), 1180px);
     margin-inline: auto;
   }
 
@@ -130,5 +132,24 @@
   }
   .to-brand-light {
     --tw-gradient-to: #b6d9e0;
+  }
+
+  .page-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background-color: #335765;
+    background-image:
+      linear-gradient(90deg, rgba(28, 54, 64, 0.96), rgba(51, 87, 101, 0.84)),
+      radial-gradient(circle at 85% 20%, rgba(182, 217, 224, 0.35), transparent 35%),
+      url("/images/conference-hero.png");
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: min(calc(100% - 3rem), 1180px);
   }
 }
