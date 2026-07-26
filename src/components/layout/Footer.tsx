@@ -1,19 +1,26 @@
 import Link from "next/link";
-import { Calendar, Mail, MapPin, Phone } from "lucide-react";
-import { conferenceConfig } from "@/config/conference";
+import { Calendar, LifeBuoy, Mail, MapPin, Phone } from "lucide-react";
+import {
+  conference,
+  contact,
+  dates,
+  footerLinks,
+  publication,
+  orTBD,
+} from "@/config";
 
-const quickLinks = [
-  ["Home", "/"],
-  ["About", "/about"],
-  ["Committee", "/committee"],
-  ["Program", "/program"],
-  ["Call for Papers", "/cfp"],
-  ["For Attendees", "/attendees"],
-  ["Registration", "/registration"],
-  ["For Authors", "/authors"],
-  ["Venue", "/venue"],
-  ["Sponsorship", "/sponsor"],
-];
+/** Coordinators and convener are only listed once they have a public address. */
+const namedContacts = [...contact.coordinators, contact.convener].filter(
+  (person) => person.email || person.phone
+);
+
+const importantDates = [
+  ["Submission Deadline", dates.submissionDeadline],
+  ["Acceptance Notification", dates.acceptanceNotification],
+  ["Camera-Ready", dates.cameraReady],
+  ["Pre-Conference Workshop", dates.workshop],
+  ["Conference", dates.conference],
+] as const;
 
 export function Footer() {
   return (
@@ -21,99 +28,124 @@ export function Footer() {
       <div className="container grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         {/* Branding */}
         <div className="space-y-4">
-          <h3 className="text-xl font-bold text-brand-light">{conferenceConfig.name}</h3>
-          <p className="text-sm leading-relaxed text-white/70">{conferenceConfig.fullName}</p>
-          <p className="text-xs text-brand-light/80">In partnership with {conferenceConfig.partner}</p>
-          <div className="pt-2 space-y-1">
-            <p className="text-xs font-semibold uppercase tracking-widest text-brand-light/60">Publication</p>
+          <h2 className="text-xl font-bold text-brand-light">{conference.name}</h2>
+          <p className="text-sm leading-relaxed text-white/70">
+            {conference.fullName}
+          </p>
+          <p className="text-xs text-brand-light/80">
+            In partnership with {conference.partner}
+          </p>
+          <div className="space-y-1 pt-2">
+            <p className="text-xs font-semibold uppercase tracking-widest text-brand-light/60">
+              Publication
+            </p>
             <p className="text-xs leading-relaxed text-white/55">
-              Springer Lecture Notes on Electrical Engineering · Scopus-indexed journal (selected papers)
+              {publication.proceedings} · Scopus-indexed journal for selected
+              papers
             </p>
           </div>
         </div>
 
-        {/* Quick Links */}
+        {/* Quick links */}
         <div className="space-y-4">
-          <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-light">Quick Links</h3>
-          <nav className="grid grid-cols-1 gap-2">
-            {quickLinks.map(([label, href]) => (
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-brand-light">
+            Quick Links
+          </h2>
+          <nav className="grid gap-2">
+            {footerLinks.map((route) => (
               <Link
-                key={href}
-                href={href}
+                key={route.href}
+                href={route.href}
                 className="text-sm text-white/70 transition-colors hover:text-brand-light"
               >
-                {label}
+                {route.label}
               </Link>
             ))}
           </nav>
         </div>
 
-        {/* Important Dates */}
+        {/* Important dates */}
         <div className="space-y-4">
-          <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-light">Important Dates</h3>
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-brand-light">
+            Important Dates
+          </h2>
           <div className="space-y-3">
-            <p className="flex gap-2 text-sm text-white/70">
-              <Calendar className="mt-0.5 size-4 shrink-0 text-brand" />
-              <span><strong className="block text-white/90">Submission Deadline</strong>{conferenceConfig.dates.digestSubmissionDeadline}</span>
-            </p>
-            <p className="flex gap-2 text-sm text-white/70">
-              <Calendar className="mt-0.5 size-4 shrink-0 text-brand" />
-              <span><strong className="block text-white/90">Camera-Ready</strong>{conferenceConfig.dates.cameraReady}</span>
-            </p>
-            <p className="flex gap-2 text-sm text-white/70">
-              <Calendar className="mt-0.5 size-4 shrink-0 text-brand" />
-              <span><strong className="block text-white/90">Conference</strong>{conferenceConfig.dates.conference}</span>
-            </p>
-            <p className="flex gap-2 text-sm text-white/70">
-              <Calendar className="mt-0.5 size-4 shrink-0 text-brand" />
-              <span><strong className="block text-white/90">Workshop</strong>{conferenceConfig.dates.workshopDates}</span>
-            </p>
+            {importantDates.map(([label, value]) => (
+              <p key={label} className="flex gap-2 text-sm text-white/70">
+                <Calendar className="mt-0.5 size-4 shrink-0 text-brand" />
+                <span>
+                  <strong className="block font-semibold text-white/90">
+                    {label}
+                  </strong>
+                  {value}
+                </span>
+              </p>
+            ))}
           </div>
         </div>
 
         {/* Contact */}
         <div className="space-y-4">
-          <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-light">Contact</h3>
-          <p className="flex gap-2 text-sm text-white/70">
-            <MapPin className="mt-0.5 size-4 shrink-0 text-brand" />
-            {conferenceConfig.location}
-          </p>
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-brand-light">
+            Contact
+          </h2>
+
+          {/* Help desk is the default public contact for the conference. */}
           <a
-            href={`mailto:${conferenceConfig.contact.email}`}
+            href={`mailto:${contact.helpDesk}`}
             className="flex gap-2 text-sm text-white/70 transition-colors hover:text-brand-light"
           >
-            <Mail className="mt-0.5 size-4 shrink-0 text-brand" />
+            <LifeBuoy className="mt-0.5 size-4 shrink-0 text-brand" />
             <span>
-              <strong className="block text-white/90">Official Email</strong>
-              {conferenceConfig.contact.email}
+              <strong className="block font-semibold text-white/90">
+                Help Desk
+              </strong>
+              <span className="break-all">{contact.helpDesk}</span>
             </span>
           </a>
-          <a
-            href={`mailto:${conferenceConfig.contact.helpdesk}`}
-            className="flex gap-2 text-sm text-white/70 transition-colors hover:text-brand-light"
-          >
-            <Mail className="mt-0.5 size-4 shrink-0 text-brand" />
-            <span>
-              <strong className="block text-white/90">Help Desk</strong>
-              {conferenceConfig.contact.helpdesk}
-            </span>
-          </a>
-          {conferenceConfig.contact.coordinators.map((coord) => (
-            <div key={coord.name} className="flex gap-2 text-sm text-white/70">
+
+          {contact.official !== contact.helpDesk && (
+            <a
+              href={`mailto:${contact.official}`}
+              className="flex gap-2 text-sm text-white/70 transition-colors hover:text-brand-light"
+            >
+              <Mail className="mt-0.5 size-4 shrink-0 text-brand" />
+              <span>
+                <strong className="block font-semibold text-white/90">
+                  Conference Office
+                </strong>
+                <span className="break-all">{contact.official}</span>
+              </span>
+            </a>
+          )}
+
+          {namedContacts.map((person, i) => (
+            <div key={`${person.role}-${i}`} className="flex gap-2 text-sm text-white/70">
               <Phone className="mt-0.5 size-4 shrink-0 text-brand" />
               <span>
-                <strong className="block text-white/90">{coord.name}</strong>
-                {coord.phone}
+                <strong className="block font-semibold text-white/90">
+                  {orTBD(person.name)}
+                </strong>
+                <span className="block text-xs text-white/50">{person.role}</span>
+                {person.email && <span className="break-all">{person.email}</span>}
+                {person.phone && <span className="block">{person.phone}</span>}
               </span>
             </div>
           ))}
+
+          <p className="flex gap-2 text-sm text-white/70">
+            <MapPin className="mt-0.5 size-4 shrink-0 text-brand" />
+            {conference.location}
+          </p>
         </div>
       </div>
 
       <div className="border-t border-white/10">
         <div className="container flex flex-wrap items-center justify-between gap-4 py-6 text-xs text-white/40">
-          <span>© {new Date().getFullYear()} {conferenceConfig.name}. All rights reserved.</span>
-          <span>Organized by SRM IST & UNITEN Malaysia</span>
+          <span>
+            © {conference.name}. All rights reserved.
+          </span>
+          <span>Organized by SRM IST &amp; UNITEN Malaysia</span>
         </div>
       </div>
     </footer>

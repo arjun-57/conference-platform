@@ -2,23 +2,17 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { conferenceConfig } from "@/config/conference";
-
-const navItems = [
-  { name: "About", href: "/about" },
-  { name: "Committee", href: "/committee" },
-  { name: "Program", href: "/program" },
-  { name: "Call for Papers", href: "/cfp" },
-  { name: "For Attendees", href: "/attendees" },
-  { name: "Registration", href: "/registration" },
-  { name: "For Authors", href: "/authors" },
-  { name: "Venue", href: "/venue" },
-];
+import { conference, navItems } from "@/config";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -26,55 +20,86 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-brand/15 bg-white/95 shadow-sm backdrop-blur">
-      <div className="container flex h-18 items-center justify-between gap-6">
+      <div className="container flex h-18 items-center justify-between gap-4">
         <Link href="/" className="min-w-0 shrink-0">
-          <span className="block text-xl font-black tracking-tight text-brand-dark">{conferenceConfig.name}</span>
-          <span className="hidden truncate text-xs text-muted-foreground sm:block">AI and Sustainable Green Energy</span>
+          <span className="block text-xl font-black tracking-tight text-brand-dark">
+            {conference.name}
+          </span>
+          <span className="hidden truncate text-xs text-muted-foreground sm:block">
+            AI and Sustainable Green Energy
+          </span>
         </Link>
 
-        {/* Desktop nav — hidden below xl to avoid overflow with 8 items */}
-        <nav className="hidden items-center gap-0.5 xl:flex">
+        {/* Desktop navigation */}
+        <nav className="hidden items-center lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
+              aria-current={pathname === item.href ? "page" : undefined}
               className={cn(
-                "rounded-lg px-2.5 py-2 text-[0.8rem] font-medium text-brand-dark/75 transition-colors hover:bg-brand-light/35 hover:text-brand-dark",
+                "rounded-lg px-2 py-2 text-[0.78rem] font-medium whitespace-nowrap text-brand-dark/75 transition-colors hover:bg-brand-light/35 hover:text-brand-dark",
                 pathname === item.href && "bg-brand-light/45 text-brand-dark"
               )}
             >
-              {item.name}
+              {item.label}
             </Link>
           ))}
         </nav>
 
-        {/* Mobile / tablet hamburger */}
+        {/* Mobile / tablet menu */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger
-            render={<Button variant="ghost" size="icon" className="shrink-0 text-brand-dark xl:hidden" />}
+            render={
+              <Button
+                variant="ghost"
+                size="icon"
+                className="shrink-0 text-brand-dark lg:hidden"
+              />
+            }
           >
             <Menu className="size-5" />
-            <span className="sr-only">Open navigation</span>
+            <span className="sr-only">Open navigation menu</span>
           </SheetTrigger>
-          <SheetContent side="right" className="border-brand/15 bg-background p-0 w-72">
-            <div className="flex items-center justify-between border-b border-brand/15 px-6 py-4">
+          <SheetContent
+            side="right"
+            className="w-72 border-brand/15 bg-background p-0"
+          >
+            <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+            <div className="border-b border-brand/15 px-6 py-4">
               <Link href="/" onClick={() => setIsOpen(false)}>
-                <span className="block font-bold text-brand-dark">{conferenceConfig.name}</span>
-                <span className="text-xs text-muted-foreground">March 2027 · Chennai</span>
+                <span className="block font-bold text-brand-dark">
+                  {conference.name}
+                </span>
+                <span className="text-xs text-muted-foreground">
+                  March 2027 · Chennai
+                </span>
               </Link>
             </div>
             <nav className="flex flex-col gap-1 p-4">
+              <Link
+                href="/"
+                onClick={() => setIsOpen(false)}
+                aria-current={pathname === "/" ? "page" : undefined}
+                className={cn(
+                  "rounded-lg px-4 py-3 font-medium text-brand-dark/80 transition-colors hover:bg-brand-light/35 hover:text-brand-dark",
+                  pathname === "/" && "bg-brand-light/45 text-brand-dark"
+                )}
+              >
+                Home
+              </Link>
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  aria-current={pathname === item.href ? "page" : undefined}
                   className={cn(
-                    "rounded-lg px-4 py-3 font-medium text-brand-dark/80 hover:bg-brand-light/35 hover:text-brand-dark transition-colors",
+                    "rounded-lg px-4 py-3 font-medium text-brand-dark/80 transition-colors hover:bg-brand-light/35 hover:text-brand-dark",
                     pathname === item.href && "bg-brand-light/45 text-brand-dark"
                   )}
-                  onClick={() => setIsOpen(false)}
                 >
-                  {item.name}
+                  {item.label}
                 </Link>
               ))}
             </nav>

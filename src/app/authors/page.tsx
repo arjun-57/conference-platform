@@ -1,27 +1,42 @@
-import { CheckCircle2, Download, FileText, Mic2, PresentationIcon, ShieldCheck } from "lucide-react";
+import type { Metadata } from "next";
+import {
+  CheckCircle2,
+  Download,
+  ExternalLink,
+  FileText,
+  Mic2,
+  Presentation,
+  ShieldCheck,
+} from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
-import { conferenceConfig } from "@/config/conference";
+import { SectionHeading } from "@/components/layout/SectionHeading";
+import { conference, dates, isSubmissionOpen, submission } from "@/config";
+
+export const metadata: Metadata = {
+  title: "For Authors",
+  description: `Camera-ready instructions, copyright form, formatting checklist and presentation guidelines for accepted authors at ${conference.name}.`,
+};
 
 const cameraReadySteps = [
   "Incorporate all reviewer comments and revisions in the final paper.",
   "Ensure the paper strictly follows the Springer LNEE author guidelines.",
-  "Final paper must not exceed the permitted page limit (to be confirmed by the publication committee).",
+  "Keep the final paper within the permitted page limit, as confirmed by the publication committee.",
   "Check that all references are complete and correctly formatted.",
-  "Verify author names, affiliations, and email addresses are accurate — no changes after submission.",
-  "Run a final plagiarism check (similarity score must be below 30%).",
+  "Verify author names, affiliations and email addresses — these cannot be changed after submission.",
+  "Run a final plagiarism check; the similarity score must be below 30%.",
   "Submit the camera-ready paper and source files through Microsoft CMT before the deadline.",
-  "Complete the copyright transfer form (IEEE / Springer as applicable) — submit via CMT.",
+  "Complete the copyright transfer form and submit it via Microsoft CMT.",
 ];
 
 const formattingChecklist = [
   "Use the official Springer LNEE LaTeX or Word template.",
-  "Set paper size to A4; do not change margins.",
-  "Use Times New Roman, 10pt (body text) as per template.",
-  "Figures must be high resolution (≥ 300 dpi) and embedded in the document.",
-  "Equations must be numbered and clearly labelled.",
-  "Abstract: 150–250 words; Keywords: 4–6 terms.",
+  "Set paper size to A4 and do not change the template margins.",
+  "Use the template's body text font and size (Times New Roman, 10 pt).",
+  "Figures must be high resolution (300 dpi or above) and embedded in the document.",
+  "Number and clearly label all equations.",
+  "Abstract of 150–250 words; 4–6 keywords.",
   "Author names and affiliations must appear on the first page.",
-  "References follow the Springer reference style; use [1], [2], … numbering.",
+  "Follow the Springer reference style with [1], [2], … numbering.",
 ];
 
 const presentationGuidelines = [
@@ -29,20 +44,20 @@ const presentationGuidelines = [
     icon: Mic2,
     title: "Oral Presentation",
     points: [
-      "Presentation duration: 15 minutes + 5 minutes Q&A (exact time will be confirmed in the program).",
+      "Presentation duration is 15 minutes plus 5 minutes for questions; exact timings are confirmed in the programme.",
       "Use the conference-provided laptop and projector.",
-      "Submit your presentation slides (PDF or PPTX) to the session chair at least 30 minutes before your session.",
-      "Presenters are requested to report to their assigned session room 15 minutes early.",
+      "Submit slides (PDF or PPTX) to the session chair at least 30 minutes before your session.",
+      "Report to your assigned session room 15 minutes early.",
     ],
   },
   {
-    icon: PresentationIcon,
+    icon: Presentation,
     title: "Poster Presentation",
     points: [
-      "Poster size: A0 portrait (841 mm × 1189 mm).",
+      "Poster size is A0 portrait (841 mm × 1189 mm).",
       "Bring a printed poster — digital-only displays are not available.",
-      "Posters must be mounted before the poster session begins.",
-      "Authors should be present at their poster during the designated poster session.",
+      "Mount your poster before the poster session begins.",
+      "Be present at your poster during the designated poster session.",
     ],
   },
 ];
@@ -53,59 +68,69 @@ export default function AuthorsPage() {
       <PageHero
         eyebrow="Accepted Authors"
         title="For Authors"
-        description="Instructions for camera-ready submission, copyright, formatting, and presentation guidelines for AI-SGE 2027."
+        description={`Camera-ready submission, copyright, formatting and presentation instructions for ${conference.name}.`}
       />
 
       {/* Camera-ready instructions */}
       <section className="container py-16 lg:py-20">
         <div className="mx-auto max-w-4xl">
-          <p className="text-sm font-bold uppercase tracking-widest text-brand">Final Submission</p>
-          <h2 className="mt-3 text-3xl font-black text-brand-dark">Camera-Ready Paper Instructions</h2>
+          <SectionHeading
+            eyebrow="Final Submission"
+            title="Camera-Ready Paper Instructions"
+          />
           <p className="mt-4 leading-7 text-muted-foreground">
             Camera-ready papers must be submitted by{" "}
-            <strong className="text-brand-dark">{conferenceConfig.dates.cameraReady}</strong> through
-            Microsoft CMT. Please follow the steps below.
+            <strong className="text-brand-dark">{dates.cameraReady}</strong>{" "}
+            through {submission.platform}. Follow the steps below in order.
           </p>
-          <div className="mt-8 space-y-3">
+
+          <ol className="mt-8 space-y-3">
             {cameraReadySteps.map((step, i) => (
-              <div
-                key={i}
+              <li
+                key={step}
                 className="flex items-start gap-4 rounded-xl border border-brand/15 bg-white p-4 shadow-sm"
               >
-                <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-brand-dark text-xs font-black text-white">
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-brand-dark text-xs font-black text-white">
                   {i + 1}
-                </div>
+                </span>
                 <p className="text-sm leading-7 text-muted-foreground">{step}</p>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
-      {/* Copyright + template download */}
+      {/* Copyright form and template */}
       <section className="bg-muted/55 py-16 lg:py-20">
         <div className="container">
-          <div className="mx-auto max-w-4xl grid gap-6 sm:grid-cols-2">
+          <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
             <div className="content-card p-8">
               <ShieldCheck className="size-9 text-brand" />
-              <h3 className="mt-5 text-xl font-black text-brand-dark">Copyright Transfer Form</h3>
+              <h2 className="mt-5 text-xl font-black text-brand-dark">
+                Copyright Transfer Form
+              </h2>
               <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                Authors of accepted papers must complete and submit the copyright transfer / consent-to-publish
-                form. The form will be made available in Microsoft CMT after acceptance.
+                Authors of accepted papers must complete and submit the copyright
+                transfer / consent-to-publish form. The form is made available in{" "}
+                {submission.platform} after acceptance.
               </p>
               <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-muted px-5 py-2.5 text-sm font-bold text-muted-foreground">
-                <Download className="size-4" /> Available via CMT (post-acceptance)
+                <Download className="size-4" /> Available via CMT after
+                acceptance
               </span>
             </div>
+
             <div className="content-card p-8">
               <FileText className="size-9 text-brand" />
-              <h3 className="mt-5 text-xl font-black text-brand-dark">Paper Template</h3>
+              <h2 className="mt-5 text-xl font-black text-brand-dark">
+                Paper Template
+              </h2>
               <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                Use the official Springer LNEE template for your camera-ready submission. Both
-                LaTeX and Microsoft Word versions are available.
+                Use the official Springer LNEE template for your camera-ready
+                submission. LaTeX and Microsoft Word versions are available.
               </p>
               <a
-                href="https://www.springer.com/gp/authors-editors/book-authors-editors/manuscript-preparation/5636"
+                href={submission.templateUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 inline-flex items-center gap-2 rounded-full bg-brand-dark px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand"
@@ -120,10 +145,12 @@ export default function AuthorsPage() {
       {/* Formatting checklist */}
       <section className="container py-16 lg:py-20">
         <div className="mx-auto max-w-4xl">
-          <p className="text-sm font-bold uppercase tracking-widest text-brand">Checklist</p>
-          <h2 className="mt-3 text-3xl font-black text-brand-dark">Final Formatting Checklist</h2>
+          <SectionHeading
+            eyebrow="Checklist"
+            title="Final Formatting Checklist"
+          />
           <p className="mt-4 leading-7 text-muted-foreground">
-            Verify all items below before uploading your camera-ready paper to Microsoft CMT.
+            Verify every item below before uploading your camera-ready paper.
           </p>
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
             {formattingChecklist.map((item) => (
@@ -143,20 +170,27 @@ export default function AuthorsPage() {
       <section className="bg-muted/55 py-16 lg:py-20">
         <div className="container">
           <div className="mx-auto max-w-4xl">
-            <p className="text-sm font-bold uppercase tracking-widest text-brand">At the Conference</p>
-            <h2 className="mt-3 text-3xl font-black text-brand-dark">Presentation Guidelines</h2>
+            <SectionHeading
+              eyebrow="At the Conference"
+              title="Presentation Guidelines"
+            />
             <div className="mt-10 grid gap-7 sm:grid-cols-2">
-              {presentationGuidelines.map(({ icon: Icon, title, points }) => (
-                <div key={title} className="content-card p-8">
+              {presentationGuidelines.map((guideline) => (
+                <div key={guideline.title} className="content-card p-8">
                   <div className="flex size-12 items-center justify-center rounded-2xl bg-brand-dark text-white">
-                    <Icon className="size-6" />
+                    <guideline.icon className="size-6" />
                   </div>
-                  <h3 className="mt-5 text-xl font-black text-brand-dark">{title}</h3>
+                  <h3 className="mt-5 text-xl font-black text-brand-dark">
+                    {guideline.title}
+                  </h3>
                   <ul className="mt-4 space-y-3">
-                    {points.map((p) => (
-                      <li key={p} className="flex gap-3 text-sm leading-7 text-muted-foreground">
+                    {guideline.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex gap-3 text-sm leading-7 text-muted-foreground"
+                      >
                         <span className="mt-2 block size-2 shrink-0 rounded-full bg-brand" />
-                        {p}
+                        {point}
                       </li>
                     ))}
                   </ul>
@@ -167,21 +201,21 @@ export default function AuthorsPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Submission portal */}
       <section className="container pb-20 lg:pb-24">
         <div className="mx-auto max-w-4xl rounded-3xl bg-brand-dark p-8 text-center text-white sm:p-10">
           <h2 className="text-2xl font-black">Submission Portal</h2>
           <p className="mx-auto mt-4 max-w-2xl leading-7 text-white/75">
-            {conferenceConfig.submission.status}
+            {submission.status}
           </p>
-          {conferenceConfig.submission.portalUrl ? (
+          {isSubmissionOpen ? (
             <a
-              href={conferenceConfig.submission.portalUrl}
+              href={submission.portalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-7 inline-flex rounded-full bg-brand-light px-7 py-3 font-bold text-brand-dark transition-colors hover:bg-white"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand-light px-7 py-3 font-bold text-brand-dark transition-colors hover:bg-white"
             >
-              Open CMT Portal →
+              Open CMT Portal <ExternalLink className="size-4" />
             </a>
           ) : (
             <span className="mt-7 inline-flex rounded-full bg-white/10 px-7 py-3 font-bold text-white/50">

@@ -4,16 +4,26 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/**
+ * Design tokens.
+ *
+ * `@theme` is the single source of truth for colours — Tailwind generates the
+ * `bg-brand-dark`, `text-brand`, `from-brand-dark` … utilities from these.
+ * The `:root` block below mirrors the semantic values as bare custom
+ * properties because shadcn primitives reference them directly through
+ * `var(--secondary)`, `var(--foreground)` and friends.
+ */
 @theme {
-  --font-sans: Inter, Aptos, "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), Inter, "Segoe UI", ui-sans-serif, system-ui,
+    sans-serif;
   --font-mono: "Cascadia Code", Consolas, ui-monospace, monospace;
 
-  /* Brand palette — direct hex so utilities always generate */
+  /* Brand palette */
   --color-brand-dark: #335765;
   --color-brand: #74a8a4;
   --color-brand-light: #b6d9e0;
 
-  /* Semantic colors */
+  /* Semantic colours */
   --color-background: #f7fbfc;
   --color-foreground: #1a3338;
   --color-card: #ffffff;
@@ -28,13 +38,10 @@
   --color-muted-foreground: #4a6670;
   --color-accent: #74a8a4;
   --color-accent-foreground: #ffffff;
+  --color-destructive: #dc2626;
   --color-border: #c8dfe4;
   --color-input: #c8dfe4;
   --color-ring: #74a8a4;
-
-  /* Center content — fixes everything stuck to the left */
-  --container-center: true;
-  --container-padding: 1.25rem;
 }
 
 :root {
@@ -63,24 +70,6 @@
   --radius: 0.75rem;
 }
 
-.dark {
-  --background: #1a2e34;
-  --foreground: #e8f3f5;
-  --card: #243a42;
-  --card-foreground: #e8f3f5;
-  --primary: #74a8a4;
-  --primary-foreground: #1a3338;
-  --secondary: #335765;
-  --secondary-foreground: #e8f3f5;
-  --muted: #2a424a;
-  --muted-foreground: #b6d9e0;
-  --accent: #335765;
-  --accent-foreground: #e8f3f5;
-  --border: #3d5a63;
-  --input: #3d5a63;
-  --ring: #74a8a4;
-}
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -91,49 +80,28 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased min-w-0;
+    @apply min-w-0 bg-background font-sans text-foreground antialiased;
     overflow-x: hidden;
   }
 }
 
-/* Guaranteed brand utilities (dev-server safe) */
 @layer utilities {
+  /* Page gutter, capped at a comfortable reading width. */
   .container {
     width: min(calc(100% - 2rem), 1180px);
     margin-inline: auto;
   }
 
-  .bg-brand-dark {
-    background-color: #335765;
-  }
-  .bg-brand {
-    background-color: #74a8a4;
-  }
-  .bg-brand-light {
-    background-color: #b6d9e0;
-  }
-  .text-brand-dark {
-    color: #335765;
-  }
-  .text-brand {
-    color: #74a8a4;
-  }
-  .text-brand-light {
-    color: #b6d9e0;
-  }
-  .border-brand {
-    border-color: #74a8a4;
-  }
-  .from-brand-dark {
-    --tw-gradient-from: #335765;
-  }
-  .via-brand {
-    --tw-gradient-via: #74a8a4;
-  }
-  .to-brand-light {
-    --tw-gradient-to: #b6d9e0;
+  @media (min-width: 768px) {
+    .container {
+      width: min(calc(100% - 3rem), 1180px);
+    }
   }
 
+  /*
+   * Inner-page hero band. The home page uses the <HeroBackground> component
+   * instead, which supports video and a campus slideshow.
+   */
   .page-hero {
     position: relative;
     isolation: isolate;
@@ -141,48 +109,83 @@
     background-color: #335765;
     background-image:
       linear-gradient(90deg, rgba(28, 54, 64, 0.96), rgba(51, 87, 101, 0.84)),
-      radial-gradient(circle at 85% 20%, rgba(182, 217, 224, 0.35), transparent 35%),
-      url("/images/conference-hero.png");
+      radial-gradient(
+        circle at 85% 20%,
+        rgba(182, 217, 224, 0.35),
+        transparent 35%
+      ),
+      url("/images/conference-hero.jpg");
     background-position: center;
     background-size: cover;
   }
 
-  /* Card utility used across all pages */
+  /* Shared card surface used across all pages. */
   .content-card {
     background-color: #ffffff;
     border: 1px solid #c8dfe4;
     border-radius: 1rem;
     box-shadow: 0 1px 4px 0 rgba(51, 87, 101, 0.06);
-    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    transition:
+      border-color 0.18s ease,
+      box-shadow 0.18s ease;
   }
+
   .content-card:hover {
     border-color: rgba(116, 168, 164, 0.45);
     box-shadow: 0 4px 16px 0 rgba(51, 87, 101, 0.1);
   }
 }
 
-/* News ticker scroll animation */
+/* News ticker marquee. Duplicated content scrolls to -50% for a seamless loop. */
 @keyframes ticker-scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
+
 .ticker-track {
-  animation: ticker-scroll 32s linear infinite;
-  white-space: nowrap;
   display: inline-flex;
+  white-space: nowrap;
+  animation: ticker-scroll 32s linear infinite;
 }
+
 .ticker-track:hover {
   animation-play-state: paused;
 }
 
-/* Countdown pulse animation */
-@keyframes count-pulse {
-  0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.04); }
+/* Slow zoom on hero slideshow images. */
+@keyframes hero-drift {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
 }
 
-@media (min-width: 768px) {
-  .container {
-    width: min(calc(100% - 3rem), 1180px);
+.hero-slide {
+  animation: hero-drift 20s ease-out alternate infinite;
+}
+
+/* Respect the visitor's motion preference. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .ticker-track,
+  .hero-slide {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

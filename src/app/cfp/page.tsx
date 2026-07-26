@@ -1,7 +1,28 @@
-import { CheckCircle2, ExternalLink, FileText, ShieldCheck, Download } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
+import {
+  CheckCircle2,
+  Download,
+  ExternalLink,
+  FileText,
+  ShieldCheck,
+  Zap,
+} from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
-import { ImportantDates } from "@/components/sections/ImportantDates";
-import { conferenceConfig } from "@/config/conference";
+import { SectionHeading } from "@/components/layout/SectionHeading";
+import { DeadlinesTable } from "@/components/sections/DeadlinesTable";
+import {
+  conference,
+  isSubmissionOpen,
+  publication,
+  submission,
+  tracks,
+} from "@/config";
+
+export const metadata: Metadata = {
+  title: "Call for Papers",
+  description: `Call for papers for ${conference.name}. Conference tracks, submission guidelines, Springer LNEE template and the Microsoft CMT submission portal.`,
+};
 
 const guidelines = [
   "Submit an IEEE single-column PDF not exceeding four A4 pages and 2 MB.",
@@ -14,39 +35,40 @@ const guidelines = [
   "Authors cannot be added or removed after a digest is accepted.",
 ];
 
-export default function CFPPage() {
+export default function CallForPapersPage() {
   return (
     <div>
       <PageHero
         eyebrow="For Authors"
         title="Call for Papers"
-        description="We invite prospective authors to submit original research papers in any relevant AI-SGE 2027 track."
+        description={`We invite prospective authors to submit original research papers in any relevant ${conference.name} track.`}
       />
 
-      {/* Submission portal + dates */}
+      {/* Submission portal + deadlines */}
       <section className="container grid gap-10 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:py-20">
         <div>
-          <p className="text-sm font-bold uppercase tracking-widest text-brand">Submission workflow</p>
-          <h2 className="mt-3 text-3xl font-black text-brand-dark">
-            Submissions and review through Microsoft CMT
-          </h2>
+          <SectionHeading
+            eyebrow="Submission workflow"
+            title="Submissions and review through Microsoft CMT"
+          />
           <p className="mt-5 text-lg leading-8 text-muted-foreground">
-            Microsoft CMT will manage digest submission, reviewer communication, decisions, and
-            camera-ready uploads. This website will publish the official CMT link when the portal
-            opens.
+            {submission.platform} manages digest submission, reviewer
+            communication, decisions and camera-ready uploads. The official CMT
+            link is published here as soon as the portal opens.
           </p>
 
+          {/* Submission portal call-to-action */}
           <div className="mt-7 rounded-2xl border border-brand/25 bg-brand-light/20 p-6">
             <p className="flex items-center gap-3 font-bold text-brand-dark">
               <ExternalLink className="size-5 text-brand" />
-              {conferenceConfig.submission.platform}
+              {submission.platform}
             </p>
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
-              {conferenceConfig.submission.status}
+              {submission.status}
             </p>
-            {conferenceConfig.submission.portalUrl ? (
+            {isSubmissionOpen ? (
               <a
-                href={conferenceConfig.submission.portalUrl}
+                href={submission.portalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-2 rounded-full bg-brand-dark px-6 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand"
@@ -60,7 +82,7 @@ export default function CFPPage() {
             )}
           </div>
 
-          {/* Template download */}
+          {/* Template */}
           <div className="mt-5 rounded-2xl border border-brand/15 bg-white p-6 shadow-sm">
             <p className="flex items-center gap-3 font-bold text-brand-dark">
               <Download className="size-5 text-brand" />
@@ -68,68 +90,96 @@ export default function CFPPage() {
             </p>
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
               Use the official Springer LNEE template for your submission.
+              LaTeX and Microsoft Word versions are both available.
             </p>
             <a
-              href="https://www.springer.com/gp/authors-editors/book-authors-editors/manuscript-preparation/5636"
+              href={submission.templateUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand-dark hover:text-brand"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand-dark transition-colors hover:text-brand"
             >
-              Download Springer Template →
+              Download Springer LNEE Template <ExternalLink className="size-4" />
             </a>
           </div>
 
           <p className="mt-6 text-sm leading-6 text-muted-foreground">
-            Registration and payment will open only after acceptance. Accepted authors will receive
-            instructions separately.
+            Registration and payment open only after acceptance. Accepted authors
+            receive instructions separately.
           </p>
         </div>
-        <ImportantDates />
+
+        <DeadlinesTable />
       </section>
 
-      {/* Guidelines + tracks */}
+      {/* Theme and tracks */}
       <section className="bg-muted/55 py-16 lg:py-20">
-        <div className="container grid gap-10 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-brand">Requirements</p>
-            <h2 className="mt-3 text-3xl font-black text-brand-dark">Submission Instructions</h2>
-            <div className="mt-8 space-y-4">
-              {guidelines.map((item) => (
-                <p
-                  key={item}
-                  className="content-card flex gap-3 p-4 leading-7 text-muted-foreground"
-                >
-                  <CheckCircle2 className="mt-1 size-5 shrink-0 text-brand" />
-                  {item}
-                </p>
-              ))}
-            </div>
+        <div className="container">
+          <SectionHeading
+            eyebrow="Theme"
+            title="Conference Tracks & Domains"
+            description="Original, unpublished research is invited in the following areas."
+            align="center"
+          />
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {tracks.map((track) => (
+              <article
+                key={track}
+                className="content-card flex items-start gap-4 p-5"
+              >
+                <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand-dark text-white">
+                  <Zap className="size-5" />
+                </div>
+                <h3 className="pt-1.5 font-bold text-brand-dark">{track}</h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Submission guidelines */}
+      <section className="container py-16 lg:py-20">
+        <div className="mx-auto max-w-4xl">
+          <SectionHeading
+            eyebrow="Requirements"
+            title="Paper Submission Guidelines"
+          />
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            {guidelines.map((item) => (
+              <p
+                key={item}
+                className="content-card flex gap-3 p-4 text-sm leading-7 text-muted-foreground"
+              >
+                <CheckCircle2 className="mt-1 size-5 shrink-0 text-brand" />
+                {item}
+              </p>
+            ))}
           </div>
 
-          <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-brand">Research areas</p>
-            <h2 className="mt-3 text-3xl font-black text-brand-dark">Conference Tracks</h2>
-            <div className="mt-8 grid gap-4">
-              {conferenceConfig.tracks.map((track) => (
-                <div
-                  key={track}
-                  className="content-card flex items-center gap-3 p-5 font-bold text-brand-dark"
-                >
-                  <FileText className="size-5 shrink-0 text-brand" />
-                  {track}
-                </div>
-              ))}
-            </div>
+          <div className="mt-8 flex items-start gap-3 rounded-xl bg-muted/60 px-5 py-4 text-sm leading-7 text-muted-foreground">
+            <FileText className="mt-0.5 size-5 shrink-0 text-brand" />
+            <p>
+              Detailed camera-ready instructions, the copyright form and
+              presentation guidelines are published on the{" "}
+              <Link
+                href="/authors"
+                className="font-semibold text-brand-dark hover:underline"
+              >
+                For Authors
+              </Link>{" "}
+              page.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Publication */}
-      <section className="container py-16 lg:py-20">
+      <section className="container pb-20 lg:pb-24">
         <div className="rounded-3xl bg-brand-dark p-8 text-white sm:p-10">
           <ShieldCheck className="size-9 text-brand-light" />
           <h2 className="mt-5 text-2xl font-black">Publication Opportunities</h2>
-          <p className="mt-4 max-w-4xl leading-8 text-white/75">{conferenceConfig.publication}</p>
+          <p className="mt-4 max-w-4xl leading-8 text-white/75">
+            {publication.summary}
+          </p>
         </div>
       </section>
     </div>

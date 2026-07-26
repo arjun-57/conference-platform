@@ -1,58 +1,79 @@
-import { committeeSections, conferenceConfig } from "@/config/conference";
+import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/PageHero";
+import { committeeSections, conference, orTBD } from "@/config";
+import type { CommitteeGroup } from "@/config";
 
-function CommitteeGroup({
-  title,
-  members,
-}: {
-  title: string;
-  members: { name: string; role: string }[];
-}) {
+export const metadata: Metadata = {
+  title: "Committee Members",
+  description: `Chief patrons, convener, organizing committee and international advisory committee of ${conference.name}.`,
+};
+
+function MemberGroup({ group }: { group: CommitteeGroup }) {
+  const hasMembers = group.members.length > 0;
+
   return (
-    <div className="space-y-5">
-      <h2 className="text-xl font-bold text-brand-dark border-b border-brand/30 pb-3">
-        {title}
-      </h2>
-      <ul className="grid sm:grid-cols-2 gap-4">
-        {members.map((member, i) => (
-          <li
-            key={`${member.name}-${i}`}
-            className="p-4 rounded-xl bg-white border border-border hover:border-brand/40 transition-colors"
-          >
-            <p className="font-semibold text-brand-dark">{member.name}</p>
-            <p className="text-sm text-muted-foreground mt-1">{member.role}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="space-y-4">
+      <h3 className="border-b border-brand/25 pb-2 text-lg font-bold text-brand-dark">
+        {group.title}
+      </h3>
+
+      {hasMembers && (
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {group.members.map((member, i) => (
+            <li
+              key={`${member.name ?? "pending"}-${i}`}
+              className="rounded-xl border border-border bg-white p-4 transition-colors hover:border-brand/40"
+            >
+              <p className="font-semibold text-brand-dark">
+                {orTBD(member.name)}
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">{member.role}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {/* Unnamed seats are summarised rather than shown as empty cards. */}
+      {group.pending ? (
+        <p className="rounded-xl border border-dashed border-brand/30 bg-muted/40 px-4 py-3 text-sm text-muted-foreground">
+          {group.pending} {group.pending === 1 ? "member" : "members"} to be
+          announced.
+        </p>
+      ) : null}
     </div>
   );
 }
 
 export default function CommitteePage() {
   return (
-    <div className="flex flex-col">
-      <PageHero eyebrow={conferenceConfig.name} title="Organizing Committee" description="Meet the team behind AI-SGE 2027, jointly organized by SRMIST and UNITEN, Malaysia." />
+    <div>
+      <PageHero
+        eyebrow={conference.name}
+        title="Committee Members"
+        description={`Meet the team behind ${conference.name}, jointly organized by SRMIST and UNITEN, Malaysia.`}
+      />
 
-      <section className="container py-16 lg:py-20 space-y-16">
+      <section className="container space-y-16 py-16 lg:py-20">
         {committeeSections.map((section) => (
-          <CommitteeGroup key={section.title} title={section.title} members={section.members} />
-        ))}
+          <div key={section.id} id={section.id} className="scroll-mt-24 space-y-8">
+            <div>
+              <h2 className="text-2xl font-black text-brand-dark sm:text-3xl">
+                {section.title}
+              </h2>
+              {section.description && (
+                <p className="mt-3 max-w-3xl leading-7 text-muted-foreground">
+                  {section.description}
+                </p>
+              )}
+            </div>
 
-        <div className="space-y-6 pt-4">
-          <h2 className="text-2xl font-bold text-brand-dark border-b border-brand/30 pb-3">
-            International Advisory Committee
-          </h2>
-          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {conferenceConfig.advisoryCommittee.map((member) => (
-              <li
-                key={member}
-                className="px-4 py-3 rounded-lg bg-muted/50 text-sm text-brand-dark border border-transparent hover:border-brand/30 transition-colors"
-              >
-                {member}
-              </li>
-            ))}
-          </ul>
-        </div>
+            <div className="space-y-10">
+              {section.groups.map((group) => (
+                <MemberGroup key={group.title} group={group} />
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
     </div>
   );
