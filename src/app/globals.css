@@ -146,6 +146,39 @@
     background-position: center;
     background-size: cover;
   }
+
+  /* Card utility used across all pages */
+  .content-card {
+    background-color: #ffffff;
+    border: 1px solid #c8dfe4;
+    border-radius: 1rem;
+    box-shadow: 0 1px 4px 0 rgba(51, 87, 101, 0.06);
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+  }
+  .content-card:hover {
+    border-color: rgba(116, 168, 164, 0.45);
+    box-shadow: 0 4px 16px 0 rgba(51, 87, 101, 0.1);
+  }
+}
+
+/* News ticker scroll animation */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track {
+  animation: ticker-scroll 32s linear infinite;
+  white-space: nowrap;
+  display: inline-flex;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* Countdown pulse animation */
+@keyframes count-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
 }
 
 @media (min-width: 768px) {

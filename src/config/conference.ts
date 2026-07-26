@@ -9,19 +9,24 @@ export const conferenceConfig = {
   location: "SRM Institute of Science and Technology, Kattankulathur Campus, Chennai, India",
   partner: "Universiti Tenaga Nasional (UNITEN), Malaysia",
   dates: {
-    conference: "18-19 March 2027",
+    /** ISO 8601 — used by the countdown clock */
+    conferenceStartISO: "2027-03-15T09:00:00+05:30",
+    conference: "15–18 March 2027",
+    workshopDates: "13–15 March 2027",
     digestSubmissionStart: "1 September 2026",
     digestSubmissionDeadline: "1 December 2026",
     digestAcceptanceNotification: "15 January 2027",
     cameraReady: "10 February 2027",
     earlyBirdRegistration: "10 February 2027",
+    registrationDeadline: "28 February 2027",
   },
   submission: {
     platform: "Microsoft CMT",
+    portalUrl: "", // Fill in the actual CMT URL when available
     status: "The Microsoft CMT submission link will be published here when submissions open.",
   },
   publication:
-    "All accepted and presented papers will be submitted for publication in IEEE Xplore Digital Library, Springer Lecture Notes in Electrical Engineering (LNEE), or AIP Conference Proceedings, subject to the respective publisher's quality standards and indexing criteria.",
+    "All accepted and presented papers will be submitted for publication in Lecture Notes on Electrical Engineering (Springer). Selected extended versions of high-quality papers will be considered for publication in Scopus-indexed journals post peer-review.",
   features: [
     "Distinguished Keynote Lectures",
     "Technical Paper Presentations",
@@ -38,7 +43,101 @@ export const conferenceConfig = {
   ],
   venueNote:
     "Located near Chennai, one of India's major educational and technological hubs, the SRM IST Kattankulathur campus offers a vibrant academic environment with world-class infrastructure.",
-  contact: { email: "aisge-eee@srmist.edu.in" },
+  contact: {
+    email: "aisge-eee@srmist.edu.in",
+    helpdesk: "aisge-eee@srmist.edu.in", // Update with dedicated helpdesk email if different
+    coordinators: [
+      {
+        name: "[Coordinator Name 1]",
+        designation: "Conference Coordinator",
+        email: "coordinator1@srmist.edu.in",
+        phone: "+91-XXXXX-XXXXX",
+      },
+      {
+        name: "[Coordinator Name 2]",
+        designation: "Conference Coordinator",
+        email: "coordinator2@srmist.edu.in",
+        phone: "+91-XXXXX-XXXXX",
+      },
+    ],
+    convener: {
+      name: "[Convener Name]",
+      designation: "Convener, AI-SGE 2027",
+      email: "convener@srmist.edu.in",
+      phone: "+91-XXXXX-XXXXX",
+    },
+  },
+  registration: {
+    fees: [
+      { category: "Indian – Student (UG/PG)", early: "₹[TBD]", regular: "₹[TBD]" },
+      { category: "Indian – Research Scholar (PhD)", early: "₹[TBD]", regular: "₹[TBD]" },
+      { category: "Indian – Faculty / Academic", early: "₹[TBD]", regular: "₹[TBD]" },
+      { category: "Indian – Industry Professional", early: "₹[TBD]", regular: "₹[TBD]" },
+      { category: "Foreign – Student / Scholar", early: "USD [TBD]", regular: "USD [TBD]" },
+      { category: "Foreign – Faculty / Industry", early: "USD [TBD]", regular: "USD [TBD]" },
+    ],
+    note:
+      "Registration fees are exclusive of 18% GST. Payment link will be shared with accepted authors. Attendee registration (non-presenting) details will be announced separately.",
+    earlyBirdCutoff: "10 February 2027",
+  },
+  program: {
+    workshopNote:
+      "A pre-conference workshop will be conducted from 13–15 March 2027 by eminent professors from UK universities. The workshop focuses on advanced topics in sustainable energy and AI applications.",
+    brochureUrl: "", // Populate with actual PDF URL when available
+    schedule: [
+      {
+        day: "Day 0 – 13 March 2027",
+        label: "Pre-Conference Workshop (Day 1)",
+        sessions: ["Workshop Session — Morning", "Workshop Session — Afternoon"],
+      },
+      {
+        day: "Day 0 – 14 March 2027",
+        label: "Pre-Conference Workshop (Day 2)",
+        sessions: ["Workshop Session — Morning", "Workshop Session — Afternoon"],
+      },
+      {
+        day: "Day 0 – 15 March 2027",
+        label: "Pre-Conference Workshop (Day 3) & Inauguration",
+        sessions: ["Workshop Session — Morning", "Inaugural Ceremony — Afternoon"],
+      },
+      {
+        day: "Day 1 – 16 March 2027",
+        label: "Technical Sessions",
+        sessions: [
+          "Keynote Address 1",
+          "Technical Session I — Power Electronics & Energy Conversion",
+          "Technical Session II — Renewable Energy Systems",
+        ],
+      },
+      {
+        day: "Day 2 – 17 March 2027",
+        label: "Technical Sessions",
+        sessions: [
+          "Keynote Address 2",
+          "Technical Session III — Electric Vehicles & Electrified Transportation",
+          "Technical Session IV — AI in Energy Systems",
+        ],
+      },
+      {
+        day: "Day 3 – 18 March 2027",
+        label: "Closing Day",
+        sessions: [
+          "Technical Session V — Smart Grid & Energy Storage",
+          "Panel Discussion",
+          "Valedictory Ceremony & Award Distribution",
+        ],
+      },
+    ],
+  },
+  newsTicker: [
+    "🎉 AI-SGE 2027 — 1st International Conference organized by SRM IST & UNITEN Malaysia",
+    "📅 Conference Dates: 15–18 March 2027 | Pre-Conference Workshop: 13–15 March 2027",
+    "📝 Paper Submission Open — Submit via Microsoft CMT",
+    "📖 Accepted papers to be published in Springer LNEE (Scopus / ESCI indexed)",
+    "🌍 Selected papers invited for Scopus-indexed journal publication post peer-review",
+    "🗓️ Abstract Submission Deadline: 1 December 2026",
+    "📍 Venue: SRM IST Kattankulathur Campus, Chennai, India",
+  ],
   organizingCommittee: {
     patrons: [
       { name: "Dr. T. R. Paarivendhar", role: "Chancellor, SRMIST" },
