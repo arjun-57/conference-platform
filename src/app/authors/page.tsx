@@ -24,8 +24,8 @@ const cameraReadySteps = [
   "Check that all references are complete and correctly formatted.",
   "Verify author names, affiliations and email addresses — these cannot be changed after submission.",
   "Run a final plagiarism check; the similarity score must be below 30%.",
-  "Submit the camera-ready paper and source files through Microsoft CMT before the deadline.",
-  "Complete the copyright transfer form and submit it via Microsoft CMT.",
+  "Submit the camera-ready paper and source files through Morressier (https://www.morressier.com) before the deadline.",
+  "Complete the copyright transfer form and submit it via Morressier (https://www.morressier.com).",
 ];
 
 const formattingChecklist = [
@@ -115,7 +115,7 @@ export default function AuthorsPage() {
                 {submission.platform} after acceptance.
               </p>
               <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-muted px-5 py-2.5 text-sm font-bold text-muted-foreground">
-                <Download className="size-4" /> Available via CMT after
+                <Download className="size-4" /> Available via Morressier after
                 acceptance
               </span>
             </div>
@@ -215,11 +215,11 @@ export default function AuthorsPage() {
               rel="noopener noreferrer"
               className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand-light px-7 py-3 font-bold text-brand-dark transition-colors hover:bg-white"
             >
-              Open CMT Portal <ExternalLink className="size-4" />
+              Open Morressier Portal <ExternalLink className="size-4" />
             </a>
           ) : (
             <span className="mt-7 inline-flex rounded-full bg-white/10 px-7 py-3 font-bold text-white/50">
-              CMT Link — Coming Soon
+              Morressier Link — Coming Soon
             </span>
           )}
         </div>

@@ -163,7 +163,7 @@ export default function AboutPage() {
           <div>
             <SectionHeading eyebrow="Plan ahead" title="Important Deadlines" />
             <p className="mt-5 leading-7 text-muted-foreground">
-              Submission and review are managed through Microsoft CMT.
+              Submission and review are managed through Morressier (https://www.morressier.com).
               Registration and payment information will be shared after paper
               acceptance.
             </p>

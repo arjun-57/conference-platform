@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
 import {
@@ -21,24 +20,14 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-brand/15 bg-white/95 shadow-sm backdrop-blur">
-      <div className="container flex h-24 items-center justify-between gap-4 py-3 sm:h-28">
-        <Link href="/" className="flex items-center gap-4 min-w-0 shrink-0">
-          <Image
-            src="/images/logo.jpeg"
-            alt={`${conference.name} Logo`}
-            width={120}
-            height={120}
-            className="h-20 w-auto object-contain sm:h-24 lg:h-26"
-            priority
-          />
-          <div>
-            <span className="block text-xl font-black tracking-tight text-brand-dark sm:text-2xl">
-              {conference.name}
-            </span>
-            <span className="hidden truncate text-xs font-medium text-brand-dark/70 sm:block">
-              AI and Sustainable Green Energy
-            </span>
-          </div>
+      <div className="container flex h-18 items-center justify-between gap-4">
+        <Link href="/" className="min-w-0 shrink-0">
+          <span className="block text-xl font-black tracking-tight text-brand-dark">
+            {conference.name}
+          </span>
+          <span className="hidden truncate text-xs text-muted-foreground sm:block">
+            AI and Sustainable Green Energy
+          </span>
         </Link>
 
         {/* Desktop navigation */}
@@ -78,22 +67,13 @@ export function Navbar() {
           >
             <SheetTitle className="sr-only">Navigation menu</SheetTitle>
             <div className="border-b border-brand/15 px-6 py-4">
-              <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
-                <Image
-                  src="/images/logo.jpeg"
-                  alt={`${conference.name} Logo`}
-                  width={90}
-                  height={90}
-                  className="h-16 w-auto object-contain"
-                />
-                <div>
-                  <span className="block font-bold text-brand-dark">
-                    {conference.name}
-                  </span>
-                  <span className="text-xs text-muted-foreground">
-                    March 2027 · Chennai
-                  </span>
-                </div>
+              <Link href="/" onClick={() => setIsOpen(false)}>
+                <span className="block font-bold text-brand-dark">
+                  {conference.name}
+                </span>
+                <span className="text-xs text-muted-foreground">
+                  March 2027 · Chennai
+                </span>
               </Link>
             </div>
             <nav className="flex flex-col gap-1 p-4">

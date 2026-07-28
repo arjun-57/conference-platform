@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
   ArrowRight,
   BookOpen,
@@ -36,7 +35,7 @@ const quickAccess = [
     title: "Submission Portal",
     subtitle: submission.platform,
     description:
-      "Submit your research paper through the official Microsoft CMT portal.",
+      "Submit your research paper through the official Morressier portal (https://www.morressier.com).",
     href: submission.portalUrl || "/cfp",
     label: isSubmissionOpen ? "Submit Now" : "Coming Soon",
     external: isSubmissionOpen,
@@ -156,9 +155,8 @@ export default function HomePage() {
           {quickAccess.map((card) => (
             <article
               key={card.title}
-              className={`content-card flex flex-col items-center p-8 text-center ${
-                card.disabled ? "opacity-70" : ""
-              }`}
+              className={`content-card flex flex-col items-center p-8 text-center ${card.disabled ? "opacity-70" : ""
+                }`}
             >
               <div className="flex size-14 items-center justify-center rounded-2xl bg-brand-dark text-white">
                 <card.icon className="size-7" />
@@ -204,14 +202,8 @@ export default function HomePage() {
         <div className="container">
           <div className="mx-auto max-w-4xl">
             <div className="content-card grid gap-6 p-8 md:grid-cols-[auto_1fr] md:p-10">
-              <div className="flex shrink-0 items-center justify-center">
-                <Image
-                  src="/images/springer-logo.png"
-                  alt="Springer Logo"
-                  width={240}
-                  height={96}
-                  className="h-20 w-auto object-contain sm:h-24 md:h-28"
-                />
+              <div className="flex size-14 items-center justify-center rounded-2xl bg-brand-dark text-white">
+                <ShieldCheck className="size-7" />
               </div>
               <div>
                 <p className="text-sm font-bold uppercase tracking-widest text-brand">

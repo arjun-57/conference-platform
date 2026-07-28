@@ -11,7 +11,7 @@ Malaysia.
 - Conference information, author instructions, committee, programme, venue,
   registration and sponsorship details are published here.
 - Digest submission, review, decisions and camera-ready upload are handled in
-  **Microsoft CMT**. The site links to the portal; it does not replicate it.
+  **Morressier** (https://www.morressier.com). The site links to the portal; it does not replicate it.
 - Registration and payment open only after paper acceptance.
 
 ## Site structure
@@ -39,7 +39,7 @@ office address and coordinator contacts.
 
 | File | Contains |
 |---|---|
-| `conference.ts` | Name, description, tracks, publication, news ticker, CMT link |
+| `conference.ts` | Name, description, tracks, publication, news ticker, Morressier portal link |
 | `dates.ts` | Milestone timestamps (drives the countdown) and the deadline table |
 | `contact.ts` | Help-desk email, coordinators, convener, venue address |
 | `committee.ts` | All committee groups |
@@ -61,9 +61,11 @@ Both folders are scanned at build time, so redeploy after adding files.
 
 ### The countdown
 
-The home-page clock counts down to the conference start date (15th March 2027).
-During 15–18 March 2027 it switches to a live "Day N of 4" display, and afterwards
-to a closing message. All timestamps are absolute IST, so it is correct for
+The home-page clock counts down to the next milestone in `dates.ts` and rolls
+forward automatically as each passes: submissions open → submission deadline →
+acceptance → camera-ready → registration close → workshop → conference. During
+15–18 March 2027 it switches to a live "Day N of 4" display, and afterwards to
+a closing message. All timestamps are absolute IST, so it is correct for
 visitors in any timezone.
 
 ## Development

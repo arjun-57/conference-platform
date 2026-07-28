@@ -21,27 +21,21 @@ export const conference = {
 } as const;
 
 /**
- * ── MICROSOFT CMT ───────────────────────────────────────────────────────────
- * CMT has no public API or embeddable widget, so "integration" here means a
- * single configured redirect used by every submission call-to-action on the
- * site (home page icon, Call for Papers, For Authors).
- *
- * Leave `portalUrl` empty and all of those automatically render a disabled
- * "Coming Soon" state. Fill it in and they all become live links at once.
+ * ── MORRESSIER PORTAL ───────────────────────────────────────────────────────
+ * Submission portal configured for the conference.
  * ────────────────────────────────────────────────────────────────────────────
  */
 export const submission = {
-  platform: "Microsoft CMT",
-  /** TODO(organisers): paste the CMT portal URL here when the site is created. */
-  portalUrl: "",
+  platform: "Morressier",
+  portalUrl: "https://www.morressier.com",
   status:
-    "The Microsoft CMT submission link will be published here when submissions open.",
+    "Paper submissions and review are managed through Morressier (https://www.morressier.com).",
   /** Official Springer LNEE manuscript preparation guidelines. */
   templateUrl:
     "https://www.springer.com/gp/authors-editors/book-authors-editors/manuscript-preparation/5636",
 } as const;
 
-/** True when the CMT portal is live. Drives every submission button's state. */
+/** True when the submission portal is live. Drives every submission button's state. */
 export const isSubmissionOpen = Boolean(submission.portalUrl);
 
 export const publication = {
@@ -79,7 +73,7 @@ export const objectives = [
 export const newsTicker = [
   "🎉 AI-SGE 2027 — 1st International Conference organized by SRM IST & UNITEN Malaysia",
   "📅 Conference Dates: 15–18 March 2027 | Pre-Conference Workshop: 13–15 March 2027",
-  "📝 Paper Submission via Microsoft CMT — link announced soon",
+  "📝 Paper Submission via Morressier (https://www.morressier.com)",
   "📖 Accepted papers to be published in Springer LNEE (Scopus / ESCI indexed)",
   "🌍 Selected papers invited for Scopus-indexed journal publication post peer-review",
   "🗓️ Digest Submission Deadline: 1 December 2026",
