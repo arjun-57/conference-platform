@@ -1,23 +1,13 @@
 "use client";
 
 import * as React from "react";
-import { conferenceWindow, milestones } from "@/config";
+import { conferenceWindow } from "@/config";
 
 const MS_PER_DAY = 86_400_000;
 
 const CONFERENCE_START = new Date(conferenceWindow.startISO).getTime();
 const CONFERENCE_END = new Date(conferenceWindow.endISO).getTime();
 const DAY_ONE_MIDNIGHT = new Date(conferenceWindow.dayOneMidnightISO).getTime();
-
-/**
- * Milestones resolved to absolute epoch times once, at module load.
- * Because the config stores explicit +05:30 timestamps, these are correct for
- * a visitor in any timezone.
- */
-const TIMELINE = milestones.map((milestone) => ({
-  ...milestone,
-  time: new Date(milestone.iso).getTime(),
-}));
 
 type Phase =
   | { kind: "upcoming"; label: string; parts: [number, number, number, number] }
@@ -33,14 +23,10 @@ function resolvePhase(now: number): Phase {
     return { kind: "live", day };
   }
 
-  // First milestone still in the future. The chain rolls forward on its own.
-  const next = TIMELINE.find((milestone) => milestone.time > now);
-  if (!next) return { kind: "live", day: 1 };
-
-  const diff = next.time - now;
+  const diff = Math.max(0, CONFERENCE_START - now);
   return {
     kind: "upcoming",
-    label: next.label,
+    label: "Conference begins in",
     parts: [
       Math.floor(diff / MS_PER_DAY),
       Math.floor(diff / 3_600_000) % 24,

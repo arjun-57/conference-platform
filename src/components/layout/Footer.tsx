@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, LifeBuoy, Mail, MapPin, Phone } from "lucide-react";
 import {
   conference,
@@ -28,7 +29,16 @@ export function Footer() {
       <div className="container grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         {/* Branding */}
         <div className="space-y-4">
-          <h2 className="text-xl font-bold text-brand-light">{conference.name}</h2>
+          <div className="flex items-center gap-3">
+            <Image
+              src="/images/logo.jpeg"
+              alt={`${conference.name} Logo`}
+              width={64}
+              height={64}
+              className="h-12 w-auto object-contain"
+            />
+            <h2 className="text-xl font-bold text-brand-light">{conference.name}</h2>
+          </div>
           <p className="text-sm leading-relaxed text-white/70">
             {conference.fullName}
           </p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   CheckCircle2,
   Download,
@@ -174,12 +175,22 @@ export default function CallForPapersPage() {
 
       {/* Publication */}
       <section className="container pb-20 lg:pb-24">
-        <div className="rounded-3xl bg-brand-dark p-8 text-white sm:p-10">
-          <ShieldCheck className="size-9 text-brand-light" />
-          <h2 className="mt-5 text-2xl font-black">Publication Opportunities</h2>
-          <p className="mt-4 max-w-4xl leading-8 text-white/75">
-            {publication.summary}
-          </p>
+        <div className="flex flex-col items-start gap-6 rounded-3xl bg-brand-dark p-8 text-white sm:p-10 md:flex-row md:items-center">
+          <div className="flex shrink-0 items-center justify-center rounded-2xl bg-white p-3 shadow-md">
+            <Image
+              src="/images/springer-logo.png"
+              alt="Springer Logo"
+              width={240}
+              height={96}
+              className="h-20 w-auto object-contain sm:h-24 md:h-28"
+            />
+          </div>
+          <div>
+            <h2 className="text-2xl font-black">{publication.headline}</h2>
+            <p className="mt-2 max-w-4xl leading-8 text-white/75">
+              {publication.summary}
+            </p>
+          </div>
         </div>
       </section>
     </div>

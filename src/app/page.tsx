@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   BookOpen,
@@ -203,8 +204,14 @@ export default function HomePage() {
         <div className="container">
           <div className="mx-auto max-w-4xl">
             <div className="content-card grid gap-6 p-8 md:grid-cols-[auto_1fr] md:p-10">
-              <div className="flex size-14 items-center justify-center rounded-2xl bg-brand-dark text-white">
-                <ShieldCheck className="size-7" />
+              <div className="flex shrink-0 items-center justify-center">
+                <Image
+                  src="/images/springer-logo.png"
+                  alt="Springer Logo"
+                  width={240}
+                  height={96}
+                  className="h-20 w-auto object-contain sm:h-24 md:h-28"
+                />
               </div>
               <div>
                 <p className="text-sm font-bold uppercase tracking-widest text-brand">
