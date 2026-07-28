@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -6,7 +7,6 @@ import {
   ExternalLink,
   FileText,
   MapPin,
-  ShieldCheck,
   UserCheck,
   Users,
   Zap,
@@ -35,7 +35,7 @@ const quickAccess = [
     title: "Submission Portal",
     subtitle: submission.platform,
     description:
-      "Submit your research paper through the official Morressier portal (https://www.morressier.com).",
+      "Submit your research paper through the official Morressier portal.",
     href: submission.portalUrl || "/cfp",
     label: isSubmissionOpen ? "Submit Now" : "Coming Soon",
     external: isSubmissionOpen,
@@ -202,8 +202,14 @@ export default function HomePage() {
         <div className="container">
           <div className="mx-auto max-w-4xl">
             <div className="content-card grid gap-6 p-8 md:grid-cols-[auto_1fr] md:p-10">
-              <div className="flex size-14 items-center justify-center rounded-2xl bg-brand-dark text-white">
-                <ShieldCheck className="size-7" />
+              <div className="flex items-center justify-center rounded-2xl bg-white p-2">
+                <Image
+                  src="/images/springer-logo.png"
+                  alt="Springer logo"
+                  width={140}
+                  height={140}
+                  className="h-20 w-auto object-contain"
+                />
               </div>
               <div>
                 <p className="text-sm font-bold uppercase tracking-widest text-brand">

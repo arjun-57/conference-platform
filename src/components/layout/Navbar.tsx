@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -20,14 +21,24 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-brand/15 bg-white/95 shadow-sm backdrop-blur">
-      <div className="container flex h-18 items-center justify-between gap-4">
-        <Link href="/" className="min-w-0 shrink-0">
-          <span className="block text-xl font-black tracking-tight text-brand-dark">
-            {conference.name}
-          </span>
-          <span className="hidden truncate text-xs text-muted-foreground sm:block">
-            AI and Sustainable Green Energy
-          </span>
+      <div className="container flex min-h-24 items-center justify-between gap-4 py-3">
+        <Link href="/" className="flex min-w-0 shrink-0 items-center gap-3">
+          <Image
+            src="/images/logo.jpeg"
+            alt={`${conference.name} logo`}
+            width={120}
+            height={120}
+            className="h-20 w-auto rounded-md object-contain sm:h-24"
+            priority
+          />
+          <div className="min-w-0">
+            <span className="block text-2xl font-black tracking-tight text-brand-dark">
+              {conference.name}
+            </span>
+            <span className="hidden truncate text-sm text-muted-foreground sm:block">
+              AI and Sustainable Green Energy
+            </span>
+          </div>
         </Link>
 
         {/* Desktop navigation */}
@@ -38,7 +49,7 @@ export function Navbar() {
               href={item.href}
               aria-current={pathname === item.href ? "page" : undefined}
               className={cn(
-                "rounded-lg px-2 py-2 text-[0.78rem] font-medium whitespace-nowrap text-brand-dark/75 transition-colors hover:bg-brand-light/35 hover:text-brand-dark",
+                "rounded-lg px-2 py-2 text-[0.95rem] font-medium whitespace-nowrap text-brand-dark/75 transition-colors hover:bg-brand-light/35 hover:text-brand-dark",
                 pathname === item.href && "bg-brand-light/45 text-brand-dark"
               )}
             >

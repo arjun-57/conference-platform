@@ -21,7 +21,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Call for Papers",
-  description: `Call for papers for ${conference.name}. Conference tracks, submission guidelines, Springer LNEE template and the Morressier submission portal (https://www.morressier.com).`,
+  description: `Call for papers for ${conference.name}. Conference tracks, submission guidelines, Springer LNEE template and the Morressier submission portal.`,
 };
 
 const guidelines = [
@@ -52,7 +52,7 @@ export default function CallForPapersPage() {
             title="Submissions and review through Morressier"
           />
           <p className="mt-5 text-lg leading-8 text-muted-foreground">
-            {submission.platform} (https://www.morressier.com) manages digest submission, reviewer
+            {submission.platform} manages digest submission, reviewer
             communication, decisions and camera-ready uploads.
           </p>
 
@@ -65,20 +65,9 @@ export default function CallForPapersPage() {
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
               {submission.status}
             </p>
-            {isSubmissionOpen ? (
-              <a
-                href={submission.portalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 rounded-full bg-brand-dark px-6 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand"
-              >
-                Submit Paper <ExternalLink className="size-4" />
-              </a>
-            ) : (
-              <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-muted px-6 py-2.5 text-sm font-bold text-muted-foreground">
-                Portal link — Coming Soon
-              </span>
-            )}
+            <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-muted px-6 py-2.5 text-sm font-bold text-muted-foreground">
+              Coming Soon
+            </span>
           </div>
 
           {/* Template */}

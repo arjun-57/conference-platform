@@ -24,8 +24,8 @@ const cameraReadySteps = [
   "Check that all references are complete and correctly formatted.",
   "Verify author names, affiliations and email addresses — these cannot be changed after submission.",
   "Run a final plagiarism check; the similarity score must be below 30%.",
-  "Submit the camera-ready paper and source files through Morressier (https://www.morressier.com) before the deadline.",
-  "Complete the copyright transfer form and submit it via Morressier (https://www.morressier.com).",
+  "Submit the camera-ready paper and source files through Morressier before the deadline.",
+  "Complete the copyright transfer form and submit it via Morressier.",
 ];
 
 const formattingChecklist = [

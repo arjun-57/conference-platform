@@ -29,7 +29,7 @@ export const submission = {
   platform: "Morressier",
   portalUrl: "https://www.morressier.com",
   status:
-    "Paper submissions and review are managed through Morressier (https://www.morressier.com).",
+    "Paper submissions and review are managed through Morressier.",
   /** Official Springer LNEE manuscript preparation guidelines. */
   templateUrl:
     "https://www.springer.com/gp/authors-editors/book-authors-editors/manuscript-preparation/5636",
@@ -73,7 +73,7 @@ export const objectives = [
 export const newsTicker = [
   "🎉 AI-SGE 2027 — 1st International Conference organized by SRM IST & UNITEN Malaysia",
   "📅 Conference Dates: 15–18 March 2027 | Pre-Conference Workshop: 13–15 March 2027",
-  "📝 Paper Submission via Morressier (https://www.morressier.com)",
+  "📝 Paper Submission via Morressier",
   "📖 Accepted papers to be published in Springer LNEE (Scopus / ESCI indexed)",
   "🌍 Selected papers invited for Scopus-indexed journal publication post peer-review",
   "🗓️ Digest Submission Deadline: 1 December 2026",
