@@ -13,11 +13,16 @@ export const conference = {
     "AI-SGE 2027 brings together researchers, academicians, and industry professionals from across the world to exchange ideas and present innovations in artificial intelligence, sustainable energy technologies, and future electrification systems.",
   host: "SRM Institute of Science and Technology",
   location:
-    "SRM Institute of Science and Technology, Kattankulathur Campus, Chennai, India",
-  locationShort: "SRM IST Kattankulathur, Chennai",
-  partner: "Universiti Tenaga Nasional (UNITEN), Malaysia",
+    "SRM Tech Park, SRM Institute of Science and Technology, Kattankulathur Campus, Chennai, India",
+  locationShort: "SRM Tech Park, SRM IST Kattankulathur, Chennai",
+  partner:
+    "Universiti Tenaga Nasional (UNITEN), Malaysia & Prince Mohammad Bin Fahd University (PMU), Saudi Arabia",
+  partners: [
+    "Universiti Tenaga Nasional (UNITEN), Malaysia",
+    "Prince Mohammad Bin Fahd University (PMU), Saudi Arabia",
+  ],
   venueNote:
-    "Located near Chennai, one of India's major educational and technological hubs, the SRM IST Kattankulathur campus offers a vibrant academic environment with world-class infrastructure.",
+    "Hosted at SRM Tech Park within the SRM IST Kattankulathur campus near Chennai, one of India's major educational and technological hubs, offering a vibrant academic environment with world-class infrastructure.",
 } as const;
 
 /**
@@ -26,10 +31,10 @@ export const conference = {
  * ────────────────────────────────────────────────────────────────────────────
  */
 export const submission = {
-  platform: "Morressier",
-  portalUrl: "https://www.morressier.com",
+  platform: "Microsoft CMT",
+  portalUrl: "",
   status:
-    "Paper submissions and review are managed through Morressier.",
+    "Paper submissions and peer review are managed through Microsoft CMT. The official portal link will be available soon.",
   /** Official Springer LNEE manuscript preparation guidelines. */
   templateUrl:
     "https://www.springer.com/gp/authors-editors/book-authors-editors/manuscript-preparation/5636",
@@ -71,11 +76,11 @@ export const objectives = [
 
 /** Scrolling announcement strip on the home page. */
 export const newsTicker = [
-  "🎉 AI-SGE 2027 — 1st International Conference organized by SRM IST & UNITEN Malaysia",
+  "🎉 AI-SGE 2027 — 1st International Conference organized by SRM IST, UNITEN Malaysia & PMU Saudi Arabia",
   "📅 Conference Dates: 15–18 March 2027 | Pre-Conference Workshop: 13–15 March 2027",
-  "📝 Paper Submission via Morressier",
+  "📝 Paper Submission via Microsoft CMT (Link Coming Soon)",
   "📖 Accepted papers to be published in Springer LNEE (Scopus / ESCI indexed)",
   "🌍 Selected papers invited for Scopus-indexed journal publication post peer-review",
   "🗓️ Digest Submission Deadline: 1 December 2026",
-  "📍 Venue: SRM IST Kattankulathur Campus, Chennai, India",
+  "📍 Venue: SRM Tech Park, SRM IST Kattankulathur Campus, Chennai, India",
 ] as const;

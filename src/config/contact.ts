@@ -44,13 +44,14 @@ export const contact = {
   } satisfies Person,
 
   address: {
+    venue: "SRM Tech Park",
     institution: "SRM Institute of Science and Technology",
     lines: [
-      "Kattankulathur, Chengalpattu District",
-      "Tamil Nadu – 603203, India",
+      "SRM Tech Park, Kattankulathur Campus",
+      "Chengalpattu District, Tamil Nadu – 603203, India",
     ],
     /** Used by the Google Maps links and embeds. */
-    mapsQuery: "SRM Institute of Science and Technology Kattankulathur",
+    mapsQuery: "SRM Tech Park, SRM Institute of Science and Technology, Kattankulathur",
   },
 } as const;
 

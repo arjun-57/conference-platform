@@ -30,6 +30,8 @@ export const metadata: Metadata = {
     "smart grid",
     "SRM Institute of Science and Technology",
     "UNITEN Malaysia",
+    "Prince Mohammad Bin Fahd University",
+    "PMU Saudi Arabia",
     "Chennai",
   ],
   authors: [{ name: conference.host }],

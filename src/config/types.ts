@@ -80,6 +80,7 @@ export type Hotel = {
   name: string | null;
   distance: string | null;
   price: string | null;
+  url?: string | null;
 };
 
 export type ScheduleDay = {

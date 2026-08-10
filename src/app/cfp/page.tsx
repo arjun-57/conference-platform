@@ -21,7 +21,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Call for Papers",
-  description: `Call for papers for ${conference.name}. Conference tracks, submission guidelines, Springer LNEE template and the Morressier submission portal.`,
+  description: `Call for papers for ${conference.name}. Conference tracks, submission guidelines, Springer LNEE template and the Microsoft CMT submission portal.`,
 };
 
 const guidelines = [
@@ -49,7 +49,7 @@ export default function CallForPapersPage() {
         <div>
           <SectionHeading
             eyebrow="Submission workflow"
-            title="Submissions and review through Morressier"
+            title="Submissions and review through Microsoft CMT"
           />
           <p className="mt-5 text-lg leading-8 text-muted-foreground">
             {submission.platform} manages digest submission, reviewer

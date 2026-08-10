@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Building2, GraduationCap, Handshake, Target, Zap } from "lucide-react";
+import { Building2, GraduationCap, Handshake, Landmark, Target, Zap } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { DeadlinesTable } from "@/components/sections/DeadlinesTable";
@@ -7,7 +7,7 @@ import { conference, conferenceWindow, objectives } from "@/config";
 
 export const metadata: Metadata = {
   title: "About the Conference",
-  description: `About ${conference.name} — a joint international conference by ${conference.host} and ${conference.partner} on AI and sustainable green energy technologies.`,
+  description: `About ${conference.name} — a joint international conference by ${conference.host} and key partner universities on AI and sustainable green energy technologies.`,
 };
 
 const profiles = [
@@ -33,6 +33,14 @@ const profiles = [
     paragraphs: [
       "Universiti Tenaga Nasional is a premier institution specializing in engineering, energy, and technology education. The university is known for excellence in power engineering, smart grids, renewable energy systems, and sustainable technologies.",
       "Its modern infrastructure, advanced research facilities, strong industry linkages, and global collaborations make UNITEN a valuable partner in promoting sustainable and intelligent energy solutions.",
+    ],
+  },
+  {
+    icon: Landmark,
+    title: "Prince Mohammad Bin Fahd University (PMU), Saudi Arabia",
+    paragraphs: [
+      "Prince Mohammad Bin Fahd University (PMU) is a premier private higher education institution located in Al Khobar, Kingdom of Saudi Arabia, renowned for its innovative academic programs, state-of-the-art infrastructure, and commitment to research excellence.",
+      "PMU actively fosters global research partnerships in engineering, artificial intelligence, renewable energy, and sustainable technologies, playing a key role in advancing future electrification and international academic collaboration.",
     ],
   },
 ];
@@ -86,8 +94,8 @@ export default function AboutPage() {
               <strong className="text-brand-dark">{conference.partner}</strong>.
             </p>
             <p className="mt-4 leading-7 text-muted-foreground">
-              This collaboration combines the academic strengths of two leading
-              institutions across India and Malaysia to advance research in AI
+              This collaboration combines the academic strengths of leading
+              institutions across India, Malaysia, and Saudi Arabia to advance research in AI
               and sustainable energy technologies.
             </p>
           </aside>
@@ -163,7 +171,7 @@ export default function AboutPage() {
           <div>
             <SectionHeading eyebrow="Plan ahead" title="Important Deadlines" />
             <p className="mt-5 leading-7 text-muted-foreground">
-              Submission and review are managed through Morressier.
+              Submission and review are managed through Microsoft CMT.
               Registration and payment information will be shared after paper
               acceptance.
             </p>

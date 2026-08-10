@@ -5,6 +5,7 @@ import {
   Bus,
   CheckCircle2,
   CreditCard,
+  ExternalLink,
   Hotel,
   Info,
   Mail,
@@ -146,15 +147,29 @@ export default function RegistrationPage() {
                     .map((hotel) => (
                       <div
                         key={hotel.name}
-                        className="rounded-xl border border-brand/15 bg-white p-5 shadow-sm"
+                        className="flex flex-col justify-between rounded-xl border border-brand/15 bg-white p-5 shadow-sm transition-all hover:border-brand/30 hover:shadow-md"
                       >
-                        <p className="font-bold text-brand-dark">{hotel.name}</p>
-                        <p className="mt-1 text-sm text-muted-foreground">
-                          {orTBD(hotel.distance)}
-                        </p>
-                        <p className="mt-1 text-sm font-semibold text-brand">
-                          {orTBD(hotel.price)}
-                        </p>
+                        <div>
+                          <p className="font-bold text-brand-dark">{hotel.name}</p>
+                          <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+                            <MapPin className="size-4 shrink-0 text-brand" />
+                            <span>{orTBD(hotel.distance)}</span>
+                          </p>
+                          <p className="mt-1 flex items-center gap-2 text-sm font-semibold text-brand">
+                            <CreditCard className="size-4 shrink-0 text-brand" />
+                            <span>{orTBD(hotel.price)}</span>
+                          </p>
+                        </div>
+                        {hotel.url && (
+                          <a
+                            href={hotel.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-brand transition-colors hover:text-brand-dark hover:underline"
+                          >
+                            View Location / Details <ExternalLink className="size-3.5" />
+                          </a>
+                        )}
                       </div>
                     ))}
                 </div>

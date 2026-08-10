@@ -11,7 +11,7 @@ Malaysia.
 - Conference information, author instructions, committee, programme, venue,
   registration and sponsorship details are published here.
 - Digest submission, review, decisions and camera-ready upload are handled in
-  **Morressier** (https://www.morressier.com). The site links to the portal; it does not replicate it.
+  **Microsoft CMT**. The site links to the portal; it does not replicate it.
 - Registration and payment open only after paper acceptance.
 
 ## Site structure
@@ -39,7 +39,7 @@ office address and coordinator contacts.
 
 | File | Contains |
 |---|---|
-| `conference.ts` | Name, description, tracks, publication, news ticker, Morressier portal link |
+| `conference.ts` | Name, description, tracks, publication, news ticker, Microsoft CMT portal link |
 | `dates.ts` | Milestone timestamps (drives the countdown) and the deadline table |
 | `contact.ts` | Help-desk email, coordinators, convener, venue address |
 | `committee.ts` | All committee groups |

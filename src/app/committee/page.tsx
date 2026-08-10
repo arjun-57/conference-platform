@@ -50,7 +50,7 @@ export default function CommitteePage() {
       <PageHero
         eyebrow={conference.name}
         title="Committee Members"
-        description={`Meet the team behind ${conference.name}, jointly organized by SRMIST and UNITEN, Malaysia.`}
+        description={`Meet the team behind ${conference.name}, jointly organized by SRMIST, UNITEN (Malaysia), and PMU (Saudi Arabia).`}
       />
 
       <section className="container space-y-16 py-16 lg:py-20">

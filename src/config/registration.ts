@@ -31,12 +31,38 @@ export const registration = {
  */
 export const accommodation = {
   intro:
-    "A range of hotels and guesthouses are available near Kattankulathur, Guduvanchery and Chengalpattu, as well as in Chennai city for those preferring a city stay. Recommended accommodation partners and group-booking rates will be announced closer to the conference.",
+    "A range of hotels and guesthouses are available near SRM Tech Park (Kattankulathur), Guduvanchery, Maraimalai Nagar, and Chengalpattu, as well as in Chennai city. Indicative tariff and distance from the conference venue are listed below:",
   hotels: [
-    { name: null, distance: null, price: null },
-    { name: null, distance: null, price: null },
-    { name: null, distance: null, price: null },
-    { name: null, distance: null, price: null },
+    {
+      name: "SRM Hotel (Kattankulathur Campus)",
+      distance: "On-Campus (~0.5 km from SRM Tech Park)",
+      price: "₹3,500 – ₹5,000 / night",
+      url: "https://www.google.com/maps/search/?api=1&query=SRM+Hotel+Kattankulathur",
+    },
+    {
+      name: "Hotel Highway Grand (Guduvanchery)",
+      distance: "~4 km from SRM Tech Park",
+      price: "₹2,200 – ₹3,500 / night",
+      url: "https://www.google.com/maps/search/?api=1&query=Hotel+Highway+Grand+Guduvanchery",
+    },
+    {
+      name: "Fortune Select Grand (Maraimalai Nagar)",
+      distance: "~6 km from SRM Tech Park",
+      price: "₹4,500 – ₹6,500 / night",
+      url: "https://www.google.com/maps/search/?api=1&query=Fortune+Select+Grand+Maraimalai+Nagar",
+    },
+    {
+      name: "Fairfield by Marriott (Mahindra World City)",
+      distance: "~12 km from SRM Tech Park",
+      price: "₹5,000 – ₹7,500 / night",
+      url: "https://www.google.com/maps/search/?api=1&query=Fairfield+by+Marriott+Chennai+Mahindra+World+City",
+    },
+    {
+      name: "Budget Stays & Guest Houses (Potheri / Guduvanchery)",
+      distance: "~1 – 3 km from SRM Tech Park",
+      price: "₹1,200 – ₹2,500 / night",
+      url: "https://www.google.com/maps/search/?api=1&query=Hotels+Guesthouses+near+SRM+Kattankulathur",
+    },
   ] satisfies Hotel[],
 } as const;
 

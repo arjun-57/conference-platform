@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   description: `${conference.name} will be held at ${conference.location}. Address, campus map and directions by air, rail and road.`,
 };
 
-/** Google Maps place embed for the Kattankulathur campus. */
+/** Google Maps place embed for SRM Tech Park, Kattankulathur campus. */
 const MAP_EMBED_SRC =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.052186614263!2d80.04163767507576!3d12.823112687440878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f712b82a78b9%3A0x6b1bc38c42504af6!2sSRM%20Institute%20of%20Science%20and%20Technology!5e0!3m2!1sen!2sin!4v1720000000000!5m2!1sen!2sin";
+  "https://maps.google.com/maps?q=SRM+Tech+Park,+SRM+Institute+of+Science+and+Technology,+Kattankulathur&t=&z=16&ie=UTF8&iwloc=&output=embed";
 
-const MAPS_LINK = `https://maps.google.com/?q=${encodeURIComponent(
+const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   contact.address.mapsQuery
 )}`;
 
@@ -41,7 +41,7 @@ export default function VenuePage() {
           <div>
             <SectionHeading
               eyebrow="About the Venue"
-              title="SRM IST, Kattankulathur Campus"
+              title="SRM Tech Park, Kattankulathur Campus"
             />
             <p className="mt-5 text-lg leading-8 text-muted-foreground">
               {conference.venueNote}
@@ -56,6 +56,9 @@ export default function VenuePage() {
               <div>
                 <h2 className="font-black text-brand-dark">Venue Address</h2>
                 <address className="mt-2 text-sm not-italic leading-7 text-muted-foreground">
+                  <strong className="block text-base font-bold text-brand-dark">
+                    {contact.address.venue}
+                  </strong>
                   {contact.address.institution}
                   <br />
                   {contact.address.lines.map((line) => (
@@ -86,7 +89,7 @@ export default function VenuePage() {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Map of SRM IST Kattankulathur Campus"
+            title="Map of SRM Tech Park, SRM IST Kattankulathur Campus"
           />
         </div>
       </section>

@@ -35,7 +35,7 @@ const quickAccess = [
     title: "Submission Portal",
     subtitle: submission.platform,
     description:
-      "Submit your research paper through the official Morressier portal.",
+      "Submit your research paper through the official Microsoft CMT portal (Link coming soon).",
     href: submission.portalUrl || "/cfp",
     label: isSubmissionOpen ? "Submit Now" : "Coming Soon",
     external: isSubmissionOpen,
@@ -241,7 +241,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Leadership"
           title="Organizing Committee"
-          description={`${conference.name} is jointly organized by SRMIST and UNITEN Malaysia under distinguished academic leadership.`}
+          description={`${conference.name} is jointly organized by SRMIST, UNITEN Malaysia, and PMU Saudi Arabia under distinguished academic leadership.`}
           align="center"
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -315,8 +315,9 @@ export default function HomePage() {
             </p>
             <p className="mt-4 leading-8 text-muted-foreground">
               The conference brings together the academic strengths of{" "}
-              <strong className="text-brand-dark">{conference.host}</strong> and{" "}
-              <strong className="text-brand-dark">{conference.partner}</strong>,
+              <strong className="text-brand-dark">{conference.host}</strong> and international partner universities including{" "}
+              <strong className="text-brand-dark">UNITEN (Malaysia)</strong> and{" "}
+              <strong className="text-brand-dark">Prince Mohammad Bin Fahd University (Saudi Arabia)</strong>,
               fostering a global dialogue on sustainable energy and AI.
             </p>
             <Link
