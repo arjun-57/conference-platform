@@ -1,21 +1,16 @@
 "use client";
 
 import * as React from "react";
-import { conferenceWindow, milestones } from "@/config";
+import { conferenceWindow } from "@/config";
 
 const MS_PER_DAY = 86_400_000;
 
 const CONFERENCE_START = new Date(conferenceWindow.startISO).getTime();
 const CONFERENCE_END = new Date(conferenceWindow.endISO).getTime();
 const DAY_ONE_MIDNIGHT = new Date(conferenceWindow.dayOneMidnightISO).getTime();
-/** Precomputed milestone chain the countdown rolls through, in date order. */
-const MILESTONE_TARGETS = milestones.map((milestone) => ({
-  label: milestone.label,
-  time: new Date(milestone.iso).getTime(),
-}));
 
 type Phase =
-  | { kind: "upcoming"; label: string; parts: [number, number, number, number] }
+  | { kind: "upcoming"; parts: [number, number, number, number] }
   | { kind: "live"; day: number }
   | { kind: "ended" };
 
@@ -28,16 +23,9 @@ function resolvePhase(now: number): Phase {
     return { kind: "live", day };
   }
 
-  const next =
-    MILESTONE_TARGETS.find((milestone) => milestone.time > now) ?? {
-      label: "Conference begins in",
-      time: CONFERENCE_START,
-    };
-
-  const diff = Math.max(0, next.time - now);
+  const diff = Math.max(0, CONFERENCE_START - now);
   return {
     kind: "upcoming",
-    label: next.label,
     parts: [
       Math.floor(diff / MS_PER_DAY),
       Math.floor(diff / 3_600_000) % 24,
@@ -71,11 +59,9 @@ function Segment({ value, label }: { value: number; label: string }) {
 }
 
 /**
- * Auto-advancing conference countdown.
- *
- * Counts down to the next milestone in the timeline, rolling forward as each
- * passes. During 15–18 March 2027 it switches to a live "Day N of 4" state,
- * and afterwards to a closing message.
+ * Conference countdown — always counts down to 15 March 2027.
+ * Switches to a "Day N of 4" live state during the conference,
+ * and a closing message afterwards.
  */
 export function MilestoneCountdown() {
   const tick = React.useSyncExternalStore(
@@ -127,7 +113,7 @@ export function MilestoneCountdown() {
   return (
     <div className="space-y-3 text-center">
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-light/70">
-        {phase.label}
+        Conference begins in
       </p>
       <div className="flex items-start justify-center gap-3 sm:gap-4">
         {phase.parts.map((value, i) => (
