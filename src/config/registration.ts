@@ -8,12 +8,12 @@ import type { FeeRow, Hotel, SponsorTier, TravelRoute } from "./types";
  */
 export const registration = {
   fees: [
-    { category: "Indian — Student (UG/PG)", early: "₹6,000", regular: "₹6,000" },
-    { category: "Indian — Research Scholar (PhD)", early: "₹7,000", regular: "₹7,000" },
-    { category: "Indian — Faculty / Academic", early: "₹8,000", regular: "₹8,000" },
-    { category: "Indian — Industry Professional", early: "₹10,000", regular: "₹10,000" },
-    { category: "Foreign — Student / Research Scholar", early: "USD 250", regular: "USD 250" },
-    { category: "Foreign — Faculty / Industry", early: "USD 350", regular: "USD 350" },
+    { category: "Indian — Student (UG/PG)", cost: "₹6,000" },
+    { category: "Indian — Research Scholar (PhD)", cost: "₹7,000" },
+    { category: "Indian — Faculty / Academic", cost: "₹8,000" },
+    { category: "Indian — Industry Professional", cost: "₹10,000" },
+    { category: "Foreign — Student / Research Scholar", cost: "USD 250" },
+    { category: "Foreign — Faculty / Industry", cost: "USD 350" },
   ] satisfies FeeRow[],
 
   currencyNote:
@@ -22,7 +22,6 @@ export const registration = {
     "Registration fees are exclusive of 18% GST.",
   paymentNote:
     "The online payment link and bank transfer details will be shared with authors after acceptance notifications are sent. Attendee (non-presenting) registration will be announced separately.",
-  earlyBirdCutoff: "10 February 2027",
 } as const;
 
 /**

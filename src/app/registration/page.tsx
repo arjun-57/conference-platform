@@ -53,11 +53,7 @@ export default function RegistrationPage() {
         <div className="mx-auto max-w-4xl">
           <SectionHeading eyebrow="Fees" title="Registration Fees" />
           <p className="mt-4 leading-7 text-muted-foreground">
-            Early-bird rates apply until{" "}
-            <strong className="text-brand-dark">
-              {registration.earlyBirdCutoff}
-            </strong>
-            . Regular rates apply thereafter. {registration.currencyNote}
+            {registration.currencyNote}
           </p>
 
           {/* Horizontally scrollable so the table never clips on mobile. */}
@@ -72,10 +68,7 @@ export default function RegistrationPage() {
                     Category
                   </th>
                   <th scope="col" className="px-6 py-4 font-semibold">
-                    Early Bird
-                  </th>
-                  <th scope="col" className="px-6 py-4 font-semibold">
-                    Regular
+                    Cost
                   </th>
                 </tr>
               </thead>
@@ -94,10 +87,7 @@ export default function RegistrationPage() {
                       {row.category}
                     </th>
                     <td className="px-6 py-4 text-muted-foreground">
-                      {orTBD(row.early)}
-                    </td>
-                    <td className="px-6 py-4 text-muted-foreground">
-                      {orTBD(row.regular)}
+                      {orTBD(row.cost)}
                     </td>
                   </tr>
                 ))}

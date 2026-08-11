@@ -60,7 +60,7 @@ const UNITS = ["Days", "Hours", "Minutes", "Seconds"] as const;
 function Segment({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center gap-1">
-      <div className="flex h-16 min-w-16 items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-3 text-3xl font-black tabular-nums backdrop-blur sm:h-20 sm:min-w-20 sm:text-4xl">
+      <div className="flex h-16 min-w-16 items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-3 text-3xl font-black tabular-nums text-white backdrop-blur sm:h-20 sm:min-w-20 sm:text-4xl">
         {String(value).padStart(2, "0")}
       </div>
       <span className="text-[0.65rem] font-semibold uppercase tracking-widest text-brand-light/80">

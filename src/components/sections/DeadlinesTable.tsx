@@ -11,7 +11,7 @@ export function DeadlinesTable() {
           key={deadline.title}
           className={cn(
             "grid gap-2 border-b border-brand/15 px-5 py-5 last:border-0 sm:grid-cols-[1fr_auto] sm:items-center sm:px-7",
-            deadline.emphasis && "bg-brand-light/15"
+            deadline.emphasis && "bg-secondary/50"
           )}
         >
           <p className="flex items-center gap-3 font-semibold text-brand-dark">

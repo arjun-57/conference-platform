@@ -18,55 +18,55 @@
     sans-serif;
   --font-mono: "Cascadia Code", Consolas, ui-monospace, monospace;
 
-  /* Brand palette */
-  --color-brand-dark: #335765;
-  --color-brand: #74a8a4;
-  --color-brand-light: #b6d9e0;
+  /* Brand palette — vibrant sky blue + warm amber/gold accent */
+  --color-brand-dark: #0c2d48;
+  --color-brand: #0ea5e9;
+  --color-brand-light: #f59e0b;
 
   /* Semantic colours */
-  --color-background: #f7fbfc;
-  --color-foreground: #1a3338;
+  --color-background: #f0f9ff;
+  --color-foreground: #0c2d48;
   --color-card: #ffffff;
-  --color-card-foreground: #1a3338;
+  --color-card-foreground: #0c2d48;
   --color-popover: #ffffff;
-  --color-popover-foreground: #1a3338;
-  --color-primary: #335765;
+  --color-popover-foreground: #0c2d48;
+  --color-primary: #0ea5e9;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #b6d9e0;
-  --color-secondary-foreground: #1a3338;
-  --color-muted: #e8f3f5;
-  --color-muted-foreground: #4a6670;
-  --color-accent: #74a8a4;
+  --color-secondary: #e0f2fe;
+  --color-secondary-foreground: #0c2d48;
+  --color-muted: #dbeafe;
+  --color-muted-foreground: #1e4d6b;
+  --color-accent: #f59e0b;
   --color-accent-foreground: #ffffff;
   --color-destructive: #dc2626;
-  --color-border: #c8dfe4;
-  --color-input: #c8dfe4;
-  --color-ring: #74a8a4;
+  --color-border: #bae6fd;
+  --color-input: #bae6fd;
+  --color-ring: #0ea5e9;
 }
 
 :root {
-  --brand-dark: #335765;
-  --brand: #74a8a4;
-  --brand-light: #b6d9e0;
+  --brand-dark: #0c2d48;
+  --brand: #0ea5e9;
+  --brand-light: #f59e0b;
 
-  --background: #f7fbfc;
-  --foreground: #1a3338;
+  --background: #f0f9ff;
+  --foreground: #0c2d48;
   --card: #ffffff;
-  --card-foreground: #1a3338;
+  --card-foreground: #0c2d48;
   --popover: #ffffff;
-  --popover-foreground: #1a3338;
-  --primary: #335765;
+  --popover-foreground: #0c2d48;
+  --primary: #0ea5e9;
   --primary-foreground: #ffffff;
-  --secondary: #b6d9e0;
-  --secondary-foreground: #1a3338;
-  --muted: #e8f3f5;
-  --muted-foreground: #4a6670;
-  --accent: #74a8a4;
+  --secondary: #e0f2fe;
+  --secondary-foreground: #0c2d48;
+  --muted: #dbeafe;
+  --muted-foreground: #1e4d6b;
+  --accent: #f59e0b;
   --accent-foreground: #ffffff;
   --destructive: #dc2626;
-  --border: #c8dfe4;
-  --input: #c8dfe4;
-  --ring: #74a8a4;
+  --border: #bae6fd;
+  --input: #bae6fd;
+  --ring: #0ea5e9;
   --radius: 0.75rem;
 }
 
@@ -107,11 +107,11 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    background-color: #335765;
+    background-color: #0c2d48;
     background-image:
-      linear-gradient(90deg, rgba(28, 54, 64, 0.96), rgba(51, 87, 101, 0.84)),
+      linear-gradient(90deg, rgba(8, 20, 36, 0.96), rgba(12, 45, 72, 0.84)),
       radial-gradient(circle at 85% 20%,
-        rgba(182, 217, 224, 0.35),
+        rgba(245, 158, 11, 0.25),
         transparent 35%),
       url("/images/conference-hero.jpg");
     background-position: center;
@@ -121,17 +121,17 @@
   /* Shared card surface used across all pages. */
   .content-card {
     background-color: #ffffff;
-    border: 1px solid #c8dfe4;
+    border: 1px solid #bae6fd;
     border-radius: 1rem;
-    box-shadow: 0 1px 4px 0 rgba(51, 87, 101, 0.06);
+    box-shadow: 0 1px 4px 0 rgba(14, 165, 233, 0.07);
     transition:
       border-color 0.18s ease,
       box-shadow 0.18s ease;
   }
 
   .content-card:hover {
-    border-color: rgba(116, 168, 164, 0.45);
-    box-shadow: 0 4px 16px 0 rgba(51, 87, 101, 0.1);
+    border-color: rgba(14, 165, 233, 0.5);
+    box-shadow: 0 4px 18px 0 rgba(14, 165, 233, 0.15);
   }
 }
 

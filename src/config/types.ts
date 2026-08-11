@@ -66,8 +66,7 @@ export type Deadline = {
 
 export type FeeRow = {
   category: string;
-  early: string | null;
-  regular: string | null;
+  cost: string | null;
 };
 
 export type SponsorTier = {

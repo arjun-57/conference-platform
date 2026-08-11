@@ -57,7 +57,7 @@ export default function CallForPapersPage() {
           </p>
 
           {/* Submission portal call-to-action */}
-          <div className="mt-7 rounded-2xl border border-brand/25 bg-brand-light/20 p-6">
+          <div className="mt-7 rounded-2xl border border-brand/25 bg-secondary/60 p-6">
             <p className="flex items-center gap-3 font-bold text-brand-dark">
               <ExternalLink className="size-5 text-brand" />
               {submission.platform}
