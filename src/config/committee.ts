@@ -105,7 +105,7 @@ export const committeeSections: CommitteeSection[] = [
     id: "organizing",
     title: "Organizing Committee",
     description:
-      "Jointly constituted by SRM Institute of Science and Technology, Universiti Tenaga Nasional (Malaysia), and Prince Mohammad Bin Fahd University (Saudi Arabia).",
+      "Jointly constituted by SRM Institute of Science and Technology, Universiti Tenaga Nasional (Malaysia), Prince Mohammad Bin Fahd University (Saudi Arabia), and Universitas Ahmad Dahlan (Indonesia).",
     groups: [
       // One honorary chair seat (Vice Chancellor, UNITEN) is not yet named.
       { title: "Honorary Chairs", members: honoraryChairs, pending: 1 },

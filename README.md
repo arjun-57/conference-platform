@@ -4,7 +4,8 @@ Official website for the **1st International Conference on Artificial
 Intelligence and Sustainable Green Energy Technologies for Future
 Electrification**, organised by SRM Institute of Science and Technology,
 Kattankulathur, in partnership with Universiti Tenaga Nasional (UNITEN),
-Malaysia.
+Malaysia, Prince Mohammad Bin Fahd University (PMU), Saudi Arabia, and
+Universitas Ahmad Dahlan (UAD), Indonesia.
 
 ## Workflow
 

@@ -1,13 +1,18 @@
 "use client";
 
 import * as React from "react";
-import { conferenceWindow } from "@/config";
+import { conferenceWindow, milestones } from "@/config";
 
 const MS_PER_DAY = 86_400_000;
 
 const CONFERENCE_START = new Date(conferenceWindow.startISO).getTime();
 const CONFERENCE_END = new Date(conferenceWindow.endISO).getTime();
 const DAY_ONE_MIDNIGHT = new Date(conferenceWindow.dayOneMidnightISO).getTime();
+/** Precomputed milestone chain the countdown rolls through, in date order. */
+const MILESTONE_TARGETS = milestones.map((milestone) => ({
+  label: milestone.label,
+  time: new Date(milestone.iso).getTime(),
+}));
 
 type Phase =
   | { kind: "upcoming"; label: string; parts: [number, number, number, number] }
@@ -23,10 +28,16 @@ function resolvePhase(now: number): Phase {
     return { kind: "live", day };
   }
 
-  const diff = Math.max(0, CONFERENCE_START - now);
+  const next =
+    MILESTONE_TARGETS.find((milestone) => milestone.time > now) ?? {
+      label: "Conference begins in",
+      time: CONFERENCE_START,
+    };
+
+  const diff = Math.max(0, next.time - now);
   return {
     kind: "upcoming",
-    label: "Conference begins in",
+    label: next.label,
     parts: [
       Math.floor(diff / MS_PER_DAY),
       Math.floor(diff / 3_600_000) % 24,

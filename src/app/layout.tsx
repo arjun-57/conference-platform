@@ -32,6 +32,8 @@ export const metadata: Metadata = {
     "UNITEN Malaysia",
     "Prince Mohammad Bin Fahd University",
     "PMU Saudi Arabia",
+    "Universitas Ahmad Dahlan",
+    "UAD Indonesia",
     "Chennai",
   ],
   authors: [{ name: conference.host }],
@@ -66,7 +68,7 @@ export default function RootLayout({
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >
-      <body className="flex min-h-full w-full flex-col overflow-x-hidden">
+      <body suppressHydrationWarning className="flex min-h-full w-full flex-col overflow-x-hidden">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-100 focus:rounded-lg focus:bg-brand-dark focus:px-4 focus:py-2 focus:font-semibold focus:text-white"

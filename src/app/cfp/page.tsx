@@ -25,11 +25,11 @@ export const metadata: Metadata = {
 };
 
 const guidelines = [
-  "Submit an IEEE single-column PDF not exceeding four A4 pages and 2 MB.",
+  "Submit in single column format not exceeding 6 pages and 2 MB.",
   "The digest may be submitted to any relevant conference track.",
   "The digest will undergo single-blind review; author names and affiliations must be included.",
   "Include an abstract of about 200 words and a maximum of five keywords.",
-  "Digests with a plagiarism similarity score of 30% or above may be rejected without further review.",
+  "Digests with a plagiarism similarity score of 10% or above may be rejected without further review.",
   "Review results will be sent by email.",
   "Accepted authors must incorporate reviewer suggestions and submit the camera-ready paper by the deadline.",
   "Authors cannot be added or removed after a digest is accepted.",
@@ -65,9 +65,20 @@ export default function CallForPapersPage() {
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
               {submission.status}
             </p>
-            <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-muted px-6 py-2.5 text-sm font-bold text-muted-foreground">
-              Coming Soon
-            </span>
+            {isSubmissionOpen ? (
+              <a
+                href={submission.portalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-2 rounded-full bg-brand-dark px-6 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand"
+              >
+                Open Microsoft CMT Portal <ExternalLink className="size-4" />
+              </a>
+            ) : (
+              <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-muted px-6 py-2.5 text-sm font-bold text-muted-foreground">
+                Submit Now
+              </span>
+            )}
           </div>
 
           {/* Template */}

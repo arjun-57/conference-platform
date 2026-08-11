@@ -11,13 +11,11 @@ export const metadata: Metadata = {
   description: `${conference.name} will be held at ${conference.location}. Address, campus map and directions by air, rail and road.`,
 };
 
-/** Google Maps place embed for SRM Tech Park, Kattankulathur campus. */
+/** Google Maps place embed for Dr. T.P Ganesan Auditorium, Kattankulathur campus. */
 const MAP_EMBED_SRC =
-  "https://maps.google.com/maps?q=SRM+Tech+Park,+SRM+Institute+of+Science+and+Technology,+Kattankulathur&t=&z=16&ie=UTF8&iwloc=&output=embed";
+  "https://maps.google.com/maps?q=Dr.+T.P+Ganesan+Auditorium,+SRM+Institute+of+Science+and+Technology,+Kattankulathur&t=&z=16&ie=UTF8&iwloc=&output=embed";
 
-const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-  contact.address.mapsQuery
-)}`;
+const MAPS_LINK = "https://maps.app.goo.gl/HKZ4CWzYybqrTgY69";
 
 const ROUTE_ICONS: Record<string, LucideIcon> = {
   "By Air": Plane,
@@ -89,7 +87,7 @@ export default function VenuePage() {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Map of SRM Tech Park, SRM IST Kattankulathur Campus"
+            title="Map of Dr. T.P Ganesan Auditorium, SRM IST Kattankulathur Campus"
           />
         </div>
       </section>

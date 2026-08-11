@@ -101,8 +101,7 @@ export default function ProgramPage() {
                   </a>
                 ) : (
                   <span className="inline-flex items-center gap-2 rounded-full bg-muted px-6 py-3 text-sm font-bold text-muted-foreground">
-                    <Download className="size-4" /> Workshop Brochure — Coming
-                    Soon
+                    <Download className="size-4" /> Workshop Brochure
                   </span>
                 )}
               </div>

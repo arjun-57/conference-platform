@@ -8,7 +8,7 @@ export const program = {
     /**
      * TODO(organisers): drop the brochure PDF into `public/documents/` and set
      * this to its path, e.g. "/documents/ai-sge-2027-workshop-brochure.pdf".
-     * While empty, the page shows a "Coming Soon" state instead of a dead link.
+     * While empty, the page shows a "Workshop Brochure" state instead of a dead link.
      */
     brochureUrl: "",
   },

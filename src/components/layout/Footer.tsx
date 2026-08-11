@@ -145,7 +145,7 @@ export function Footer() {
           <span>
             © {conference.name}. All rights reserved.
           </span>
-          <span>Organized by SRM IST, UNITEN Malaysia &amp; PMU Saudi Arabia</span>
+          <span>Organized by SRM IST, UNITEN Malaysia, PMU Saudi Arabia &amp; UAD Indonesia</span>
         </div>
       </div>
     </footer>

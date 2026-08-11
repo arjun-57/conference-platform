@@ -12,13 +12,11 @@ export const contact = {
   /**
    * Primary public contact, shown first in the footer and used as the default
    * "Contact" address across the site.
-   *
-   * TODO(organisers): replace with the dedicated conference Gmail once created.
    */
-  helpDesk: "aisge-eee@srmist.edu.in",
+  helpDesk: "aisgeconference@gmail.com",
 
   /** Institutional address of the organising department. */
-  official: "aisge-eee@srmist.edu.in",
+  official: "aisgeconference@gmail.com",
 
   /** Conference coordinators — shown on the Program page and in the footer. */
   coordinators: [
@@ -44,14 +42,15 @@ export const contact = {
   } satisfies Person,
 
   address: {
-    venue: "SRM Tech Park",
+    venue: "Dr. T.P Ganesan Auditorium",
     institution: "SRM Institute of Science and Technology",
     lines: [
-      "SRM Tech Park, Kattankulathur Campus",
-      "Chengalpattu District, Tamil Nadu – 603203, India",
+      "R2FW+WM3, Intra College Rd, Potheri",
+      "SRM Nagar, Kattankulathur, Tamil Nadu 603203",
     ],
     /** Used by the Google Maps links and embeds. */
-    mapsQuery: "SRM Tech Park, SRM Institute of Science and Technology, Kattankulathur",
+    mapsUrl: "https://maps.app.goo.gl/HKZ4CWzYybqrTgY69",
+    mapsQuery: "Dr.+T.P+Ganesan+Auditorium,+SRM+Institute+of+Science+and+Technology,+Kattankulathur",
   },
 } as const;
 

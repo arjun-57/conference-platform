@@ -23,7 +23,7 @@ const cameraReadySteps = [
   "Keep the final paper within the permitted page limit, as confirmed by the publication committee.",
   "Check that all references are complete and correctly formatted.",
   "Verify author names, affiliations and email addresses — these cannot be changed after submission.",
-  "Run a final plagiarism check; the similarity score must be below 30%.",
+  "Run a final plagiarism check; the similarity score must be below 10%.",
   "Submit the camera-ready paper and source files through Microsoft CMT before the deadline.",
   "Complete the copyright transfer form and submit it via Microsoft CMT.",
 ];
@@ -219,7 +219,7 @@ export default function AuthorsPage() {
             </a>
           ) : (
             <span className="mt-7 inline-flex rounded-full bg-white/10 px-7 py-3 font-bold text-white/50">
-              {submission.platform} Link — Coming Soon
+              Submit via {submission.platform}
             </span>
           )}
         </div>

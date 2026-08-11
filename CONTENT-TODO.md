@@ -9,7 +9,7 @@ committees show **"N members to be announced"** — no placeholder text like
 
 ---
 
-## 1. Conference email (highest priority)
+## ~~1. Conference email~~ ✅ Done
 
 **File:** `src/config/contact.ts`
 
@@ -27,7 +27,7 @@ footer automatically hides the second entry when the two are identical.
 
 ---
 
-## 2. Microsoft CMT portal link
+## ~~2. Microsoft CMT portal link~~ ✅ Done
 
 **File:** `src/config/conference.ts`
 
@@ -45,7 +45,7 @@ icon, Call for Papers, For Authors) automatically render a disabled
 
 ---
 
-## 3. Registration fees
+## ~~3. Registration fees~~ ✅ Done
 
 **File:** `src/config/registration.ts` → `registration.fees`
 
