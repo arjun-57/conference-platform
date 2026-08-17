@@ -29,8 +29,7 @@ const certificates = [
   },
   {
     title: "Workshop Certificate",
-    description:
-      "Attendees who complete the pre-conference workshop (13–15 March 2027) receive a separate workshop completion certificate.",
+    description: `Attendees who complete the pre-conference workshop (${conferenceWindow.workshopDisplay}) receive a separate workshop completion certificate.`,
   },
 ];
 

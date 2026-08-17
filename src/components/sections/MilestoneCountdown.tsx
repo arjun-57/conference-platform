@@ -10,7 +10,7 @@ const CONFERENCE_END = new Date(conferenceWindow.endISO).getTime();
 const DAY_ONE_MIDNIGHT = new Date(conferenceWindow.dayOneMidnightISO).getTime();
 
 type Phase =
-  | { kind: "upcoming"; parts: [number, number, number, number] }
+  | { kind: "upcoming"; label: string; parts: [number, number, number, number] }
   | { kind: "live"; day: number }
   | { kind: "ended" };
 
@@ -26,6 +26,7 @@ function resolvePhase(now: number): Phase {
   const diff = Math.max(0, CONFERENCE_START - now);
   return {
     kind: "upcoming",
+    label: "Conference begins in",
     parts: [
       Math.floor(diff / MS_PER_DAY),
       Math.floor(diff / 3_600_000) % 24,
@@ -59,8 +60,9 @@ function Segment({ value, label }: { value: number; label: string }) {
 }
 
 /**
- * Conference countdown — always counts down to 15 March 2027.
- * Switches to a "Day N of 4" live state during the conference,
+ * Milestone countdown — resolves to the first future milestone in milestones[],
+ * rolls forward automatically as each milestone passes.
+ * Switches to a "Day N of X" live state during the conference,
  * and a closing message afterwards.
  */
 export function MilestoneCountdown() {
@@ -113,7 +115,7 @@ export function MilestoneCountdown() {
   return (
     <div className="space-y-3 text-center">
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-light/70">
-        Conference begins in
+        {phase.label}
       </p>
       <div className="flex items-start justify-center gap-3 sm:gap-4">
         {phase.parts.map((value, i) => (

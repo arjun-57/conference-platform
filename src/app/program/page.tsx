@@ -116,8 +116,7 @@ export default function ProgramPage() {
           <SectionHeading eyebrow="Schedule" title="Day-Wise Program" />
           <p className="mt-4 leading-7 text-muted-foreground">
             The workshop runs {conferenceWindow.workshopDisplay}. The main
-            conference opens with the inaugural ceremony on 15 March and closes
-            on 18 March 2027.
+            conference runs {conferenceWindow.display}.
           </p>
 
           <div className="mt-10 space-y-5">

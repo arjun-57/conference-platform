@@ -179,9 +179,7 @@ export default function AboutPage() {
           <div>
             <SectionHeading eyebrow="Plan ahead" title="Important Deadlines" />
             <p className="mt-5 leading-7 text-muted-foreground">
-              Submission and review are managed through Microsoft CMT.
-              Registration and payment information will be shared after paper
-              acceptance.
+              {conference.cmtAcknowledgment}
             </p>
           </div>
           <DeadlinesTable />
@@ -198,9 +196,6 @@ export default function AboutPage() {
           electrification technologies.
         </p>
       </section>
-      <div className="container pb-10">
-        <p>{conference.cmtAcknowledgment}</p>
-      </div>
     </div>
   );
 }

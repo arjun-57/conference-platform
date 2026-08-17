@@ -223,10 +223,10 @@ export default function AuthorsPage() {
             </span>
           )}
         </div>
+        <p className="mx-auto mt-8 max-w-4xl">
+          {conference.cmtAcknowledgment}
+        </p>
       </section>
-      <div className="container pb-10">
-        <p>{conference.cmtAcknowledgment}</p>
-      </div>
     </div>
   );
 }

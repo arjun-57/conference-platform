@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { conference, navItems } from "@/config";
+import { conference, conferenceWindow, navItems } from "@/config";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -83,7 +83,7 @@ export function Navbar() {
                   {conference.name}
                 </span>
                 <span className="text-xs text-muted-foreground">
-                  March 2027 · Chennai
+                  {conferenceWindow.display.replace(/^\d+[–-]\d+\s/, "")} · Chennai
                 </span>
               </Link>
             </div>

@@ -62,9 +62,6 @@ export default function CallForPapersPage() {
               <ExternalLink className="size-5 text-brand" />
               {submission.platform}
             </p>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">
-              {submission.status}
-            </p>
             {isSubmissionOpen ? (
               <a
                 href={submission.portalUrl}
@@ -80,6 +77,10 @@ export default function CallForPapersPage() {
               </span>
             )}
           </div>
+
+          <p className="mt-6">
+            {conference.cmtAcknowledgment}
+          </p>
 
           {/* Template */}
           <div className="mt-5 rounded-2xl border border-brand/15 bg-white p-6 shadow-sm">
@@ -181,9 +182,6 @@ export default function CallForPapersPage() {
           </p>
         </div>
       </section>
-      <div className="container pb-10">
-        <p>{conference.cmtAcknowledgment}</p>
-      </div>
     </div>
   );
 }

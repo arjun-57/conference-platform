@@ -80,7 +80,7 @@ export const objectives = [
 /** Scrolling announcement strip on the home page. */
 export const newsTicker = [
   "🎉 AISGE2027 — 1st International Conference organized by SRM IST, UNITEN Malaysia, PMU Saudi Arabia & UAD Indonesia",
-  "📅 Conference Dates: 18-19 March 2027 | Pre-Conference Workshop: 13–15 March 2027",
+  "📅 Conference Dates: 18–19 March 2027 | Pre-Conference Workshop: 13–15 March 2027",
   "📝 Paper Submission via Microsoft CMT",
   "📖 Accepted papers to be published in Springer LNEE (Scopus / ESCI indexed)",
   "🌍 Selected papers invited for Scopus-indexed journal publication post peer-review",

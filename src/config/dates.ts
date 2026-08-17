@@ -9,13 +9,13 @@ const IST = "+05:30";
 
 export const conferenceWindow = {
   /** Inauguration — first day of the main conference. */
-  startISO: `2027-03-15T09:00:00${IST}`,
-  /** Local midnight of day 1, used to compute "Day N of 4" while live. */
-  dayOneMidnightISO: `2027-03-15T00:00:00${IST}`,
+  startISO: `2027-03-18T09:00:00${IST}`,
+  /** Local midnight of day 1, used to compute "Day N of 2" while live. */
+  dayOneMidnightISO: `2027-03-18T00:00:00${IST}`,
   /** Close of the valedictory ceremony. */
-  endISO: `2027-03-18T18:00:00${IST}`,
-  totalDays: 4,
-  display: "18-19 March 2027",
+  endISO: `2027-03-19T18:00:00${IST}`,
+  totalDays: 2,
+  display: "18–19 March 2027",
   workshopDisplay: "13–15 March 2027",
 } as const;
 
@@ -38,29 +38,22 @@ export const milestones: Milestone[] = [
     id: "submission-deadline",
     label: "Submission deadline in",
     title: "Digest Submission Deadline",
-    iso: `2026-12-01T23:59:59${IST}`,
-    display: "1 December 2026",
+    iso: `2027-03-01T23:59:59${IST}`,
+    display: "1 March 2027",
   },
   {
     id: "acceptance",
     label: "Acceptance notification in",
     title: "Digest Acceptance Notification",
-    iso: `2027-01-15T23:59:59${IST}`,
-    display: "15 January 2027",
+    iso: `2027-03-08T23:59:59${IST}`,
+    display: "8 March 2027",
   },
   {
     id: "camera-ready",
     label: "Camera-ready & early bird close in",
     title: "Camera-Ready Submission and Early-Bird Registration",
-    iso: `2027-02-10T23:59:59${IST}`,
-    display: "10 February 2027",
-  },
-  {
-    id: "registration-close",
-    label: "Registration closes in",
-    title: "Registration Deadline",
-    iso: `2027-02-28T23:59:59${IST}`,
-    display: "28 February 2027",
+    iso: `2027-03-12T23:59:59${IST}`,
+    display: "12 March 2027",
   },
   {
     id: "workshop",
@@ -70,11 +63,18 @@ export const milestones: Milestone[] = [
     display: "13–15 March 2027",
   },
   {
+    id: "registration-close",
+    label: "Registration closes in",
+    title: "Registration Deadline",
+    iso: `2027-03-15T23:59:59${IST}`,
+    display: "15 March 2027",
+  },
+  {
     id: "conference",
     label: "Conference begins in",
     title: "Conference Dates",
     iso: conferenceWindow.startISO,
-    display: "18-19 March 2027",
+    display: "18–19 March 2027",
   },
 ];
 
@@ -85,13 +85,13 @@ export const milestones: Milestone[] = [
  */
 export const deadlines: Deadline[] = [
   { title: "Start of Digest Submission", display: "1 September 2026" },
-  { title: "Digest Submission Deadline", display: "1 December 2026", emphasis: true },
-  { title: "Digest Acceptance Notification", display: "15 January 2027" },
-  { title: "Camera-Ready Paper Submission", display: "10 February 2027", emphasis: true },
-  { title: "Early-Bird Registration Deadline", display: "10 February 2027" },
-  { title: "Registration Deadline", display: "28 February 2027" },
+  { title: "Digest Submission Deadline", display: "1 March 2027", emphasis: true },
+  { title: "Digest Acceptance Notification", display: "8 March 2027" },
+  { title: "Camera-Ready Paper Submission", display: "12 March 2027", emphasis: true },
+  { title: "Early-Bird Registration Deadline", display: "12 March 2027" },
+  { title: "Registration Deadline", display: "15 March 2027" },
   { title: "Pre-Conference Workshop", display: "13–15 March 2027" },
-  { title: "Conference Dates", display: "18-19 March 2027", emphasis: true },
+  { title: "Conference Dates", display: "18–19 March 2027", emphasis: true },
 ];
 
 /** Flat date strings for prose and headings. */
@@ -99,9 +99,9 @@ export const dates = {
   conference: conferenceWindow.display,
   workshop: conferenceWindow.workshopDisplay,
   submissionStart: "1 September 2026",
-  submissionDeadline: "1 December 2026",
-  acceptanceNotification: "15 January 2027",
-  cameraReady: "10 February 2027",
-  earlyBird: "10 February 2027",
-  registrationDeadline: "28 February 2027",
+  submissionDeadline: "1 March 2027",
+  acceptanceNotification: "8 March 2027",
+  cameraReady: "12 March 2027",
+  earlyBird: "12 March 2027",
+  registrationDeadline: "15 March 2027",
 } as const;
