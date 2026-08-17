@@ -6,7 +6,7 @@ import { Dialog } from "@base-ui/react/dialog";
 import { Handshake, X } from "lucide-react";
 import { conference, conferenceWindow } from "@/config";
 
-const STORAGE_KEY = "ai-sge-popup-dismissed";
+const STORAGE_KEY = "aisge2027-popup-dismissed";
 const OPEN_DELAY_MS = 800;
 
 /**

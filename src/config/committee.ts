@@ -98,7 +98,7 @@ export const committeeSections: CommitteeSection[] = [
     id: "convener",
     title: "Convener",
     description:
-      "The convener leads the organisation and delivery of AI-SGE 2027.",
+      "The convener leads the organisation and delivery of AISGE2027.",
     groups: [{ title: "Convener", members: [], pending: 1 }],
   },
   {

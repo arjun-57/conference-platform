@@ -4,13 +4,13 @@
  */
 
 export const conference = {
-  name: "AI-SGE 2027",
-  shortName: "AI-SGE '27",
+  name: "AISGE2027",
+  shortName: "AISGE2027",
   fullName:
     "International Conference on Artificial Intelligence and Sustainable Green Energy Technologies for Future Electrification",
   edition: "1st Edition",
   description:
-    "AI-SGE 2027 brings together researchers, academicians, and industry professionals from across the world to exchange ideas and present innovations in artificial intelligence, sustainable energy technologies, and future electrification systems.",
+    "AISGE2027 brings together researchers, academicians, and industry professionals from across the world to exchange ideas and present innovations in artificial intelligence, sustainable energy technologies, and future electrification systems.",
   host: "SRM Institute of Science and Technology",
   location:
     "Dr. T.P Ganesan Auditorium, SRM Institute of Science and Technology, Kattankulathur Campus, Chennai, India",
@@ -24,6 +24,8 @@ export const conference = {
   ],
   venueNote:
     "Hosted at Dr. T.P Ganesan Auditorium within the SRM IST Kattankulathur campus near Chennai, one of India's major educational and technological hubs, offering a vibrant academic environment with world-class infrastructure.",
+  cmtAcknowledgment:
+    "The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.",
 } as const;
 
 /**
@@ -77,11 +79,11 @@ export const objectives = [
 
 /** Scrolling announcement strip on the home page. */
 export const newsTicker = [
-  "🎉 AI-SGE 2027 — 1st International Conference organized by SRM IST, UNITEN Malaysia, PMU Saudi Arabia & UAD Indonesia",
-  "📅 Conference Dates: 15–18 March 2027 | Pre-Conference Workshop: 13–15 March 2027",
+  "🎉 AISGE2027 — 1st International Conference organized by SRM IST, UNITEN Malaysia, PMU Saudi Arabia & UAD Indonesia",
+  "📅 Conference Dates: 18-19 March 2027 | Pre-Conference Workshop: 13–15 March 2027",
   "📝 Paper Submission via Microsoft CMT",
   "📖 Accepted papers to be published in Springer LNEE (Scopus / ESCI indexed)",
   "🌍 Selected papers invited for Scopus-indexed journal publication post peer-review",
-  "🗓️ Digest Submission Deadline: 1 December 2026",
+  "🗓️ Digest Submission Deadline: 1 March 2027",
   "📍 Venue: SRM Tech Park, SRM IST Kattankulathur Campus, Chennai, India",
 ] as const;

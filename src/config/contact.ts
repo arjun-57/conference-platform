@@ -36,7 +36,7 @@ export const contact = {
 
   convener: {
     name: null,
-    role: "Convener, AI-SGE 2027",
+    role: "Convener, AISGE2027",
     email: null,
     phone: null,
   } satisfies Person,

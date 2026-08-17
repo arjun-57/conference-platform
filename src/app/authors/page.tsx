@@ -224,6 +224,9 @@ export default function AuthorsPage() {
           )}
         </div>
       </section>
+      <div className="container pb-10">
+        <p>{conference.cmtAcknowledgment}</p>
+      </div>
     </div>
   );
 }

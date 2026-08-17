@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description: conference.description,
   applicationName: conference.name,
   keywords: [
-    "AI-SGE 2027",
+    conference.shortName,
     "conference",
     "artificial intelligence",
     "sustainable energy",

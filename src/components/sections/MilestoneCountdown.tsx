@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { conferenceWindow } from "@/config";
+import { conference, conferenceWindow } from "@/config";
 
 const MS_PER_DAY = 86_400_000;
 
@@ -89,7 +89,7 @@ export function MilestoneCountdown() {
   if (phase.kind === "ended") {
     return (
       <p className="text-center text-lg font-bold text-brand-light">
-        Thank you to everyone who joined us at AI-SGE 2027.
+        Thank you to everyone who joined us at {conference.shortName}.
       </p>
     );
   }

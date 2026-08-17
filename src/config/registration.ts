@@ -99,7 +99,7 @@ export const venueDirections: TravelRoute[] = [
  */
 export const sponsorship = {
   intro:
-    "Partner with AI-SGE 2027 to connect your organisation with an international sustainable-energy research community. Registration benefits attached to each tier will be confirmed separately by the organising committee.",
+    "Partner with AISGE2027 to connect your organisation with an international sustainable-energy research community. Registration benefits attached to each tier will be confirmed separately by the organising committee.",
   benefits: [
     "Promote products and services to conference delegates.",
     "Enhance visibility and brand recognition at an international conference.",

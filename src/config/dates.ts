@@ -15,7 +15,7 @@ export const conferenceWindow = {
   /** Close of the valedictory ceremony. */
   endISO: `2027-03-18T18:00:00${IST}`,
   totalDays: 4,
-  display: "15–18 March 2027",
+  display: "18-19 March 2027",
   workshopDisplay: "13–15 March 2027",
 } as const;
 
@@ -74,7 +74,7 @@ export const milestones: Milestone[] = [
     label: "Conference begins in",
     title: "Conference Dates",
     iso: conferenceWindow.startISO,
-    display: "15–18 March 2027",
+    display: "18-19 March 2027",
   },
 ];
 
@@ -91,7 +91,7 @@ export const deadlines: Deadline[] = [
   { title: "Early-Bird Registration Deadline", display: "10 February 2027" },
   { title: "Registration Deadline", display: "28 February 2027" },
   { title: "Pre-Conference Workshop", display: "13–15 March 2027" },
-  { title: "Conference Dates", display: "15–18 March 2027", emphasis: true },
+  { title: "Conference Dates", display: "18-19 March 2027", emphasis: true },
 ];
 
 /** Flat date strings for prose and headings. */

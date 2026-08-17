@@ -34,27 +34,21 @@ export const program = {
       sessions: ["Workshop Session — Morning", "Inaugural Ceremony — Afternoon"],
     },
     {
-      day: "16 March 2027",
+      day: "18 March 2027",
       label: "Technical Sessions — Day 1",
       sessions: [
         "Keynote Address 1",
         "Technical Session I — Power Electronics & Energy Conversion",
         "Technical Session II — Renewable Energy Systems",
-      ],
-    },
-    {
-      day: "17 March 2027",
-      label: "Technical Sessions — Day 2",
-      sessions: [
         "Keynote Address 2",
         "Technical Session III — Electric Vehicles & Electrified Transportation",
-        "Technical Session IV — AI in Energy Systems",
       ],
     },
     {
-      day: "18 March 2027",
-      label: "Closing Day",
+      day: "19 March 2027",
+      label: "Technical Sessions — Day 2 & Closing",
       sessions: [
+        "Technical Session IV — AI in Energy Systems",
         "Technical Session V — Smart Grid & Energy Storage",
         "Panel Discussion",
         "Valedictory Ceremony & Award Distribution",

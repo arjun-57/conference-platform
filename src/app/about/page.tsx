@@ -144,7 +144,7 @@ export default function AboutPage() {
         <div className="container space-y-8">
           <SectionHeading
             eyebrow="Collaboration"
-            title="The institutions behind AI-SGE 2027"
+            title={`The institutions behind ${conference.shortName}`}
             align="center"
           />
           {profiles.map((profile) => (
@@ -198,6 +198,9 @@ export default function AboutPage() {
           electrification technologies.
         </p>
       </section>
+      <div className="container pb-10">
+        <p>{conference.cmtAcknowledgment}</p>
+      </div>
     </div>
   );
 }
