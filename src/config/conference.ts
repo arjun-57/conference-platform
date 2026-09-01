@@ -35,7 +35,7 @@ export const conference = {
  */
 export const submission = {
   platform: "Microsoft CMT",
-  portalUrl: "#",
+  portalUrl: "https://cmt3.research.microsoft.com/AISGE2027",
   status:
     "Paper submissions and peer review are managed through Microsoft CMT. Submit your digest through the official portal.",
   /** Official Springer LNEE manuscript preparation guidelines. */
