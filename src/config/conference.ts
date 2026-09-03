@@ -16,10 +16,9 @@ export const conference = {
     "Dr. T.P Ganesan Auditorium, SRM Institute of Science and Technology, Kattankulathur Campus, Chennai, India",
   locationShort: "Dr. T.P Ganesan Auditorium, SRM IST Kattankulathur, Chennai",
   partner:
-    "Universiti Tenaga Nasional (UNITEN) Malaysia, Prince Mohammad Bin Fahd University (PMU) Saudi Arabia & Universitas Ahmad Dahlan (UAD) Indonesia",
+    "Universiti Tenaga Nasional (UNITEN) Malaysia & Universitas Ahmad Dahlan (UAD) Indonesia",
   partners: [
     "Universiti Tenaga Nasional (UNITEN), Malaysia",
-    "Prince Mohammad Bin Fahd University (PMU), Saudi Arabia",
     "Universitas Ahmad Dahlan (UAD), Indonesia",
   ],
   venueNote:
@@ -79,7 +78,7 @@ export const objectives = [
 
 /** Scrolling announcement strip on the home page. */
 export const newsTicker = [
-  "🎉 AISGE2027 — 1st International Conference organized by SRM IST, UNITEN Malaysia, PMU Saudi Arabia & UAD Indonesia",
+  "🎉 AISGE2027 — 1st International Conference organized by SRM IST, UNITEN Malaysia & UAD Indonesia",
   "📅 Conference Dates: 18–19 March 2027 | Pre-Conference Workshop: 13–15 March 2027",
   "📝 Paper Submission via Microsoft CMT",
   "📖 Accepted papers to be published in Springer LNEE (Scopus / ESCI indexed)",

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Building2, Globe, GraduationCap, Handshake, Landmark, Target, Zap } from "lucide-react";
+import { Building2, Globe, GraduationCap, Handshake, Target, Zap } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { DeadlinesTable } from "@/components/sections/DeadlinesTable";
@@ -33,14 +33,6 @@ const profiles = [
     paragraphs: [
       "Universiti Tenaga Nasional is a premier institution specializing in engineering, energy, and technology education. The university is known for excellence in power engineering, smart grids, renewable energy systems, and sustainable technologies.",
       "Its modern infrastructure, advanced research facilities, strong industry linkages, and global collaborations make UNITEN a valuable partner in promoting sustainable and intelligent energy solutions.",
-    ],
-  },
-  {
-    icon: Landmark,
-    title: "Prince Mohammad Bin Fahd University (PMU), Saudi Arabia",
-    paragraphs: [
-      "Prince Mohammad Bin Fahd University (PMU) is a premier private higher education institution located in Al Khobar, Kingdom of Saudi Arabia, renowned for its innovative academic programs, state-of-the-art infrastructure, and commitment to research excellence.",
-      "PMU actively fosters global research partnerships in engineering, artificial intelligence, renewable energy, and sustainable technologies, playing a key role in advancing future electrification and international academic collaboration.",
     ],
   },
   {
@@ -103,7 +95,7 @@ export default function AboutPage() {
             </p>
             <p className="mt-4 leading-7 text-muted-foreground">
               This collaboration combines the academic strengths of leading
-              institutions across India, Malaysia, Saudi Arabia, and Indonesia to advance research in AI
+              institutions across India, Malaysia, and Indonesia to advance research in AI
               and sustainable energy technologies.
             </p>
           </aside>
