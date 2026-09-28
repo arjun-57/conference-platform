@@ -24,11 +24,11 @@ export function Navbar() {
       <div className="container flex min-h-24 items-center justify-between gap-4 py-3">
         <Link href="/" className="flex min-w-0 shrink-0 items-center gap-3">
           <Image
-            src="/images/aisge2027-logo-200x64@2x.png"
+            src="/images/aisge2027-logo.png"
             alt={`${conference.name} logo`}
-            width={400}
-            height={128}
-            className="h-20 w-auto rounded-md object-contain sm:h-24"
+            width={200}
+            height={200}
+            className="h-16 w-auto rounded-full object-contain sm:h-20"
             priority
           />
           <div className="min-w-0">
