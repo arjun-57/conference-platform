@@ -8,20 +8,23 @@ import type { FeeRow, Hotel, SponsorTier, TravelRoute } from "./types";
  */
 export const registration = {
   fees: [
-    { category: "Indian — Student (UG/PG)", cost: "₹6,000" },
-    { category: "Indian — Research Scholar (PhD)", cost: "₹7,000" },
-    { category: "Indian — Faculty / Academic", cost: "₹8,000" },
+    { category: "Attendee / Author", cost: "₹1,500" },
+    { category: "Indian — Student (UG/PG)", cost: "₹4,500" },
+    { category: "Indian — Research Scholar (PhD)", cost: "₹5,000" },
+    { category: "Indian — Faculty / Academic", cost: "₹7,000" },
     { category: "Indian — Industry Professional", cost: "₹10,000" },
-    { category: "Foreign — Student / Research Scholar", cost: "USD 250" },
-    { category: "Foreign — Faculty / Industry", cost: "USD 350" },
+    { category: "Foreign — Student / Research Scholar", cost: "USD 150" },
+    { category: "Foreign — Faculty / Industry", cost: "USD 250" },
   ] satisfies FeeRow[],
 
   currencyNote:
     "Fees are payable in INR by Indian participants and in USD by foreign participants.",
   taxNote:
     "Registration fees are exclusive of 18% GST.",
+  workshopNote:
+    "Participation in the pre-conference workshop is FREE for all Attendees / Authors.",
   paymentNote:
-    "The online payment link and bank transfer details will be shared with authors after acceptance notifications are sent. Attendee (non-presenting) registration will be announced separately.",
+    "The online payment link and bank transfer details will be shared with authors after acceptance notifications are sent.",
 } as const;
 
 /**

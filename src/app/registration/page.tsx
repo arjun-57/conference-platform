@@ -18,6 +18,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import {
   accommodation,
+  chennaiattractions,
   conference,
   contact,
   orTBD,
@@ -73,42 +74,55 @@ export default function RegistrationPage() {
                 </tr>
               </thead>
               <tbody>
-                {registration.fees.map((row, i) => (
-                  <tr
-                    key={row.category}
-                    className={`border-b border-brand/10 last:border-0 ${
-                      i % 2 === 0 ? "bg-white" : "bg-muted/30"
-                    }`}
-                  >
-                    <th
-                      scope="row"
-                      className="px-6 py-4 text-left font-medium text-brand-dark"
+                {registration.fees.map((row, i) => {
+                  const isAttendee = row.category === "Attendee / Author";
+                  return (
+                    <tr
+                      key={row.category}
+                      className={`border-b border-brand/10 last:border-0 ${
+                        isAttendee
+                          ? "bg-brand-light/20"
+                          : i % 2 === 0
+                          ? "bg-white"
+                          : "bg-muted/30"
+                      }`}
                     >
-                      {row.category}
-                    </th>
-                    <td className="px-6 py-4 text-muted-foreground">
-                      {orTBD(row.cost)}
-                    </td>
-                  </tr>
-                ))}
+                      <th
+                        scope="row"
+                        className="px-6 py-4 text-left font-medium text-brand-dark"
+                      >
+                        <span className="flex items-center gap-2">
+                          {row.category}
+                          {isAttendee && (
+                            <span className="rounded-full bg-brand px-2.5 py-0.5 text-xs font-semibold text-white">
+                              Free Workshop
+                            </span>
+                          )}
+                        </span>
+                      </th>
+                      <td className="px-6 py-4 text-muted-foreground">
+                        {orTBD(row.cost)}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
 
-          <div className="mt-5 flex items-start gap-3 rounded-xl bg-muted/60 px-5 py-4 text-sm leading-7 text-muted-foreground">
-            <Info className="mt-0.5 size-5 shrink-0 text-brand" />
+          {/* Free pre-conference workshop note */}
+          <div className="mt-5 flex items-start gap-3 rounded-xl bg-brand/10 px-5 py-4 text-sm leading-7 text-brand-dark border border-brand/25">
+            <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-brand" />
             <p>
-              {registration.taxNote} {registration.paymentNote}
+              <strong>Free Pre-Conference Workshop:</strong>{" "}
+              {registration.workshopNote}
             </p>
           </div>
 
-          <div className="mt-4 flex items-start gap-3 rounded-xl bg-brand-light/20 px-5 py-4 text-sm leading-7 text-brand-dark">
-            <CreditCard className="mt-0.5 size-5 shrink-0 text-brand" />
+          <div className="mt-4 flex items-start gap-3 rounded-xl bg-muted/60 px-5 py-4 text-sm leading-7 text-muted-foreground">
+            <Info className="mt-0.5 size-5 shrink-0 text-brand" />
             <p>
-              <strong>Payment:</strong> The online payment link and bank transfer
-              details will be shared with accepted authors after acceptance
-              notifications are sent. Attendee (non-presenting) registration will
-              be announced separately.
+              {registration.taxNote} {registration.paymentNote}
             </p>
           </div>
         </div>
@@ -217,6 +231,75 @@ export default function RegistrationPage() {
             </Link>
             .
           </p>
+        </div>
+      </section>
+
+      {/* Chennai tourist attractions */}
+      <section className="bg-muted/55 py-16 lg:py-20">
+        <div className="container">
+          <SectionHeading
+            eyebrow="Explore Chennai"
+            title="Places to Visit Nearby"
+            description="Make the most of your trip! Chennai and its surroundings offer a rich blend of heritage, beaches, temples, and culture."
+            align="center"
+          />
+
+          <div className="mx-auto mt-10 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {chennaiattractions.map((spot) => {
+              const badgeColors: Record<string, string> = {
+                Heritage: "bg-amber-100 text-amber-800",
+                Beach: "bg-sky-100 text-sky-800",
+                Temple: "bg-orange-100 text-orange-800",
+                Museum: "bg-purple-100 text-purple-800",
+                Park: "bg-green-100 text-green-800",
+                Shopping: "bg-pink-100 text-pink-800",
+              };
+              const dotColors: Record<string, string> = {
+                Heritage: "bg-amber-400",
+                Beach: "bg-sky-400",
+                Temple: "bg-orange-400",
+                Museum: "bg-purple-400",
+                Park: "bg-green-400",
+                Shopping: "bg-pink-400",
+              };
+              return (
+                <a
+                  key={spot.name}
+                  href={spot.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col rounded-2xl border border-brand/10 bg-white p-5 shadow-sm transition-all duration-200 hover:border-brand/30 hover:shadow-md"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span
+                      className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${
+                        badgeColors[spot.category] ?? "bg-muted text-muted-foreground"
+                      }`}
+                    >
+                      {spot.category}
+                    </span>
+                    <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <span
+                        className={`inline-block size-1.5 rounded-full ${
+                          dotColors[spot.category] ?? "bg-muted"
+                        }`}
+                      />
+                      {spot.distance}
+                    </span>
+                  </div>
+                  <h3 className="mt-3 font-black text-brand-dark group-hover:text-brand transition-colors">
+                    {spot.name}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">
+                    {spot.description}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-brand group-hover:underline">
+                    View on Maps <ExternalLink className="size-3" />
+                  </span>
+                </a>
+              );
+            })}
+          </div>
         </div>
       </section>
 

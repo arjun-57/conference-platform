@@ -21,7 +21,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-brand/15 bg-white/95 shadow-sm backdrop-blur">
-      <div className="container flex min-h-24 items-center justify-between gap-4 py-3">
+      <div className="flex min-h-24 items-center justify-between gap-2 px-4 py-3 sm:px-6">
         <Link href="/" className="flex min-w-0 shrink-0 items-center gap-3">
           <Image
             src="/images/aisge2027-logo.png"
@@ -41,15 +41,15 @@ export function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop navigation */}
-        <nav className="hidden items-center lg:flex">
+        {/* Desktop navigation — only shown at xl and above */}
+        <nav className="hidden items-center gap-0.5 xl:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-current={pathname === item.href ? "page" : undefined}
               className={cn(
-                "rounded-lg px-2 py-2 text-[0.95rem] font-medium whitespace-nowrap text-brand-dark/75 transition-colors hover:bg-brand-light/35 hover:text-brand-dark",
+                "rounded-lg px-2 py-1.5 text-[0.82rem] font-medium whitespace-nowrap text-brand-dark/75 transition-colors hover:bg-brand-light/35 hover:text-brand-dark",
                 pathname === item.href && "bg-brand-light/45 text-brand-dark"
               )}
             >
@@ -58,14 +58,14 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* Mobile / tablet menu */}
+        {/* Mobile / tablet menu — shown below xl */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger
             render={
               <Button
                 variant="ghost"
                 size="icon"
-                className="shrink-0 text-brand-dark lg:hidden"
+                className="shrink-0 text-brand-dark xl:hidden"
               />
             }
           >

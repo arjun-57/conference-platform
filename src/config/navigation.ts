@@ -19,13 +19,14 @@ export const routes: Route[] = [
   { label: "Program", href: "/program", title: "Conference Program" },
   { label: "Venue", href: "/venue", title: "Venue" },
   { label: "Call for Papers", href: "/cfp", title: "Call for Papers" },
-  { label: "For Attendees", href: "/attendees", title: "For Attendees" },
   {
     label: "Registration",
     href: "/registration",
     title: "Registration, Accommodation & Travel",
   },
   { label: "For Authors", href: "/authors", title: "For Authors" },
+  { label: "For Attendees", href: "/attendees", title: "For Attendees" },
+  { label: "Sponsors", href: "/sponsors", title: "Sponsors & Partners" },
 ];
 
 /** Header links — the home page is reached through the logo instead. */

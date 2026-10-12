@@ -93,3 +93,18 @@ export type TravelRoute = {
   title: string;
   body: string;
 };
+
+export type TouristSpot = {
+  name: string;
+  description: string;
+  distance: string;
+  category: "Heritage" | "Beach" | "Temple" | "Museum" | "Park" | "Shopping";
+  mapUrl: string;
+};
+
+export type Sponsor = {
+  name: string;
+  role: string;
+  logo: string;
+  url?: string;
+};
