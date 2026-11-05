@@ -8,6 +8,7 @@ import {
   ExternalLink,
   Hotel,
   Info,
+  Landmark,
   Mail,
   MapPin,
   Plane,
@@ -18,6 +19,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import {
   accommodation,
+  bankAccount,
   chennaiattractions,
   conference,
   contact,
@@ -128,10 +130,67 @@ export default function RegistrationPage() {
         </div>
       </section>
 
-      {/* Accommodation */}
+      {/* Bank Account Details + Accommodation */}
       <section className="bg-muted/55 py-16 lg:py-20">
         <div className="container">
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-4xl space-y-8">
+            <div className="content-card p-8 md:p-10">
+              <Landmark className="size-9 text-brand" />
+              <p className="mt-5 text-sm font-bold uppercase tracking-widest text-brand">
+                Payment
+              </p>
+              <h2 className="mt-2 text-2xl font-black text-brand-dark">
+                Bank Transfer Details
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                Use the following account details for NEFT / RTGS / IMPS transfers.
+                Please email your payment receipt to{" "}
+                <a
+                  href={`mailto:${contact.helpDesk}`}
+                  className="font-medium text-brand-dark hover:underline"
+                >
+                  {contact.helpDesk}
+                </a>{" "}
+                after completing the transfer.
+              </p>
+
+              <div className="mt-6 overflow-x-auto rounded-2xl border border-brand/20 shadow-sm">
+                <table className="w-full min-w-80 text-sm">
+                  <caption className="sr-only">Bank account details for registration payment</caption>
+                  <tbody>
+                    {(
+                      [
+                        ["Account Name", bankAccount.accountName],
+                        ["Account Type", bankAccount.accountType],
+                        ["Account Number", bankAccount.accountNumber],
+                        ["IFSC Code", bankAccount.ifscCode],
+                        ["MICR Code", bankAccount.micrCode],
+                        ["Bank", bankAccount.bank],
+                      ] as [string, string][]
+                    ).map(([label, value], i) => (
+                      <tr
+                        key={label}
+                        className={`border-b border-brand/10 last:border-0 ${
+                          i % 2 === 0 ? "bg-white" : "bg-muted/30"
+                        }`}
+                      >
+                        <th
+                          scope="row"
+                          className="w-48 px-6 py-4 text-left font-semibold text-brand-dark"
+                        >
+                          {label}
+                        </th>
+                        <td className="px-6 py-4 font-mono text-muted-foreground">
+                          {value}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Accommodation card */}
             <div className="content-card p-8 md:p-10">
               <Hotel className="size-9 text-brand" />
               <p className="mt-5 text-sm font-bold uppercase tracking-widest text-brand">

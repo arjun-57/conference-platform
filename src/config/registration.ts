@@ -1,4 +1,4 @@
-import type { FeeRow, Hotel, SponsorTier, TravelRoute } from "./types";
+import type { BankAccount, FeeRow, Hotel, SponsorTier, TravelRoute } from "./types";
 
 /**
  * Registration fees.
@@ -25,6 +25,18 @@ export const registration = {
     "Participation in the pre-conference workshop is FREE for all Attendees / Authors.",
   paymentNote:
     "The online payment link and bank transfer details will be shared with authors after acceptance notifications are sent.",
+} as const;
+
+/**
+ * Bank account details for registration fee payment via NEFT / RTGS / IMPS.
+ */
+export const bankAccount: BankAccount = {
+  accountName: "SRM IST EIE Association",
+  accountType: "Savings",
+  accountNumber: "117001001672075",
+  ifscCode: "CIUB0000117",
+  micrCode: "572054002",
+  bank: "City Union Bank",
 } as const;
 
 /**

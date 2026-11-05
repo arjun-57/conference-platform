@@ -108,3 +108,12 @@ export type Sponsor = {
   logo: string;
   url?: string;
 };
+
+export type BankAccount = {
+  accountName: string;
+  accountType: string;
+  accountNumber: string;
+  ifscCode: string;
+  micrCode: string;
+  bank: string;
+};
