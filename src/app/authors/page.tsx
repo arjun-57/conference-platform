@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import {
-  CheckCircle2,
   Download,
   ExternalLink,
   FileText,
   Mic2,
-  Presentation,
   ShieldCheck,
 } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
@@ -14,7 +12,7 @@ import { conference, dates, isSubmissionOpen, submission } from "@/config";
 
 export const metadata: Metadata = {
   title: "For Authors",
-  description: `Camera-ready instructions, copyright form, formatting checklist and presentation guidelines for accepted authors at ${conference.name}.`,
+  description: `Camera-ready instructions, copyright form, and presentation guidelines for accepted authors at ${conference.name}.`,
 };
 
 const cameraReadySteps = [
@@ -28,17 +26,6 @@ const cameraReadySteps = [
   "Complete the copyright transfer form and submit it via Microsoft CMT.",
 ];
 
-const formattingChecklist = [
-  "Use the official Springer LNEE LaTeX or Word template.",
-  "Set paper size to A4 and do not change the template margins.",
-  "Use the template's body text font and size (Times New Roman, 10 pt).",
-  "Figures must be high resolution (300 dpi or above) and embedded in the document.",
-  "Number and clearly label all equations.",
-  "Abstract of 150–250 words; 4–6 keywords.",
-  "Author names and affiliations must appear on the first page.",
-  "Follow the Springer reference style with [1], [2], … numbering.",
-];
-
 const presentationGuidelines = [
   {
     icon: Mic2,
@@ -50,16 +37,6 @@ const presentationGuidelines = [
       "Report to your assigned session room 15 minutes early.",
     ],
   },
-  {
-    icon: Presentation,
-    title: "Poster Presentation",
-    points: [
-      "Poster size is A0 portrait (841 mm × 1189 mm).",
-      "Bring a printed poster — digital-only displays are not available.",
-      "Mount your poster before the poster session begins.",
-      "Be present at your poster during the designated poster session.",
-    ],
-  },
 ];
 
 export default function AuthorsPage() {
@@ -68,7 +45,7 @@ export default function AuthorsPage() {
       <PageHero
         eyebrow="Accepted Authors"
         title="For Authors"
-        description={`Camera-ready submission, copyright, formatting and presentation instructions for ${conference.name}.`}
+        description={`Camera-ready submission, copyright, formatting and presentation instructions for ${conference.name}`}
       />
 
       {/* Camera-ready instructions */}
@@ -142,61 +119,36 @@ export default function AuthorsPage() {
         </div>
       </section>
 
-      {/* Formatting checklist */}
+      {/* Presentation guidelines */}
       <section className="container py-16 lg:py-20">
         <div className="mx-auto max-w-4xl">
           <SectionHeading
-            eyebrow="Checklist"
-            title="Final Formatting Checklist"
+            eyebrow="At the Conference"
+            title="Presentation Guidelines"
+            align="center"
           />
-          <p className="mt-4 leading-7 text-muted-foreground">
-            Verify every item below before uploading your camera-ready paper.
-          </p>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            {formattingChecklist.map((item) => (
-              <div
-                key={item}
-                className="flex items-start gap-3 rounded-xl border border-brand/15 bg-white p-4 shadow-sm"
-              >
-                <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-brand" />
-                <p className="text-sm leading-7 text-muted-foreground">{item}</p>
+          <div className="mx-auto mt-10 max-w-2xl">
+            {presentationGuidelines.map((guideline) => (
+              <div key={guideline.title} className="content-card p-8 sm:p-10">
+                <div className="flex size-14 items-center justify-center rounded-2xl bg-brand-dark text-white">
+                  <guideline.icon className="size-7" />
+                </div>
+                <h3 className="mt-5 text-2xl font-black text-brand-dark">
+                  {guideline.title}
+                </h3>
+                <ul className="mt-5 space-y-3">
+                  {guideline.points.map((point) => (
+                    <li
+                      key={point}
+                      className="flex gap-3 text-sm leading-7 text-muted-foreground"
+                    >
+                      <span className="mt-2 block size-2 shrink-0 rounded-full bg-brand" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Presentation guidelines */}
-      <section className="bg-muted/55 py-16 lg:py-20">
-        <div className="container">
-          <div className="mx-auto max-w-4xl">
-            <SectionHeading
-              eyebrow="At the Conference"
-              title="Presentation Guidelines"
-            />
-            <div className="mt-10 grid gap-7 sm:grid-cols-2">
-              {presentationGuidelines.map((guideline) => (
-                <div key={guideline.title} className="content-card p-8">
-                  <div className="flex size-12 items-center justify-center rounded-2xl bg-brand-dark text-white">
-                    <guideline.icon className="size-6" />
-                  </div>
-                  <h3 className="mt-5 text-xl font-black text-brand-dark">
-                    {guideline.title}
-                  </h3>
-                  <ul className="mt-4 space-y-3">
-                    {guideline.points.map((point) => (
-                      <li
-                        key={point}
-                        className="flex gap-3 text-sm leading-7 text-muted-foreground"
-                      >
-                        <span className="mt-2 block size-2 shrink-0 rounded-full bg-brand" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

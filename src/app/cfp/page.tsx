@@ -45,7 +45,7 @@ export default function CallForPapersPage() {
       />
 
       {/* Submission portal + deadlines */}
-      <section className="container grid gap-10 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:py-20">
+      <section className="container grid gap-10 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:py-20">
         <div>
           <SectionHeading
             eyebrow="Submission workflow"

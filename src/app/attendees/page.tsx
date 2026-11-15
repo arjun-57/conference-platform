@@ -39,7 +39,7 @@ export default function AttendeesPage() {
       <PageHero
         eyebrow="Non-Presenting Participants"
         title="For Attendees"
-        description={`Join ${conference.name} as an attendee to experience cutting-edge research, keynotes and networking without submitting a paper.`}
+        description={`Join ${conference.name} as an attendee to experience cutting-edge research, keynotes and networking without submitting a paper`}
       />
 
       {/* What registration includes */}

@@ -8,19 +8,19 @@ import type { BankAccount, FeeRow, Hotel, SponsorTier, TravelRoute } from "./typ
  */
 export const registration = {
   fees: [
-    { category: "Attendee / Author", cost: "₹1,500" },
-    { category: "Indian — Student (UG/PG)", cost: "₹4,500" },
-    { category: "Indian — Research Scholar (PhD)", cost: "₹5,000" },
-    { category: "Indian — Faculty / Academic", cost: "₹7,000" },
-    { category: "Indian — Industry Professional", cost: "₹10,000" },
-    { category: "Foreign — Student / Research Scholar", cost: "USD 150" },
-    { category: "Foreign — Faculty / Industry", cost: "USD 250" },
+    { category: "Attendees (Free Pre Conference Workshop)", cost: "₹1,500" },
+    { category: "Indian Student (UG/PG)", cost: "₹4,000" },
+    { category: "Indian Research Scholar (PhD)", cost: "₹4,500" },
+    { category: "Indian Faculty", cost: "₹5,000" },
+    { category: "Indian Industry Professional", cost: "₹10,000" },
+    { category: "Foreign Student / Research Scholar", cost: "USD 150" },
+    { category: "Foreign Faculty / Industry", cost: "USD 250" },
   ] satisfies FeeRow[],
 
   currencyNote:
     "Fees are payable in INR by Indian participants and in USD by foreign participants.",
   taxNote:
-    "Registration fees are exclusive of 18% GST.",
+    "Registration fees are inclusive of 18% GST.",
   workshopNote:
     "Participation in the pre-conference workshop is FREE for all Attendees / Authors.",
   paymentNote:
@@ -31,12 +31,12 @@ export const registration = {
  * Bank account details for registration fee payment via NEFT / RTGS / IMPS.
  */
 export const bankAccount: BankAccount = {
-  accountName: "SRM IST EIE Association",
+  accountName: "SRMIST EIE Association",
   accountType: "Savings",
   accountNumber: "117001001672075",
   ifscCode: "CIUB0000117",
   micrCode: "572054002",
-  bank: "City Union Bank",
+  bank: "City Union Bank, Tambaram Extension, Kattankulathur",
 } as const;
 
 /**

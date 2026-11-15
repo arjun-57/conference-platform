@@ -81,7 +81,7 @@ export const deadlines: Deadline[] = [
   { title: "Digest Submission Deadline", display: "15 January 2027", emphasis: true },
   { title: "Digest Acceptance Notification", display: "10 February 2027" },
   { title: "Camera-Ready Paper Deadline", display: "20 February 2027", emphasis: true },
-  { title: "Registration Fee Payment Deadline", display: "25 February 2027", emphasis: true },
+  { title: "Registration Fee Payment Deadline", display: "25 February 2027" },
   { title: "Conference Dates", display: "18–19 March 2027", emphasis: true },
 ];
 

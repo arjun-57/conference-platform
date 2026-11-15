@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  BadgeIndianRupee,
   Bus,
   CheckCircle2,
   CreditCard,
@@ -9,7 +8,6 @@ import {
   Hotel,
   Info,
   Landmark,
-  Mail,
   MapPin,
   Plane,
   Train,
@@ -25,13 +23,12 @@ import {
   contact,
   orTBD,
   registration,
-  sponsorship,
   travelRoutes,
 } from "@/config";
 
 export const metadata: Metadata = {
   title: "Registration, Accommodation & Travel",
-  description: `Registration categories and fees, accommodation near the venue, travel information and sponsorship packages for ${conference.name}.`,
+  description: `Registration categories and fees, accommodation near the venue, and travel information for ${conference.name}.`,
 };
 
 const ROUTE_ICONS: Record<string, LucideIcon> = {
@@ -48,7 +45,7 @@ export default function RegistrationPage() {
       <PageHero
         eyebrow="Participate"
         title="Registration, Accommodation & Travel"
-        description="Registration categories and fees, accommodation options near the venue, and travel information."
+        description="Registration categories and fees, accommodation options near the venue, and travel information"
       />
 
       {/* Registration fees */}
@@ -77,7 +74,7 @@ export default function RegistrationPage() {
               </thead>
               <tbody>
                 {registration.fees.map((row, i) => {
-                  const isAttendee = row.category === "Attendee / Author";
+                  const isAttendee = row.category.toLowerCase().includes("attendee");
                   return (
                     <tr
                       key={row.category}
@@ -92,16 +89,9 @@ export default function RegistrationPage() {
                         scope="row"
                         className="px-6 py-4 text-left font-medium text-brand-dark"
                       >
-                        <span className="flex items-center gap-2">
-                          {row.category}
-                          {isAttendee && (
-                            <span className="rounded-full bg-brand px-2.5 py-0.5 text-xs font-semibold text-white">
-                              Free Workshop
-                            </span>
-                          )}
-                        </span>
+                        {row.category}
                       </th>
-                      <td className="px-6 py-4 text-muted-foreground">
+                      <td className="px-6 py-4 font-semibold text-brand-dark">
                         {orTBD(row.cost)}
                       </td>
                     </tr>
@@ -159,12 +149,11 @@ export default function RegistrationPage() {
                   <tbody>
                     {(
                       [
-                        ["Account Name", bankAccount.accountName],
-                        ["Account Type", bankAccount.accountType],
+                        ["Beneficiary Name", bankAccount.accountName],
                         ["Account Number", bankAccount.accountNumber],
                         ["IFSC Code", bankAccount.ifscCode],
-                        ["MICR Code", bankAccount.micrCode],
-                        ["Bank", bankAccount.bank],
+                        ["Bank & Branch", bankAccount.bank],
+                        ["Account Type", bankAccount.accountType],
                       ] as [string, string][]
                     ).map(([label, value], i) => (
                       <tr
@@ -359,7 +348,7 @@ export default function RegistrationPage() {
       </section>
 
       {/* Visa */}
-      <section className="container pb-16">
+      <section className="container py-16 lg:py-20">
         <div className="mx-auto max-w-4xl rounded-3xl bg-brand-dark p-8 text-white sm:p-10">
           <h2 className="text-2xl font-black">Visa Information</h2>
           <p className="mt-4 leading-8 text-white/75">
@@ -375,68 +364,6 @@ export default function RegistrationPage() {
             </a>{" "}
             for visa invitation letter requests.
           </p>
-        </div>
-      </section>
-
-      {/* Sponsorship */}
-      <section className="bg-muted/55 py-16 lg:py-20">
-        <div className="container">
-          <SectionHeading
-            eyebrow="Partnership"
-            title="Sponsorship & Exhibition"
-            description={sponsorship.intro}
-            align="center"
-          />
-
-          <div className="mx-auto mt-10 grid max-w-4xl gap-4 sm:grid-cols-2">
-            {sponsorship.benefits.map((benefit) => (
-              <p
-                key={benefit}
-                className="flex gap-3 text-sm leading-7 text-muted-foreground"
-              >
-                <CheckCircle2 className="mt-1 size-5 shrink-0 text-brand" />
-                {benefit}
-              </p>
-            ))}
-          </div>
-
-          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {sponsorship.tiers.map((tier) => (
-              <article key={tier.tier} className="content-card p-6">
-                <BadgeIndianRupee className="size-7 text-brand" />
-                <div className="mt-5 flex items-start justify-between gap-3">
-                  <h3 className="text-xl font-black text-brand-dark">
-                    {tier.tier}
-                  </h3>
-                  <span className="rounded-full bg-brand-light/40 px-3 py-1 text-sm font-bold text-brand-dark">
-                    {tier.amount}
-                  </span>
-                </div>
-                <p className="mt-5 text-muted-foreground">{tier.booth}</p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {sponsorship.inclusion}
-                </p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mx-auto mt-10 max-w-4xl rounded-3xl bg-brand-dark p-8 text-center text-white sm:p-10">
-            <Mail className="mx-auto size-9 text-brand-light" />
-            <h3 className="mt-5 text-2xl font-black">
-              Request sponsorship details
-            </h3>
-            <p className="mx-auto mt-4 max-w-2xl leading-7 text-white/75">
-              {sponsorship.taxNote}
-            </p>
-            <a
-              href={`mailto:${contact.helpDesk}?subject=${encodeURIComponent(
-                `${conference.name} Sponsorship Enquiry`
-              )}`}
-              className="mt-7 inline-flex rounded-full bg-brand-light px-7 py-3 font-bold text-brand-dark transition-colors hover:bg-white"
-            >
-              Email the Sponsorship Team
-            </a>
-          </div>
         </div>
       </section>
     </div>

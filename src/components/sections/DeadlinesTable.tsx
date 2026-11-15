@@ -5,7 +5,7 @@ import { deadlines } from "@/config";
 /** Important dates table, shared by the About and Call for Papers pages. */
 export function DeadlinesTable() {
   return (
-    <div className="overflow-hidden rounded-2xl border border-brand/20 bg-white shadow-sm">
+    <div className="self-start overflow-hidden rounded-2xl border border-brand/20 bg-white shadow-sm">
       {deadlines.map((deadline) => (
         <div
           key={deadline.title}
