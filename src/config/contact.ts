@@ -42,7 +42,7 @@ export const contact = {
   } satisfies Person,
 
   address: {
-    venue: "Dr. T.P Ganesan Auditorium",
+    venue: "Mini Hall, Dr. T.P Ganesan Auditorium",
     institution: "SRM Institute of Science and Technology",
     lines: [
       "R2FW+WM3, Intra College Rd, Potheri",

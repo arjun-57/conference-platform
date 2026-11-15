@@ -35,41 +35,34 @@ export default function VenuePage() {
 
       {/* Address and map */}
       <section className="container space-y-10 py-16 lg:py-20">
-        <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
-          <div>
-            <SectionHeading
-              eyebrow="About the Venue"
-              title="SRM Tech Park, Kattankulathur Campus"
-            />
-            <p className="mt-5 text-lg leading-8 text-muted-foreground">
-              {conference.venueNote}
-            </p>
-          </div>
-
-          <div className="content-card p-7">
-            <div className="flex gap-4">
-              <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-brand-dark text-white">
-                <MapPin className="size-6" />
-              </div>
-              <div>
-                <h2 className="font-black text-brand-dark">Venue Address</h2>
-                <address className="mt-2 text-sm not-italic leading-7 text-muted-foreground">
-                  <strong className="block text-base font-bold text-brand-dark">
-                    {contact.address.venue}
-                  </strong>
+        <div className="content-card p-8 sm:p-10">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
+            <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl bg-brand-dark text-white">
+              <MapPin className="size-7" />
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-bold uppercase tracking-widest text-brand">
+                Venue Address
+              </p>
+              <h2 className="mt-2 text-2xl font-black text-brand-dark sm:text-3xl">
+                Mini Hall, Dr. T.P Ganesan Auditorium
+              </h2>
+              <address className="mt-4 text-base not-italic leading-8 text-muted-foreground">
+                <strong className="block font-semibold text-brand-dark">
                   {contact.address.institution}
-                  <br />
-                  {contact.address.lines.map((line) => (
-                    <span key={line} className="block">
-                      {line}
-                    </span>
-                  ))}
-                </address>
+                </strong>
+                {contact.address.lines.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </address>
+              <div className="mt-6">
                 <a
                   href={MAPS_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-brand-dark px-5 py-2 text-sm font-bold text-white transition-colors hover:bg-brand"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand-dark px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-brand"
                 >
                   Open in Google Maps <ArrowRight className="size-4" />
                 </a>
@@ -82,12 +75,12 @@ export default function VenuePage() {
           <iframe
             src={MAP_EMBED_SRC}
             width="100%"
-            height="420"
+            height="450"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Map of Dr. T.P Ganesan Auditorium, SRM IST Kattankulathur Campus"
+            title="Map of Mini Hall, Dr. T.P Ganesan Auditorium, SRM IST Kattankulathur Campus"
           />
         </div>
       </section>

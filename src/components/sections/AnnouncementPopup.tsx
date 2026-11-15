@@ -70,7 +70,14 @@ export function AnnouncementPopup() {
                 🏫 <strong>Venue:</strong> {conference.location}
               </p>
               <p>
-                🤝 <strong>In partnership with:</strong> {conference.partner}
+                🤝 <strong>Jointly organised with:</strong>{" "}
+                {conference.organisedWith}
+              </p>
+              <p>
+                🎓 {conference.sparkLine}
+              </p>
+              <p>
+                🏛️ {conference.ministryLine}
               </p>
             </div>
 

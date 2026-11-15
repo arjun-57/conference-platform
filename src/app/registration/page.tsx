@@ -81,13 +81,12 @@ export default function RegistrationPage() {
                   return (
                     <tr
                       key={row.category}
-                      className={`border-b border-brand/10 last:border-0 ${
-                        isAttendee
+                      className={`border-b border-brand/10 last:border-0 ${isAttendee
                           ? "bg-brand-light/20"
                           : i % 2 === 0
-                          ? "bg-white"
-                          : "bg-muted/30"
-                      }`}
+                            ? "bg-white"
+                            : "bg-muted/30"
+                        }`}
                     >
                       <th
                         scope="row"
@@ -170,9 +169,8 @@ export default function RegistrationPage() {
                     ).map(([label, value], i) => (
                       <tr
                         key={label}
-                        className={`border-b border-brand/10 last:border-0 ${
-                          i % 2 === 0 ? "bg-white" : "bg-muted/30"
-                        }`}
+                        className={`border-b border-brand/10 last:border-0 ${i % 2 === 0 ? "bg-white" : "bg-muted/30"
+                          }`}
                       >
                         <th
                           scope="row"
@@ -331,17 +329,15 @@ export default function RegistrationPage() {
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span
-                      className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${
-                        badgeColors[spot.category] ?? "bg-muted text-muted-foreground"
-                      }`}
+                      className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${badgeColors[spot.category] ?? "bg-muted text-muted-foreground"
+                        }`}
                     >
                       {spot.category}
                     </span>
                     <span className="flex items-center gap-1 text-xs text-muted-foreground">
                       <span
-                        className={`inline-block size-1.5 rounded-full ${
-                          dotColors[spot.category] ?? "bg-muted"
-                        }`}
+                        className={`inline-block size-1.5 rounded-full ${dotColors[spot.category] ?? "bg-muted"
+                          }`}
                       />
                       {spot.distance}
                     </span>

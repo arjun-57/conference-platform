@@ -35,8 +35,8 @@ export function Navbar() {
             <span className="block text-2xl font-black tracking-tight text-brand-dark">
               {conference.name}
             </span>
-            <span className="hidden truncate text-sm text-muted-foreground sm:block">
-              AI and Sustainable Green Energy
+            <span className="hidden text-sm leading-tight text-muted-foreground sm:block">
+              AI and Sustainable Green Energy for Future Electrification
             </span>
           </div>
         </Link>

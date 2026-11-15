@@ -1,10 +1,10 @@
-import type { ScheduleDay } from "./types";
-
 export const program = {
   workshop: {
     title: "Pre-Conference Workshop",
-    dates: "13–15 March 2027",
-    note: "A pre-conference workshop will be conducted from 13–15 March 2027 by eminent professors from UK universities. The workshop focuses on advanced topics in sustainable energy and AI applications.",
+    dates: "15th–16th March 2027",
+    fullTitle:
+      "SPARC Sponsored International Workshop “AI-Enabled Power Electronics and Hydrogen–Battery Hybrid Electric Drives for Sustainable Mobility”",
+    note: "SPARC Sponsored International Workshop “AI-Enabled Power Electronics and Hydrogen–Battery Hybrid Electric Drives for Sustainable Mobility” (Free for all registered AI-SGE 2027 participants)",
     /**
      * TODO(organisers): drop the brochure PDF into `public/documents/` and set
      * this to its path, e.g. "/documents/ai-sge-2027-workshop-brochure.pdf".
@@ -13,49 +13,5 @@ export const program = {
     brochureUrl: "",
   },
 
-  /**
-   * Day-wise programme. The workshop runs 13–15 March; the main conference
-   * opens with the inauguration on 15 March and closes on 18 March.
-   */
-  schedule: [
-    {
-      day: "13 March 2027",
-      label: "Pre-Conference Workshop — Day 1",
-      sessions: ["Workshop Session — Morning", "Workshop Session — Afternoon"],
-    },
-    {
-      day: "14 March 2027",
-      label: "Pre-Conference Workshop — Day 2",
-      sessions: ["Workshop Session — Morning", "Workshop Session — Afternoon"],
-    },
-    {
-      day: "15 March 2027",
-      label: "Workshop Day 3 & Conference Inauguration",
-      sessions: ["Workshop Session — Morning", "Inaugural Ceremony — Afternoon"],
-    },
-    {
-      day: "18 March 2027",
-      label: "Technical Sessions — Day 1",
-      sessions: [
-        "Keynote Address 1",
-        "Technical Session I — Power Electronics & Energy Conversion",
-        "Technical Session II — Renewable Energy Systems",
-        "Keynote Address 2",
-        "Technical Session III — Electric Vehicles & Electrified Transportation",
-      ],
-    },
-    {
-      day: "19 March 2027",
-      label: "Technical Sessions — Day 2 & Closing",
-      sessions: [
-        "Technical Session IV — AI in Energy Systems",
-        "Technical Session V — Smart Grid & Energy Storage",
-        "Panel Discussion",
-        "Valedictory Ceremony & Award Distribution",
-      ],
-    },
-  ] satisfies ScheduleDay[],
-
-  scheduleNote:
-    "Session timings, room assignments, speaker names and session chairs will be published once the technical programme committee finalises the programme.",
+  scheduleNote: "Schedule yet to be posted",
 } as const;

@@ -21,12 +21,12 @@ import {
 
 export const metadata: Metadata = {
   title: "Call for Papers",
-  description: `Call for papers for ${conference.name}. Conference tracks, submission guidelines, Springer LNEE template and the Microsoft CMT submission portal.`,
+  description: `Call for papers for ${conference.name}. Conference themes, submission guidelines, Springer LNEE template and the Microsoft CMT submission portal.`,
 };
 
 const guidelines = [
   "Submit in single column format not exceeding 6 pages and 2 MB.",
-  "The digest may be submitted to any relevant conference track.",
+  "The digest may be submitted to any relevant conference theme.",
   "The digest will undergo single-blind review; author names and affiliations must be included.",
   "Include an abstract of about 200 words and a maximum of five keywords.",
   "Digests with a plagiarism similarity score of 10% or above may be rejected without further review.",
@@ -41,7 +41,7 @@ export default function CallForPapersPage() {
       <PageHero
         eyebrow="For Authors"
         title="Call for Papers"
-        description={`We invite prospective authors to submit original research papers in any relevant ${conference.name} track.`}
+        description={`We invite prospective authors to submit original research papers in any relevant ${conference.name} themes`}
       />
 
       {/* Submission portal + deadlines */}
@@ -116,7 +116,7 @@ export default function CallForPapersPage() {
         <div className="container">
           <SectionHeading
             eyebrow="Theme"
-            title="Conference Tracks & Domains"
+            title="Conference Themes"
             description="Original, unpublished research is invited in the following areas."
             align="center"
           />

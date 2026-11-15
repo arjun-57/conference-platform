@@ -68,7 +68,14 @@ export default function ProgramPage() {
       <PageHero
         eyebrow="Schedule & Events"
         title="Conference Program"
-        description={`${conferenceWindow.display} — pre-conference workshop ${conferenceWindow.workshopDisplay}`}
+        description={
+          <div className="space-y-1 text-center">
+            <p className="text-xl font-bold text-white">18–19 March 2027</p>
+            <p className="text-base font-semibold text-brand-light">
+              Pre-Conference Workshop: 15–16 March 2027
+            </p>
+          </div>
+        }
       />
 
       {/* Pre-conference workshop */}
@@ -79,14 +86,14 @@ export default function ProgramPage() {
               <Users className="size-7" />
             </div>
             <div>
-              <p className="text-sm font-bold uppercase tracking-widest text-brand">
-                Pre-Conference
-              </p>
-              <h2 className="mt-2 text-2xl font-black text-brand-dark">
-                {program.workshop.title} — {program.workshop.dates}
+              <h2 className="text-2xl font-black text-brand-dark">
+                PRECONFERENCE WORKSHOP (15th–16th March 2027)
               </h2>
-              <p className="mt-4 leading-8 text-muted-foreground">
-                {program.workshop.note}
+              <p className="mt-4 text-lg font-bold leading-relaxed text-brand-dark">
+                SPARC Sponsored International Workshop “AI-Enabled Power Electronics and Hydrogen–Battery Hybrid Electric Drives for Sustainable Mobility”
+              </p>
+              <p className="mt-2 text-base font-semibold text-brand">
+                (Free for all registered AI-SGE 2027 participants)
               </p>
 
               <div className="mt-6">
@@ -110,45 +117,19 @@ export default function ProgramPage() {
         </div>
       </section>
 
-      {/* Day-wise schedule */}
+      {/* Schedule */}
       <section className="container py-16 lg:py-20">
-        <div className="mx-auto max-w-4xl">
-          <SectionHeading eyebrow="Schedule" title="Day-Wise Program" />
-          <p className="mt-4 leading-7 text-muted-foreground">
-            The workshop runs {conferenceWindow.workshopDisplay}. The main
-            conference runs {conferenceWindow.display}.
-          </p>
-
-          <div className="mt-10 space-y-5">
-            {program.schedule.map((day, i) => (
-              <div key={day.day} className="content-card overflow-hidden">
-                <div className="flex items-center gap-4 border-b border-brand/15 bg-brand-dark/5 px-7 py-4">
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand-dark text-sm font-black text-white">
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  <div>
-                    <p className="font-black text-brand-dark">{day.day}</p>
-                    <p className="text-sm text-brand">{day.label}</p>
-                  </div>
-                </div>
-                <ul className="divide-y divide-brand/10 px-7">
-                  {day.sessions.map((session) => (
-                    <li
-                      key={session}
-                      className="flex items-center gap-3 py-3.5 text-sm text-muted-foreground"
-                    >
-                      <CalendarDays className="size-4 shrink-0 text-brand" />
-                      {session}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+        <div className="mx-auto max-w-4xl text-center">
+          <SectionHeading eyebrow="Schedule" title="Day-Wise Program" align="center" />
+          <div className="mt-10 rounded-3xl border border-dashed border-brand/30 bg-muted/40 p-10 sm:p-14">
+            <CalendarDays className="mx-auto size-12 text-brand" />
+            <h3 className="mt-4 text-2xl font-black text-brand-dark">
+              Schedule yet to be posted
+            </h3>
+            <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
+              Detailed session timings, keynote addresses, room assignments, and speaker schedules will be updated here once finalized by the technical programme committee.
+            </p>
           </div>
-
-          <p className="mt-6 rounded-xl bg-muted/60 px-5 py-4 text-sm leading-7 text-muted-foreground">
-            {program.scheduleNote}
-          </p>
         </div>
       </section>
 

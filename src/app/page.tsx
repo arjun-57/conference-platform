@@ -107,10 +107,14 @@ export default function HomePage() {
                   {conference.location}
                 </span>
               </p>
-              <p className="border-t border-white/15 pt-3 text-center text-sm text-white/75 sm:col-span-2">
-                In partnership with{" "}
-                <strong className="text-brand-light">{conference.partner}</strong>
-              </p>
+              <div className="border-t border-white/15 pt-3 text-center sm:col-span-2 space-y-1">
+                <p className="text-sm text-white/75">
+                  Jointly organised with{" "}
+                  <strong className="text-brand-light">{conference.organisedWith}</strong>
+                </p>
+                <p className="text-sm text-white/75">{conference.sparkLine}</p>
+                <p className="text-sm text-white/75">{conference.ministryLine}</p>
+              </div>
             </div>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -273,12 +277,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CONFERENCE TRACKS ── */}
+      {/* ── CONFERENCE THEMES ── */}
       <section className="bg-muted/60 py-16 lg:py-20">
         <div className="container">
           <SectionHeading
             eyebrow="Research Areas"
-            title="Conference Tracks"
+            title="Conference Themes"
             align="center"
           />
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

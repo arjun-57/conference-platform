@@ -1,7 +1,7 @@
 import type { CommitteeSection, Person } from "./types";
 
 /**
- * Committee roster, grouped into the four sections shown on /committee.
+ * Committee roster, grouped into sections shown on /committee.
  *
  * Members whose names are not yet public are NOT listed as placeholder cards.
  * Instead each group carries a `pending` count, which renders as a single
@@ -9,44 +9,114 @@ import type { CommitteeSection, Person } from "./types";
  * and decrement `pending`.
  */
 
-const chiefPatron: Person[] = [
+// ── CHIEF PATRONS ──────────────────────────────────────────────────────────
+const chiefPatrons: Person[] = [
   { name: "Dr. T. R. Paarivendhar", role: "Chancellor, SRMIST" },
-];
-
-const patrons: Person[] = [
   { name: "Dr. P. Ravi Pachaimuthu", role: "Pro-Chancellor (Administration), SRMIST" },
   { name: "Dr. Sathyanarayanan", role: "Pro-Chancellor (Academics), SRMIST" },
 ];
 
-const honoraryChairs: Person[] = [
-  { name: "Dr. C. Muthamizhchelvan", role: "Vice Chancellor, SRMIST" },
-  { name: "Dr. S. Ponnusamy", role: "Registrar, SRMIST" },
-  { name: "Dr. Leenus Jesu Martin M", role: "Dean, Faculty of Engineering & Technology, SRMIST" },
-  { name: "Dr. Vijayakumar", role: "Chairperson, School of Electrical Engineering, SRMIST" },
+// ── PATRONS ────────────────────────────────────────────────────────────────
+const patrons: Person[] = [
+  { name: "Prof. C. Muthamizhchelvan", role: "Vice Chancellor, SRMIST" },
+  { name: "Prof. S. Ponnusamy", role: "Registrar, SRMIST" },
+  { name: "Prof. M. Leenus Jesu Martin", role: "Dean, Faculty of Engineering & Technology, SRMIST" },
+  { name: "Prof. B. Neppolian", role: "Dean Research, SRMIST" },
 ];
 
-const generalChairs: Person[] = [
-  { name: "Dr. R Shridhar", role: "HOD/EEE, SRMIST" },
+// ── CONFERENCE CHAIRS ──────────────────────────────────────────────────────
+const conferenceChairs: Person[] = [
+  { name: "Prof. K. Vijayakumar", role: "Chairperson, School of EEE, SRMIST" },
   {
-    name: "Dr. Vigna K Ramachandramurthy",
-    role: "Pro-VC (Research & Innovation), UNITEN, Malaysia",
+    name: "Prof. Ir. Dr. Vigna Kumaran Ramachandaramurthy",
+    role: "Deputy Vice-Chancellor (Research and Innovation), UNITEN, Malaysia",
+  },
+  {
+    name: "Prof. Dr. Ir. Sunardi",
+    role: "Professor and Vice Rector of Academic Affairs, UAD, Indonesia",
   },
 ];
 
-const technicalProgrammeChairs: Person[] = [
-  { name: "Dr. M Jagabar Sathik", role: "SRMIST" },
-  { name: "Dr. R Narayamoorthi", role: "SRMIST" },
-  { name: "Dr. U Sowwmiya", role: "SRMIST" },
+// ── CONVENERS ──────────────────────────────────────────────────────────────
+const conveners: Person[] = [
+  { name: "Prof. R. Sridhar", role: "Professor and Head, Dept of EEE, SRMIST – KTR" },
+  { name: "Prof. G. Joselin Retna Kumar", role: "Professor and Head, Dept of EIE, SRMIST" },
+  { name: "Ir. Ts. Dr. Prem Gunnasegaran", role: "Senior Lecturer, Dept of Mechanical Engineering, UNITEN, Malaysia" },
+  {
+    name: "Prof. Dr. Ir. Tole Sutikno",
+    role: "Professor and Head, Master Program of Electrical Engineering, UAD, Indonesia",
+  },
 ];
 
-const plenaryCommittee: Person[] = [
-  { name: "Dr. A Rathinam", role: "SRMIST" },
-  { name: "Dr. Preetha Roselyn", role: "SRMIST" },
-  { name: "Dr. C Bharathiraja", role: "SRMIST" },
-  { name: "Dr. N Chellammal", role: "SRMIST" },
-  { name: "Dr. D Suchitra", role: "SRMIST" },
+// ── CO-CONVENERS ───────────────────────────────────────────────────────────
+const coConveners: Person[] = [
+  { name: "Dr. R. Narayanamoorthi", role: "Associate Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. U. Sowmmiya", role: "Associate Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. M. N. M. Ansari", role: "Associate Professor, Dept of Mechanical Engineering, UNITEN, Malaysia" },
+  {
+    name: "Dr. Ir. Imam Riadi",
+    role: "Professor and Secretary, Doctoral Program of Informatics, UAD, Indonesia",
+  },
 ];
 
+// ── ORGANISING COMMITTEE ───────────────────────────────────────────────────
+const organisingCommittee: Person[] = [
+  { name: "Dr. A. Rathinam", role: "Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. C. Bharathi Raja", role: "Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. J. Preetha Roselyn", role: "Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. N. Chellammal", role: "Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. D. Suchitra", role: "Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. A. Vimala Juliet", role: "Professor, Dept of EIE, SRMIST" },
+  { name: "Dr. Vignesh Vicki Wanatasanappan", role: "Senior Lecturer, Dept of Mechanical Engineering, UNITEN, Malaysia" },
+  {
+    name: "Dr. Ir. Abdul Fadlil",
+    role: "Professor and Head, Doctoral Program of Informatics, UAD, Indonesia",
+  },
+  {
+    name: "Dr. Ir. Anton Yudhana",
+    role: "Professor and Director, Institute for Research and Community Service, UAD, Indonesia",
+  },
+];
+
+// ── SUB-COMMITTEES ─────────────────────────────────────────────────────────
+const publicationCommittee: Person[] = [
+  { name: "Dr. J. Divyanavamani", role: "Associate Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. A. Lavanya", role: "Associate Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. R. Uthra", role: "Associate Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. D. Anitha", role: "Associate Professor, Dept of EEE, SRMIST" },
+];
+
+const financeCommittee: Person[] = [
+  { name: "Dr. R. Palanisamy", role: "Associate Professor, Dept of EEE, SRMIST" },
+];
+
+const registrationCommittee: Person[] = [
+  { name: "Dr. A. Geetha", role: "Associate Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. S. Usha", role: "Associate Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. T. Thamizh Thendral", role: "Associate Professor, Dept of EEE, SRMIST" },
+];
+
+const publicityCommittee: Person[] = [
+  { name: "Dr. V. Pradeep", role: "Associate Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. D. Selvabharathi", role: "Assistant Professor, Dept of EEE, SRMIST" },
+];
+
+const industryEngagementCommittee: Person[] = [
+  { name: "Dr. K. Saravanan", role: "Associate Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. D. Karthikeyan", role: "Associate Professor, Dept of EEE, SRMIST" },
+];
+
+const localHospitalityCommittee: Person[] = [
+  { name: "Dr. C. S. Bhoopathi", role: "Associate Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. K. Selvakumar", role: "Associate Professor, Dept of EEE, SRMIST" },
+];
+
+const venueManagementCommittee: Person[] = [
+  { name: "Dr. D. Suchitra", role: "Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. N. Kalaiarasi", role: "Associate Professor, Dept of EEE, SRMIST" },
+];
+
+// ── ADVISORY COMMITTEE ─────────────────────────────────────────────────────
 /** International Advisory Committee — 29 confirmed members. */
 const advisoryCommittee: Person[] = [
   { name: "Prof. Krishna Vasudevan", role: "IIT Madras, India" },
@@ -83,40 +153,56 @@ const advisoryCommittee: Person[] = [
   { name: "Prof. Arindam Ghosh", role: "Curtin University, Australia" },
 ];
 
+// ── TECHNICAL PROGRAMME CHAIRS ─────────────────────────────────────────────
+const technicalProgrammeChairs: Person[] = [
+  { name: "Dr. M. Jagabar Sathik", role: "Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. R. Narayanamoorthi", role: "Associate Professor, Dept of EEE, SRMIST" },
+  { name: "Dr. U. Sowmmiya", role: "Associate Professor, Dept of EEE, SRMIST" },
+];
+
+// ── EXPORTED SECTIONS ──────────────────────────────────────────────────────
 export const committeeSections: CommitteeSection[] = [
   {
     id: "patrons",
-    title: "Chief Patron & Patrons",
+    title: "Chief Patrons & Patrons",
     description:
       "The conference is held under the patronage of the senior leadership of SRM Institute of Science and Technology.",
     groups: [
-      { title: "Chief Patron", members: chiefPatron },
+      { title: "Chief Patrons", members: chiefPatrons },
       { title: "Patrons", members: patrons },
     ],
   },
   {
-    id: "convener",
-    title: "Convener",
+    id: "chairs",
+    title: "Conference Chairs",
     description:
-      "The convener leads the organisation and delivery of AISGE2027.",
-    groups: [{ title: "Convener", members: [], pending: 1 }],
+      "The conference is jointly chaired by distinguished leaders from SRMIST, UNITEN (Malaysia), and UAD (Indonesia).",
+    groups: [{ title: "Conference Chairs", members: conferenceChairs }],
+  },
+  {
+    id: "conveners",
+    title: "Conveners & Co-Conveners",
+    description:
+      "Responsible for the overall coordination and execution of AISGE2027 across all three partner institutions.",
+    groups: [
+      { title: "Conveners", members: conveners },
+      { title: "Co-Conveners", members: coConveners },
+    ],
   },
   {
     id: "organizing",
-    title: "Organizing Committee",
+    title: "Organising Committee",
     description:
       "Jointly constituted by SRM Institute of Science and Technology, Universiti Tenaga Nasional (Malaysia), and Universitas Ahmad Dahlan (Indonesia).",
     groups: [
-      // One honorary chair seat (Vice Chancellor, UNITEN) is not yet named.
-      { title: "Honorary Chairs", members: honoraryChairs, pending: 1 },
-      { title: "General Chairs", members: generalChairs },
-      { title: "Plenary Committee", members: plenaryCommittee },
-      { title: "Publication Committee", members: [], pending: 3 },
-      { title: "Finance Committee", members: [], pending: 2 },
-      { title: "Registration Committee", members: [], pending: 6 },
-      { title: "Publicity Committee", members: [], pending: 8 },
-      { title: "Industry Engagement and Sponsorship Committee", members: [], pending: 4 },
-      { title: "Local Hospitality Committee", members: [], pending: 8 },
+      { title: "Organising Committee", members: organisingCommittee },
+      { title: "Publication Committee", members: publicationCommittee },
+      { title: "Finance Committee", members: financeCommittee },
+      { title: "Registration Committee", members: registrationCommittee },
+      { title: "Publicity Committee", members: publicityCommittee },
+      { title: "Industry Engagement and Sponsorship Committee", members: industryEngagementCommittee },
+      { title: "Local Hospitality Committee", members: localHospitalityCommittee },
+      { title: "Venue Management & Session Coordination Committee", members: venueManagementCommittee },
     ],
   },
   {
@@ -125,11 +211,9 @@ export const committeeSections: CommitteeSection[] = [
     description:
       "Distinguished researchers from leading institutions across India, Europe, North America, Asia and Australia.",
     groups: [
-      // Two technical programme chair seats (UNITEN) are not yet named.
       {
         title: "Technical Programme Chairs",
         members: technicalProgrammeChairs,
-        pending: 2,
       },
       { title: "International Advisory Committee", members: advisoryCommittee },
     ],
@@ -138,8 +222,8 @@ export const committeeSections: CommitteeSection[] = [
 
 /** Short leadership preview shown on the home page. */
 export const committeePreview: (Person & { tag: string })[] = [
-  { ...chiefPatron[0], tag: "Chief Patron" },
-  { ...honoraryChairs[0], tag: "Honorary Chair" },
-  { ...generalChairs[0], tag: "General Chair" },
-  { ...generalChairs[1], tag: "General Chair" },
+  { ...chiefPatrons[0], tag: "Chief Patron" },
+  { ...patrons[0], tag: "Patron" },
+  { ...conferenceChairs[0], tag: "Conference Chair" },
+  { ...conferenceChairs[1], tag: "Conference Chair" },
 ];

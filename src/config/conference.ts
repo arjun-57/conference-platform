@@ -7,22 +7,28 @@ export const conference = {
   name: "AISGE2027",
   shortName: "AISGE2027",
   fullName:
-    "International Conference on Artificial Intelligence and Sustainable Green Energy Technologies for Future Electrification",
+    "International Conference on AI and Sustainable Green Energy for Future Electrification",
   edition: "1st Edition",
   description:
     "AISGE2027 brings together researchers, academicians, and industry professionals from across the world to exchange ideas and present innovations in artificial intelligence, sustainable energy technologies, and future electrification systems.",
   host: "SRM Institute of Science and Technology",
   location:
-    "Dr. T.P Ganesan Auditorium, SRM Institute of Science and Technology, Kattankulathur Campus, Chennai, India",
-  locationShort: "Dr. T.P Ganesan Auditorium, SRM IST Kattankulathur, Chennai",
+    "Mini Hall, Dr. T.P Ganesan Auditorium, SRM Institute of Science and Technology, Kattankulathur Campus, Chennai, India",
+  locationShort: "Mini Hall, Dr. T.P Ganesan Auditorium, SRM IST Kattankulathur, Chennai",
   partner:
     "Universiti Tenaga Nasional (UNITEN) Malaysia & Universitas Ahmad Dahlan (UAD) Indonesia",
   partners: [
     "Universiti Tenaga Nasional (UNITEN), Malaysia",
     "Universitas Ahmad Dahlan (UAD), Indonesia",
   ],
+  /** Three-row organisation credit shown on hero card and popup. */
+  organisedWith:
+    "SRM Institute of Science and Technology & Universiti Tenaga Nasional (UNITEN), Malaysia & Universitas Ahmad Dahlan (UAD), Indonesia",
+  sparkLine:
+    "In association with Scheme for Promotion of Academic and Research Collaboration (SPARC)",
+  ministryLine: "Ministry of Education",
   venueNote:
-    "Hosted at Dr. T.P Ganesan Auditorium within the SRM IST Kattankulathur campus near Chennai, one of India's major educational and technological hubs, offering a vibrant academic environment with world-class infrastructure.",
+    "Hosted at Mini Hall, Dr. T.P Ganesan Auditorium within the SRM IST Kattankulathur campus near Chennai, one of India's major educational and technological hubs, offering a vibrant academic environment with world-class infrastructure.",
   cmtAcknowledgment:
     "The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.",
 } as const;
@@ -54,11 +60,16 @@ export const publication = {
 
 export const tracks = [
   "Power Electronics and Energy Conversion",
-  "Electric Vehicles and Electrified Transportation",
   "Renewable Energy Systems",
-  "Hydrogen Energy Technologies",
+  "Electric Vehicles and Electrified Transportation",
   "Artificial Intelligence in Energy Systems",
+  "Hydrogen Energy Technologies",
   "Smart Grid and Energy Storage",
+  "Energy Management, Control and Optimization",
+  "Sustainable Energy Technologies and Microgrids",
+  "Power System Protection, Reliability and Cybersecurity",
+  "Intelligent Computing and AI for Sustainable Energy",
+  "Allied and Other Emerging Energy Technologies",
 ] as const;
 
 export const features = [
@@ -79,10 +90,10 @@ export const objectives = [
 /** Scrolling announcement strip on the home page. */
 export const newsTicker = [
   "🎉 AISGE2027 — 1st International Conference organized by SRM IST, UNITEN Malaysia & UAD Indonesia",
-  "📅 Conference Dates: 18–19 March 2027 | Pre-Conference Workshop: 13–15 March 2027",
+  "📅 Conference Dates: 18–19 March 2027 | Pre-Conference Workshop: 15–16 March 2027",
   "📝 Paper Submission via Microsoft CMT",
   "📖 Accepted papers to be published in Springer LNEE (Scopus / ESCI indexed)",
   "🌍 Selected papers invited for Scopus-indexed journal publication post peer-review",
   "🗓️ Digest Submission Deadline: 1 March 2027",
-  "📍 Venue: SRM Tech Park, SRM IST Kattankulathur Campus, Chennai, India",
+  "📍 Venue: Mini Hall, Dr. T.P Ganesan Auditorium, SRM IST Kattankulathur Campus, Chennai, India",
 ] as const;

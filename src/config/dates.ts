@@ -16,7 +16,7 @@ export const conferenceWindow = {
   endISO: `2027-03-19T18:00:00${IST}`,
   totalDays: 2,
   display: "18–19 March 2027",
-  workshopDisplay: "13–15 March 2027",
+  workshopDisplay: "15–16 March 2027",
 } as const;
 
 /**
@@ -31,8 +31,8 @@ export const milestones: Milestone[] = [
     id: "submissions-open",
     label: "Submissions open in",
     title: "Start of Digest Submission",
-    iso: `2026-09-01T00:00:00${IST}`,
-    display: "1 September 2026",
+    iso: `2026-11-01T00:00:00${IST}`,
+    display: "1 November 2026",
   },
   {
     id: "submission-deadline",
@@ -56,6 +56,13 @@ export const milestones: Milestone[] = [
     display: "20 February 2027",
   },
   {
+    id: "registration-fee",
+    label: "Registration fee payment deadline in",
+    title: "Registration Fee Payment Deadline",
+    iso: `2027-02-25T23:59:59${IST}`,
+    display: "25 February 2027",
+  },
+  {
     id: "conference",
     label: "Conference begins in",
     title: "Conference Dates",
@@ -70,11 +77,11 @@ export const milestones: Milestone[] = [
  * but deserve their own rows for readers.
  */
 export const deadlines: Deadline[] = [
-  { title: "Start of Digest Submission", display: "1 September 2026" },
+  { title: "Start of Digest Submission", display: "1 November 2026" },
   { title: "Digest Submission Deadline", display: "15 January 2027", emphasis: true },
   { title: "Digest Acceptance Notification", display: "10 February 2027" },
   { title: "Camera-Ready Paper Deadline", display: "20 February 2027", emphasis: true },
-  { title: "Early Bird Registration Deadline", display: "20 February 2027" },
+  { title: "Registration Fee Payment Deadline", display: "25 February 2027", emphasis: true },
   { title: "Conference Dates", display: "18–19 March 2027", emphasis: true },
 ];
 
@@ -82,9 +89,9 @@ export const deadlines: Deadline[] = [
 export const dates = {
   conference: conferenceWindow.display,
   workshop: conferenceWindow.workshopDisplay,
-  submissionStart: "1 September 2026",
+  submissionStart: "1 November 2026",
   submissionDeadline: "15 January 2027",
   acceptanceNotification: "10 February 2027",
   cameraReady: "20 February 2027",
-  earlyBird: "20 February 2027",
+  registrationFeeDeadline: "25 February 2027",
 } as const;

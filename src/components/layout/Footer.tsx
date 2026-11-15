@@ -15,10 +15,11 @@ const namedContacts = [...contact.coordinators, contact.convener].filter(
 );
 
 const importantDates = [
+  ["Submission Opens", dates.submissionStart],
   ["Submission Deadline", dates.submissionDeadline],
   ["Acceptance Notification", dates.acceptanceNotification],
   ["Camera-Ready", dates.cameraReady],
-  ["Pre-Conference Workshop", dates.workshop],
+  ["Reg. Fee Payment Deadline", dates.registrationFeeDeadline],
   ["Conference", dates.conference],
 ] as const;
 
@@ -33,15 +34,16 @@ export function Footer() {
             {conference.fullName}
           </p>
           <p className="text-xs text-brand-light/80">
-            In partnership with {conference.partner}
+            Jointly partnered with {conference.partner}
           </p>
           <div className="space-y-1 pt-2">
             <p className="text-xs font-semibold uppercase tracking-widest text-brand-light/60">
               Publication
             </p>
             <p className="text-xs leading-relaxed text-white/55">
-              {publication.proceedings} · Scopus-indexed journal for selected
-              papers
+              {publication.proceedings}{" "}
+              <span className="italic text-brand-light/60">(Awaiting approval)</span>{" "}
+              · Scopus-indexed journal for selected papers
             </p>
           </div>
         </div>
