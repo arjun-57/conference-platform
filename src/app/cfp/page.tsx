@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionHeading } from "@/components/layout/SectionHeading";
+import { AuthorResources } from "@/components/sections/AuthorResources";
 import { DeadlinesTable } from "@/components/sections/DeadlinesTable";
 import {
   conference,
@@ -86,19 +87,17 @@ export default function CallForPapersPage() {
           <div className="mt-5 rounded-2xl border border-brand/15 bg-white p-6 shadow-sm">
             <p className="flex items-center gap-3 font-bold text-brand-dark">
               <Download className="size-5 text-brand" />
-              Paper Template
+              Paper Templates &amp; Author Resources
             </p>
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
-              Use the official Springer LNEE template for your submission.
-              LaTeX and Microsoft Word versions are both available.
+              Official Springer LNEE Word templates for Windows and Mac, plus author
+              formatting guides, are available for direct download below.
             </p>
             <a
-              href={submission.templateUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#paper-templates"
               className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand-dark transition-colors hover:text-brand"
             >
-              Download Springer LNEE Template <ExternalLink className="size-4" />
+              View Templates &amp; Guides <Download className="size-4" />
             </a>
           </div>
 
@@ -155,20 +154,36 @@ export default function CallForPapersPage() {
             ))}
           </div>
 
-          <div className="mt-8 flex items-start gap-3 rounded-xl bg-muted/60 px-5 py-4 text-sm leading-7 text-muted-foreground">
-            <FileText className="mt-0.5 size-5 shrink-0 text-brand" />
-            <p>
-              Detailed camera-ready instructions, the copyright form and
-              presentation guidelines are published on the{" "}
-              <Link
-                href="/authors"
-                className="font-semibold text-brand-dark hover:underline"
-              >
-                For Authors
-              </Link>{" "}
-              page.
-            </p>
+          <div className="mt-8 flex flex-col gap-4 rounded-xl border border-brand/20 bg-muted/60 p-5 sm:flex-row sm:items-center sm:justify-between text-sm leading-7 text-muted-foreground">
+            <div className="flex items-start gap-3">
+              <FileText className="mt-0.5 size-5 shrink-0 text-brand" />
+              <p>
+                Detailed camera-ready instructions, the copyright form and
+                presentation guidelines are published on the{" "}
+                <Link
+                  href="/authors"
+                  className="font-semibold text-brand-dark hover:underline"
+                >
+                  For Authors
+                </Link>{" "}
+                page.
+              </p>
+            </div>
+            <a
+              href="#paper-templates"
+              className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-brand-dark px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-brand"
+            >
+              <Download className="size-3.5" />
+              Paper Templates &amp; Guides
+            </a>
           </div>
+        </div>
+      </section>
+
+      {/* Paper Templates and Author Resources */}
+      <section className="bg-muted/55 py-16 lg:py-20">
+        <div className="container">
+          <AuthorResources id="paper-templates" />
         </div>
       </section>
 

@@ -13,4 +13,5 @@ export * from "./program";
 export * from "./registration";
 export * from "./navigation";
 export * from "./sponsors";
+export * from "./authorResources";
 

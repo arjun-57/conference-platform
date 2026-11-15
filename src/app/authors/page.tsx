@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import {
   Download,
   ExternalLink,
-  FileText,
   Mic2,
   ShieldCheck,
 } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionHeading } from "@/components/layout/SectionHeading";
+import { AuthorResources } from "@/components/sections/AuthorResources";
 import { conference, dates, isSubmissionOpen, submission } from "@/config";
 
 export const metadata: Metadata = {
@@ -77,50 +77,41 @@ export default function AuthorsPage() {
         </div>
       </section>
 
-      {/* Copyright form and template */}
-      <section className="bg-muted/55 py-16 lg:py-20">
+      {/* Copyright form */}
+      <section className="bg-muted/55 py-12 lg:py-16">
         <div className="container">
-          <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
-            <div className="content-card p-8">
-              <ShieldCheck className="size-9 text-brand" />
-              <h2 className="mt-5 text-xl font-black text-brand-dark">
-                Copyright Transfer Form
-              </h2>
-              <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                Authors of accepted papers must complete and submit the copyright
-                transfer / consent-to-publish form. The form is made available in{" "}
-                {submission.platform} after acceptance.
-              </p>
-              <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-muted px-5 py-2.5 text-sm font-bold text-muted-foreground">
-                <Download className="size-4" /> Available via {submission.platform} after
-                acceptance
-              </span>
-            </div>
-
-            <div className="content-card p-8">
-              <FileText className="size-9 text-brand" />
-              <h2 className="mt-5 text-xl font-black text-brand-dark">
-                Paper Template
-              </h2>
-              <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                Use the official Springer LNEE template for your camera-ready
-                submission. LaTeX and Microsoft Word versions are available.
-              </p>
-              <a
-                href={submission.templateUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex items-center gap-2 rounded-full bg-brand-dark px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand"
-              >
-                <Download className="size-4" /> Springer LNEE Template
-              </a>
+          <div className="mx-auto max-w-4xl content-card p-8">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <ShieldCheck className="size-9 text-brand" />
+                <h2 className="mt-4 text-xl font-black text-brand-dark">
+                  Copyright Transfer Form
+                </h2>
+                <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                  Authors of accepted papers must complete and submit the copyright
+                  transfer / consent-to-publish form. The form is made available in{" "}
+                  {submission.platform} after acceptance.
+                </p>
+              </div>
+              <div className="shrink-0">
+                <span className="inline-flex items-center gap-2 rounded-full bg-muted px-5 py-2.5 text-sm font-bold text-muted-foreground">
+                  <Download className="size-4" /> Available via {submission.platform} after acceptance
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Paper Template & Author Resources */}
+      <section className="py-16 lg:py-20">
+        <div className="container">
+          <AuthorResources id="paper-templates" />
+        </div>
+      </section>
+
       {/* Presentation guidelines */}
-      <section className="container py-16 lg:py-20">
+      <section className="bg-muted/55 py-16 lg:py-20">
         <div className="mx-auto max-w-4xl">
           <SectionHeading
             eyebrow="At the Conference"
